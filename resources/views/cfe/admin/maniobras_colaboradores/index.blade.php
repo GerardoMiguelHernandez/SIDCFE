@@ -1,7 +1,7 @@
 @extends('cfe.main')
 @section('css')
 {!! Html::style('js/highcharts/css/highcharts.css'); !!}
-
+{!! Html::style('css/jasny-bootstrap.css'); !!}
 @endsection
 @section('content')
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
@@ -34,15 +34,13 @@
     <div class="modal-body">
       
 
-    {!! Form::open(['route'=>'colaboradorcontroller.store','method'=>'POST'])!!}
+    {!! Form::open(['route'=>'colaboradorcontroller.store','files'=>'true','method'=>'POST'])!!}
           {{ csrf_field() }}
                            
-   
-                  
-    <input type="file" name="archivo" value="" multiple>
-    <button type="submit" class="btn btn-primary">Enviar</button>
-    
-    
+           
+             <label class="control-label">Select File</label>
+    <input id="file" name="file" type="file" required>
+    <button class="btn btn-primary">Guardar</button>
         
 
         {!!Form::close()!!}
@@ -301,6 +299,7 @@
 {!! Html::script('js/highcharts/js/highcharts.js'); !!}
 {!! Html::script('js/highcharts/js/highcharts-3d.js'); !!}
 {!! Html::script('js/highcharts/js/modules/exporting.js'); !!}
+{!! Html::script('js/jasny-bootstrap.js'); !!}
 
 <script type="text/javascript">
   

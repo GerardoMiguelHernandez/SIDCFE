@@ -105,8 +105,8 @@ public function __construct()
     public function store(Request $request)
 
     {
-      $archivo = $request->file('file');
-        dd($archivo);
+     // $file = $request->file('archivo');
+       // dd($file);
         /*
 $this->validate($request,[
      'archivo'=>'required',
@@ -118,16 +118,26 @@ $this->validate($request,[
     //$archivo = $request->get('archivo');
 
     //dd($archivo);
-    /*
-    $archivo = $request->file('archivo');
-    $nombre = time(). $archivo->getClientOriginalName();
-    \Storage::disk('local')->put($nombre,\File::get($archivo));
+    
+    $archivo = $request->file('file');
 
-    Excel::filter('chunk')->load($archivo)->chunk(250,function($results){
-          foreach ($results as $book) {
+     //$archivo = $request->file('archivo'); //cachamos el archivo agregado por el usuario
+    //dd($archivo);
+
+     $filename =time() .$archivo->getClientOriginalName();
+     //dd($filename);
+     \Storage::disk('local')->put($filename, \File::get($archivo)); //guardamos el archivo en la direccion public/archivos la ruta fue configurada en 
+      
+      //$public_path = public_path();
+      //$url= $public_path.'/archivos'.$archivo;
+
+    
 
 
-        $colaborador_maniobra_model  = new Colaborador_ManiobraModel();
+         Excel::load($archivo, function($reader) {
+
+            foreach ($reader->get() as $book) {
+                 $colaborador_maniobra_model  = new Colaborador_ManiobraModel();
         $colaborador_maniobra_model->zona =$book->zona;
         $colaborador_maniobra_model->area=$book->area;
         $colaborador_maniobra_model->RPE= $book->rpe;
@@ -136,14 +146,14 @@ $this->validate($request,[
         $colaborador_maniobra_model->maniobra =$book->maniobra;
         $colaborador_maniobra_model->calificacion= $book->calificacion;
         $colaborador_maniobra_model->save();
+    }
+        }); 
+
+     
 
 
-          }
-
-
-    });
-
-    return redirect()->action('ColaboradorManiobraController@index'); */
+   return redirect()->action('ColaboradorManiobraController@index');
+  
      
      
   }

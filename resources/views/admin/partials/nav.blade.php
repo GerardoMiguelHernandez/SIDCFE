@@ -1,12 +1,12 @@
 
 
  <div class="navbar-fixed z-depth-5">
-<nav class="top-nav white scrollTo" style="width: 100%; height: 100px">
-    <div class="nav-wrapper" style="padding-top: 12px;">
+<nav class="top-nav teal scrollTo" >
+    <div class="nav-wrapper">
      
             
-        <a href="" class="brand-logo" onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();"><img src="/img/cfe.jpg">
+        <a href="{{route('welcome')}}" class="brand-logo" onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();"><img src="/img/cfe.png">
 
                                                  
 
@@ -17,46 +17,32 @@
                                             {{ csrf_field() }}
                                         </form>
 <ul class="right hide-on-med-and-down"> 
-<!--
-<li>
-  <div class="nav-wrapper">
-      <form>
-     
-        <div class="input-field blue600-text">
-          <input id="search" class="blue600-text" type="search" required>
-          <label for="search"><i class="material-icons blue600">search</i></label>
-          <i class="material-icons">close</i>
-        </div>
 
-      
+<li><a href="#maniobras" class="tooltipped modal-trigger" data-position="bottom" data-delay="50"
+data-tooltip="Maniobras">
+<i class="fa fa-cog fa-2x" aria-hidden="true" style="color: blue;"></i>
+</a> </li>
 
-      </form>
-    </div>
-</li> -->
-<!--
-<li><a href="#modalsearch" class="modal-trigger"><i class="material-icons blue600">search</i></a> </li> -->
-<li><a href=""><i class="material-icons left blue600">flash_on</i><span class="blue-text text-darken-4">Eventos</span></a></li>
-        <li><a href=""><i class="material-icons left blue600">library_books</i><span class="blue-text text-darken-4">Albums</span></a></li>
-        <li><a href=""><i class="material-icons left blue600 iconfont">picture_in_picture</i><span class="blue-text text-darken-4">Categorias</span></a></li>
-         <li><a href=""><i class="material-icons left blue600">gps_fixed</i><span class="blue-text text-darken-4">Centros</span></a></li>
-         <li><a href="">        <i class="material-icons blue600 left">photo_album</i><span class="blue-text text-darken-4">Imagenes</span></a></li>
- 
-<li>
+ <li><a href="#files" class="tooltipped modal-trigger" data-position="bottom" data-delay="50" data-tooltip="Subir Archivos"><i class="fa fa-cloud-upload fa-2x" aria-hidden="true" style="color: blue;"></i></a></li>
 
+ <li>
 <a href="" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Salir" onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();"><i class="material-icons left blue600">power_settings_new</i></a>
+                                                 document.getElementById('logout-form').submit();"><i class="fa fa-sign-out fa-2x" aria-hidden="true" style="color: #d50000;"></i></a>
 
                                                  <form id="logout-form" action="" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
 
 </li>
+ <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><span class="blue-text text-darken-4"></span><i class="material-icons left blue600">more_vert</i></a></li>
+<!--
+<li><a href="#modalsearch" class="modal-trigger"><i class="material-icons blue600">search</i></a> </li> -->
 
 
 
- <li><a href="#files" class="tooltipped modal-trigger" data-position="bottom" data-delay="50" data-tooltip="Subir Archivos"><i class="material-icons blue600 left">cloud_upload</i></a></li>
 
- <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><span class="blue-text text-darken-4">Ordenar por</span><i class="material-icons left blue600">arrow_drop_down</i></a></li>
+
+
         
 
 
@@ -82,9 +68,11 @@
   </nav>
   </div>
 <ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">two</a></li>
+   @foreach($areas as $are)
+  <li><a href="#!">{{$are->area}}</a></li>
   <li class="divider"></li>
-  <li><a href="#!">three</a></li>
+  @endforeach
+
 </ul>
 
 
@@ -111,6 +99,34 @@
     </div>
     
   </div></div>
+
+   <div id="maniobras" class="modal">
+
+      <div class="modal-content">
+        <h4>Filtrar por Maniobras</h4>
+
+       <ul class="collection">
+         
+         @foreach($maniobras as $area)
+         <li class="collection-item avatar">
+           
+           <img src="/img/user.jpg" class="circle img-responsive">
+           <span class="title">{{$area->maniobra}}</span><br>
+           
+                   <a href="{{route('colaborador.maniobra',$area->maniobra)}}" class="secondary-content">
+             <i class="fa fa-search-plus fa-3x" aria-hidden="true"></i>
+           </a>
+         </li>
+
+         @endforeach
+       </ul>
+
+
+
+      </div>
+
+
+   </div>
   
 <div id="files" class="modal transparent">
     <div class="modal-content">

@@ -1,6 +1,31 @@
 @extends('admin.main')
 @section('content')
-<div class="card-panel grey lighten-5">
+
+
+ <div class="row"> 
+ <div class="col s12 m8 l9">
+   hafoadf
+ </div>  
+ <div class="col s12 m4 l3">     
+ <nav style="height: 50px;" class="white">
+    <div class="nav-wrapper">
+      <form>
+        <div class="input-field">
+          <input id="search" type="search" required>
+          <label for="search"><i class="material-icons blue600">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
+    </div>
+  </nav>
+  </div>
+  </div> 
+
+
+
+
+<!-- Inicio del panel que contiene la tabla -->
+
 <table class="bordered responsive-table striped teal">
         <thead>
           <tr class="blue-text text-darken-2  blue lighten-3">
@@ -16,11 +41,11 @@
         </thead>
 
         <tbody>
-        @foreach($maniobras as $centro)
+        @foreach($maniobras1 as $centro)
           <tr class="teal-text text-darken-4">
             <td>{{$centro->zona}}</td>
             <td>{{$centro->area}}</td>
-            <td>{{$centro->RPE}}</td>
+            <td><a href="{{route('colaboradorcontroller.show',$centro->RPE)}}"> {{$centro->RPE}}</a></td>
             <td>{{$centro->nombre}}</td>
             <td>{{$centro->fecha_evaluacion}}</td>
             <td>{{$centro->maniobra}}</td>
@@ -38,12 +63,13 @@
   <ul class="pagination">
     
   
-    {!! $maniobras->render()!!}
+    {!! $maniobras1->render()!!}
    
    
   </ul>
 </div>
-</div>
+  <!--fin del panel que contiene la tabla -->
+</div> <!-- fin de row-->
 
 
   <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
@@ -66,7 +92,7 @@
         </div>
         <div class="card-content">
           <div class="nav-wrapper">
-      <form method="GET" action="{{url('datos')}}">
+      <form method="GET" action="{{route('colaboradorcontroller.index')}}">
         <div class="input-field">
           <input id="input_buscar" name="input_buscar" class="red-text text-darken-4" type="search" required>
           <label for="search"><i class="material-icons">search</i></label>

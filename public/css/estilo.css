@@ -1,0 +1,43 @@
+.nav-link-sup{
+	font-weight: 700;
+	font-size: 16px;
+}
+.nav-link-sup .mdl-navigation__link:hover{
+	border-bottom: solid 4px #8bc34a;
+}
+
+.mdl-menu__item:hover{
+
+	border-bottom: solid 4px #8bc34a;
+}
+
+.fondo11{
+
+	background-color:black;
+}
+
+.demo-card-wide.mdl-card{
+
+	width:100%;
+
+}
+.demo-card-wide > .mdl-card__title{
+
+	color: #fff;
+	height: 376px;
+	background: url('../img/Batman-Vs-Superman-large.png');
+}
+.demo-card-wide > .mdl-card__menu{
+	color: #fff;
+}
+.avatar{
+
+	 width: 230px;
+  height: 70px;
+ 
+}
+
+.demo-list-action{
+
+	width:200px;
+}

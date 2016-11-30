@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => 'SIDCFE',
 
     /*
     |--------------------------------------------------------------------------
@@ -173,6 +173,7 @@ return [
         /*
          * Application Service Providers...
          */
+        App\Providers\CompartirServiceProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,

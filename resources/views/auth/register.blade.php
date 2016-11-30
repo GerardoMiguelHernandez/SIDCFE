@@ -23,12 +23,25 @@
                                 @endif
                             </div>
                         </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                          <!--<div class="form-group{{ $errors->has('RPE') ? ' has-error' : '' }}">
+                            <label for="RPE" class="col-md-4 control-label">RPE</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                <input id="RPE" type="text" class="form-control" name="RPE" value="{{ old('RPE') }}" required autofocus>
+
+                                @if ($errors->has('RPE'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('RPE') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div> -->
+
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">RPE</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}" required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -52,17 +65,11 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                        <div class="form-group">
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-
-                                @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
-                                @endif
                             </div>
                         </div>
 

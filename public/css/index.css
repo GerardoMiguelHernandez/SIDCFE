@@ -1,3 +1,28 @@
+.nav-link-sup{
+  font-weight: 700;
+  font-size: 16px;
+}
+.nav-link-sup .mdl-navigation__link:hover{
+  border-bottom: solid 4px #8bc34a;
+}
+
+.mdl-menu__item:hover{
+
+  border-bottom: solid 4px #8bc34a;
+}
+.user-menu li:hover{
+
+  /*font-weight: 700; 
+  font-size: 16px;*/
+   border-bottom: solid 4px #8bc34a;
+} 
+.nav li:hover{
+
+  /*font-weight: 700; 
+  font-size: 16px;*/
+  border-bottom: solid 4px #8bc34a;
+} 
+
 
   html {
     font-family: GillSans, Calibri, Trebuchet, sans-serif;
@@ -12,7 +37,7 @@
 .main {
     flex: 1 0 auto;
   }
-     
+   
  /*img:hover{
     -webkit-transform: scale(1.5);
     -moz-transform: scale(1.5);
@@ -64,11 +89,21 @@
 .material-icons.orange600 { color: #FB8C00; }
 .material-icons.teal600 { color: #1b5e20; } 
 .material-icons.blue600 { color: #03a9f4; }
+.material-icons.purple600 { color: #311b92; }
+
 .iconfont{
 
  font-size: 5em; 
 }
 
+.iconfont3{
+
+ font-size: 3em; 
+}
+.iconfont2{
+
+ font-size: 4em; 
+}
 .iconfont1{
 
  font-size: 1em; 

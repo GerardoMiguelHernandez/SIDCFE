@@ -8,6 +8,8 @@
    {!!Html::style('lumino/css/datepicker3.css');!!}
    {!!Html::style('lumino/css/styles.css');!!}
    {!!Html::style('css/index.css');!!}
+   {!!Html::style('media/css/jquery.dataTables.css');!!}
+   {!!Html::style('media/css/dataTables.bootstrap.css');!!}
    {!!Html::script('lumnio/js/lumino.glyphs.js');!!}
   
    
@@ -36,6 +38,8 @@
 
     {!!Html::script('lumino/js/jquery-1.11.1.min.js');!!}
     {!!Html::script('lumino/js/bootstrap.min.js');!!}
+     {!!Html::script('media/js/dataTables.bootstrap.js');!!}
+     {!!Html::script('media/js/jquery.dataTables.js');!!}
 	{!!Html::script('lumino/js/chart-min.js');!!}
 	{!!Html::script('lumino/js/chart-data.js');!!}
 	{!!Html::script('lumino/js/easypiechart.js');!!}

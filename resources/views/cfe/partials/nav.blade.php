@@ -12,8 +12,11 @@
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="material-icons blue600">perm_identity</i> {{ Auth::user()->name }} <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
+						@if (Auth::user()->email=='9B515')
 							<li><a href="{{route('usuarios.index')}}"><i class="material-icons blue600">contacts</i> Usuarios</a></li>
 							<li><a href="#"><i class="material-icons blue600">settings</i>Configuraciones</a></li>
+
+							@endif
 							<li><a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -47,7 +50,32 @@
 			<li><a href="{{route('colaboradorcontroller.index')}}"><i class="fa fa-chain fa-2x"></i> Alen3D</a></li>
 			
 			
-			
+			<li class="parent ">
+				<a href="#">
+					<span data-toggle="collapse" href="#sub-item-2">
+					<i class="fa fa-caret-down fa-2x"></i>	
+
+					</span> ALEN3D 
+				</a>
+				<ul class="children collapse" id="sub-item-2">
+					<li>
+						<a class="" href="{{route('colaboradorcontroller.index')}}">
+							<i class="fa fa-home"></i>Principal
+						</a>
+					</li>
+					<li>
+						<a class="" href="{{route('uploadfile')}}">
+						<i class="fa fa-cloud-upload"></i>
+							 Subir Archivo
+						</a>
+					</li>
+					<li>
+						<a class="" href="#">
+							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 3
+						</a>
+					</li>
+				</ul>
+			</li>
 			
 			<li class="parent ">
 				<a href="#">

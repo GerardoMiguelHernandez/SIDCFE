@@ -16,6 +16,18 @@ Route::get('/', function () {
 });  */
 
 //vtW7XXs7Ju
+Route::get('/obtenertabla',function(){
+
+    return view('cfe.admin.maniobras_colaboradores.tabla');
+});
+Route::get('/tabla/daticos',[
+    'uses'=>'ColaboradorManiobraController@tabla',
+    'as'=>'tabladatos']); 
+
+Route::get('uploadfile',[
+    'uses'=>'ColaboradorManiobraController@uploadFile',
+    'as'=>'uploadfile']); 
+
 Route::get('/hola1',function(){
 
 	return view('cfe.admin.dashboard');

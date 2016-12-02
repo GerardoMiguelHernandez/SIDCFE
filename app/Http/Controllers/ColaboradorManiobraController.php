@@ -10,6 +10,9 @@ use Carbon\Carbon;
 //use App\ImportarArchivos;
 use App\Colaborador;
 use App\UsuarioModel;
+use App\User;
+
+use Datatables;
 
 class ColaboradorManiobraController extends Controller
 {
@@ -25,6 +28,17 @@ public function __construct()
    
     }
 
+public function tabla(){
+//return Datatables::of(Colaborador_ManiobraModel::query())->make(true);
+    return Datatables::collection(Colaborador_ManiobraModel::all())->make(true);
+  }
+
+public function uploadFile(){
+
+    return view('cfe.admin.maniobras_colaboradores.uploadfile');
+
+
+}
     public function index(Request $request)
     {
         /*  contadores de areas,zonas,colaboradores*/
@@ -120,6 +134,11 @@ $this->validate($request,[
     //dd($archivo);
     
     $archivo = $request->file('file');
+    $ext    = $archivo->getClientOriginalExtension();
+    $this->validate($request, [
+        'file' => 'required',
+    ]);
+
 
      //$archivo = $request->file('archivo'); //cachamos el archivo agregado por el usuario
     //dd($archivo);
@@ -131,8 +150,26 @@ $this->validate($request,[
       //$public_path = public_path();
       //$url= $public_path.'/archivos'.$archivo;
 
-    
+    /*
+ $this->validate($request, [
+        'title' => 'required|unique:posts|max:255',
+        'body' => 'required',
+    ]);
 
+    */
+/*  $csv    = $request->file('document');
+        $table  = $request->route('table');
+        $ext    = $csv->getClientOriginalExtension();
+
+        Validator::make(
+            [
+                'document' => $csv,
+                'format'   => $ext
+            ],[
+                'document' => 'required',
+                'format'   => 'in:csv,xlsx,xls,ods' // all working except for ods
+            ]
+        )->passOrDie(); */
 
          Excel::load($archivo, function($reader) {
 

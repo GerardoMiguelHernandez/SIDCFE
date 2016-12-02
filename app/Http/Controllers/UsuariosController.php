@@ -20,6 +20,8 @@ class UsuariosController extends Controller
         // 
      $usuarios = UsuarioModel::all();
 
+
+
     return view('admin.usuarios.index')->with(['usuarios'=>$usuarios]);
 
 

@@ -9,7 +9,8 @@
         "laravel/framework": "5.3.*",
         "maatwebsite/excel": "^2.1",
         "laravelcollective/html": "^5.3",
-        "yajra/laravel-datatables-oracle": "^6.22"
+        "yajra/laravel-datatables-oracle": "^6.22",
+        "dompdf/dompdf": "^0.7.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

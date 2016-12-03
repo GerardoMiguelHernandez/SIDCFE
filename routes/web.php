@@ -65,7 +65,11 @@ Route::get('colaboradorcontroller/Area/{area}/{maniobra}',[
      'uses' => 'ColaboradorManiobraController@ver_area_maniobra',
      'as'=>'colaborador.area.maniobra']);
 
+//listado general
 
+Route::get('colaboradorcontroller/listado/general',[
+     'uses' => 'ColaboradorManiobraController@listado',
+     'as'=>'colaborador.listado']);
 
 Auth::routes();
 Route::get('bienvenido', function(){
@@ -80,3 +84,5 @@ Route::resource('usuarios','UsersControllers');
 Route::get('usuarios/{id}/destroy1',[
 	'uses' => 'UsersControllers@destroy',
 	'as' => 'usuarios.destroy1']);
+
+Route::resource('slider','ConfiguracionesSlidersControllers');

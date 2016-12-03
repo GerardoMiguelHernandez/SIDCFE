@@ -38,11 +38,10 @@
 	</nav>
 		
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-		<form role="search">
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Search">
-			</div>
-		</form>
+	    <section class="success">
+		<img src="/img/cfe.png" class="nav-brand" style="width: 100%;">
+		</section>
+		<br>
 		<ul class="nav menu">
 			<li><a href="{{url('/hola1')}}">
 			<i class="fa fa-tachometer fa-2x"></i>   Panel Principal</a></li>
@@ -51,7 +50,7 @@
 			
 			
 			<li class="parent ">
-				<a href="#">
+				<a href="{{route('colaboradorcontroller.index')}}">
 					<span data-toggle="collapse" href="#sub-item-2">
 					<i class="fa fa-caret-down fa-2x"></i>	
 
@@ -59,8 +58,8 @@
 				</a>
 				<ul class="children collapse" id="sub-item-2">
 					<li>
-						<a class="" href="{{route('colaboradorcontroller.index')}}">
-							<i class="fa fa-home"></i>Principal
+						<a class="" href="{{route('colaborador.listado')}}">
+							<i class="fa fa-home"></i>Listado Principal
 						</a>
 					</li>
 					<li>

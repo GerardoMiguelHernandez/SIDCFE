@@ -134,7 +134,7 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
 @media (max-width: 767px) {
 	body{font:300 12px/12px Roboto,Arial,Helvetica;}
 	.navbar-nav > li > a {line-height: 1em;}	
-	.navbar-brand{padding: 7px;}
+	.navbar-brand{padding:1px;}
 	.navbar-brand img{height: 37px;}
 	.navbar-toggle{margin-top: 12px;}
 

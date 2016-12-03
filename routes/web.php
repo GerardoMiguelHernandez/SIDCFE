@@ -77,6 +77,8 @@ return view('Admin.main');
 });
 //Route::get('/home', 'HomeController@index');
 
+Route::resource('excel', 'pdfController',
+                ['only' => ['index', 'show']]);
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

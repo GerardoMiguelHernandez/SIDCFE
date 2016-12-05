@@ -77,8 +77,27 @@ return view('Admin.main');
 });
 //Route::get('/home', 'HomeController@index');
 
-Route::resource('excel', 'pdfController',
-                ['only' => ['index', 'show']]);
+
+    
+Route::group(['prefix' => 'excel'], function() {
+    Route::get('all', 'pdfController@index');
+    Route::get('area/{dato}','pdfController@area');
+    Route::get('maniobra/{maniobra}','pdfController@maniobra');
+    Route::get('colaborador/evaluacion/{rpe}','pdfController@colaborador');
+});
+
+Route::group(['prefix' => 'pdf'], function() {
+    Route::get('all', 'ExcelController@evaluaciones_all');
+   
+});
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::resource('slider','ConfiguracionesSlidersControllers');
+
+   
+});
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -87,4 +106,3 @@ Route::get('usuarios/{id}/destroy1',[
 	'uses' => 'UsersControllers@destroy',
 	'as' => 'usuarios.destroy1']);
 
-Route::resource('slider','ConfiguracionesSlidersControllers');

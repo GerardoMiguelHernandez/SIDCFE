@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
+use App\MetaModel;
+use App\Colaborador_ManiobraModel;
 class MetasControllers extends Controller
 {
     /**
@@ -14,6 +17,9 @@ class MetasControllers extends Controller
     public function index()
     {
         //
+
+
+
     }
 
     /**

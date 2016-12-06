@@ -34,15 +34,15 @@
 
                                <div class="form-group">
    <label class="control-label">Titulo</label>
-    <input id="titulo" name="titulo" type="text" class="form-control" placeholder="{{$slider->Titulo}}">
+    <input id="titulo" name="titulo" type="text" class="form-control" placeholder="{{$slider->Titulo}}" required>
   </div>
                                 <div class="form-group">
              <label class="control-label">Selecciona Imagen</label>
-            <input id="imagen1" name="imagen1" type="file" class="file" multiple data-show-upload="false" value="" data-show-caption="true">
+            <input id="imagen1" name="imagen1" type="file" class="file" multiple data-show-upload="false" value="" data-show-caption="true" required>
                  </div>
 <div class="form-group">
    <label class="control-label">Descripcion</label>
-    <input id="descripcion" name="descripcion" type="text" class="form-control" placeholder="{{$slider->descripcion}}">
+    <input id="descripcion" name="descripcion" type="text" class="form-control" placeholder="{{$slider->descripcion}}" required>
   </div>
 <br>
                               

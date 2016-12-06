@@ -148,19 +148,27 @@ $('#listadogeneral').DataTable({
         columns: [
             { data: 'zona' },
             { data: 'area'},
-            { data: 'RPE'},
+            { data: 'RPE',"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+            $(nTd).html("<a href='{{route('welcome')}}/"+oData.RPE+"'>"+oData.RPE+"</a>");
+        }},
             { data: 'nombre'},
             { data: 'fecha_evaluacion'},
-            { data: 'maniobra'},
-            { data: 'calificacion'}
+            { data: 'maniobra',"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+            $(nTd).html("<a href='{{route('welcome')}}/"+oData.maniobra+"'>"+oData.maniobra+"</a>");
+        }},
+            { data: 'calificacion',"fnRowCallback": function( nRow, aData, iDisplayIndex ) {
+            /* Append the grade to the default row class name */
+            if ( aData[6]== 100 )
+            {
+            
+                var $nRow = $(nRow); // cache the row wrapped up in jQuery
+
+                $nRow.css({"background-color":"red"})
+            }
+        }}
             
     
-        ],
-        "createdRow": function ( row, data, index ) {
-                        if ( data[6] == 100 ) {
-                $('td', row).eq(6).css("color","green");
-            }
-        }
+        ]
         
          }); });
 

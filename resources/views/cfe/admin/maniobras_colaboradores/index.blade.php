@@ -18,9 +18,10 @@
 			<div class="col-lg-10">
 				<h1 class="page-header">Maniobras y Colaboradores</h1>
 			</div>
+      <!--
       <div class="col-lg-2">
         <a href="" data-toggle="modal" data-target="#mymodal3"><button type="button" class="btn btn-primary" style="border-radius: 100%; width: 50px;height: 50px;"><i class="material-icons">add</i></button> </a>
-      </div>
+      </div> -->
 		</div>
     <!-- modal para subir el archivo -->
 

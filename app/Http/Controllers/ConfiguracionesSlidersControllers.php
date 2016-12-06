@@ -107,12 +107,20 @@ class ConfiguracionesSlidersControllers extends Controller
     {
         //
      $slider = ConfiguracionSlider::find($id);
-     dd('hola');
-/*
-      $file1 =$request->file('imagen1');
-      $path = public_path().'/slider/';
-      $image1 = Image::make($file1)->resize(1900,900);
-      $image1->save($path.'slider_'. time() .$file->getClientOriginalName());
+     $file1 =$request->file('imagen1');
+     $path = public_path().'/slider/';
+     $image1 = Image::make($file1)->resize(1900,900);
+     $image1->save($path.'slider_'. time() .$file1->getClientOriginalName());
+
+
+     $slider->Titulo = $request->titulo;
+     $slider->imagen= 'slider_'. time() .$file1->getClientOriginalName();
+     $slider->descripcion = $request->descripcion;
+     $slider->save();
+
+     return redirect()->action('ConfiguracionesSlidersControllers@index');
+
+
 
 
 /*

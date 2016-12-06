@@ -14,7 +14,7 @@
 						<ul class="dropdown-menu" role="menu">
 						@if (Auth::user()->email=='9B515')
 							<li><a href="{{route('usuarios.index')}}"><i class="material-icons blue600">contacts</i> Usuarios</a></li>
-							<li><a href="#"><i class="material-icons blue600">settings</i>Configuraciones</a></li>
+							<li><a href="{{url('/admin/slider')}}"><i class="material-icons blue600">settings</i>Configuraciones</a></li>
 
 							@endif
 							<li><a href="{{ url('/logout') }}"

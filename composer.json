@@ -10,7 +10,8 @@
         "maatwebsite/excel": "^2.1",
         "laravelcollective/html": "^5.3",
         "yajra/laravel-datatables-oracle": "^6.22",
-        "dompdf/dompdf": "^0.7.0"
+        "dompdf/dompdf": "^0.7.0",
+        "intervention/image": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

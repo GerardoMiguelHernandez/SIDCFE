@@ -29,6 +29,7 @@ public function __construct()
     }
 
 public function listado(){
+ $hoy = Carbon::now();   
 $total = Colaborador_ManiobraModel::all();
 $aprobados = Colaborador_ManiobraModel::where('calificacion','>=',70);
 $reprobados = Colaborador_ManiobraModel::where('calificacion','<',70);
@@ -36,7 +37,8 @@ $reprobados = Colaborador_ManiobraModel::where('calificacion','<',70);
 //$aprobados
 //$reprobados
 return view('cfe.admin.maniobras_colaboradores.listado')->with([
-    'total'=>$total]);
+    'total'=>$total,'aprobados'=>$aprobados,'reprobados'=>$reprobados,
+    'hoy'=>$hoy]);
 }
 public function tabla(){
 //return Datatables::of(Colaborador_ManiobraModel::query())->make(true);

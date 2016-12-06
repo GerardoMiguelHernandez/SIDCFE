@@ -17,6 +17,7 @@ class CreateTableMeta extends Migration
             $table->increments('id');
             $table->string('mes');
             $table->integer('meta');
+            
          });
     }
 

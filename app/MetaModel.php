@@ -9,5 +9,5 @@ class MetaModel extends Model
     //
 
     protected $table="meta"
-    protected $fillable=['mes','meta'];
+    protected $fillable=['mes','meta','year'];
 }

@@ -139,17 +139,18 @@ $('#listadogeneral').DataTable({
             
     
         ],
+
         "createdRow": function ( row, data, index ) {
-                        if ( data[6] == 100 ) {
-                $('td', row).eq(6).css("color","green");
+            if ( data[6] == 100 ) {
+                $('td', row).css('background-color','red');
             }
         }
-        
+
          }); });
 
 
-
   </script>
+
 
 @endsection
 @endsection

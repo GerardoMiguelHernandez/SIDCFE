@@ -161,6 +161,7 @@ $('#listadogeneral').DataTable({
             if ( aData[6]== 100 )
             {
             
+<<<<<<< HEAD
                 var $nRow = $(nRow); // cache the row wrapped up in jQuery
 
                 $nRow.css({"background-color":"red"})
@@ -171,12 +172,25 @@ $('#listadogeneral').DataTable({
         ]
         
          }); });
+=======
+    
+        ],
 
+        "createdRow": function ( row, data, index ) {
+            if ( data[6] == 100 ) {
+                $('td', row).css('background-color','red');
+            }
+        }
+>>>>>>> 4fc2eb2bd775813d127fd31143984a5407bc57b6
+
+         }); });
 
 
   </script>
 
 
+<<<<<<< HEAD
+=======
 
 <script type="text/javascript">
   
@@ -246,6 +260,7 @@ $('#listadogeneral').DataTable({
 });
 
 </script>
+>>>>>>> d30dcf236e92d057c6f88c43fad55603699dcc50
 @endsection
 
 

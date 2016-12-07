@@ -101,6 +101,30 @@
 					</li>
 				</ul>
 			</li>
+			@if (Auth::user()->email=='9B515')
+			<li class="parent ">
+				<a href="{{route('metas.index')}}">
+					<span data-toggle="collapse" href="#sub-item-3">
+					<i class="fa fa-caret-down fa-2x"></i>	
+
+					</span> METAS
+				</a>
+				<ul class="children collapse" id="sub-item-3">
+					<li>
+						<a class="" href="{{route('metas.index')}}">
+							<i class="material-icons">search</i>Ver Metas
+						</a>
+					</li>
+					<li>
+						<a class="" href="{{route('metas.create')}}">
+							<i class="material-icons">add</i>Crear Meta
+						</a>
+					</li>
+					
+					
+				</ul>
+			</li>
+			@endif
 			<li role="presentation" class="divider"></li>
 			<li><a href="login.html"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Login Page</a></li>
 		</ul>

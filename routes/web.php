@@ -93,6 +93,7 @@ Route::group(['prefix' => 'pdf'], function() {
 
 Route::group(['prefix' => 'admin'], function() {
     Route::resource('slider','ConfiguracionesSlidersControllers');
+    Route::resource('metas','MetasControllers');
 
    
 });

@@ -17,11 +17,9 @@ class CreateTableMeta extends Migration
             $table->increments('id');
             $table->string('mes');
             $table->integer('meta');
-<<<<<<< HEAD
-            
-=======
             $table->integer('year');
->>>>>>> c5e9e1f327bb929c62ffc1cf5742d1c152923dfc
+            $table->timestamps();
+
          });
     }
 

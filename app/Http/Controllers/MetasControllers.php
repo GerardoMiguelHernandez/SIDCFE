@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Requests\MetasRequest;
 
 use App\MetaModel;
 use App\Colaborador_ManiobraModel;
@@ -18,7 +18,9 @@ class MetasControllers extends Controller
     {
         //
 
-
+     $metas = MetaModel::orderBy('created_at','DES')->get();
+     return view('cfe.admin.config.index')->with(['metas'=>$metas]); 
+     
 
     }
 
@@ -30,6 +32,8 @@ class MetasControllers extends Controller
     public function create()
     {
         //
+
+        return view('cfe.admin.config.create');
     }
 
     /**
@@ -40,7 +44,23 @@ class MetasControllers extends Controller
      */
     public function store(Request $request)
     {
+
+         $this->validate($request, [
+        'mes' => 'required',
+        'meta' => 'required',
+        'year' => 'required',
+    ]);
+        //dd($request->all());
         //
+        
+      $meta = new MetaModel();
+      $meta->mes = $request->mes;
+      $meta->meta = $request->meta;
+      $meta->year = $request->year;
+      $meta->save();  
+        
+    return redirect()->action('MetasControllers@index');
+
     }
 
     /**

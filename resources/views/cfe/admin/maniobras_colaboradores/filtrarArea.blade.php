@@ -1,5 +1,6 @@
 @extends('cfe.main')
 @section('css')
+{!!Html::style('media/css/jquery.dataTables.css');!!}
 @endsection
 
 @section('content')
@@ -12,13 +13,14 @@
     </div><!--/.row-->
 <div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Maniobras y Colaboradores</h1>
+				<h1 class="page-header">{{$maniobraReal}}</h1>
+        
 			</div>
      <!-- <div class="col-lg-2">
         <a href="" data-toggle="modal" data-target="#mymodal4"><button type="button" class="btn btn-primary" style="border-radius: 100%; width: 35px;height: 35px;"><i class="material-icons">search</i></button> </a>
       </div> -->
 		</div>
-		<div class="row">
+		<!-- <div class="row">
       <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 col-sm-offset-6 col-xs-offset-6 col-md-offset-10">
       <div class="btn-group btn-group-justified" role="group" aria-label="..">
       <div class="btn-group" role="group">
@@ -30,7 +32,7 @@
       </div>
       </div>
 		</div>
-    </div>
+    </div>   -->
 		<div class="modal fade" id="mymodal4" tabindex="-1" role="dialog" arialabelledby="mymodallabel">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
@@ -58,9 +60,25 @@
   
 </div>
 
+<input id="ocultoarea" type="hidden" value="{{$maniobraReal}}"></input>
 
-<div class="table-responsive table-condensed table-hover">
-        <table class="table table-striped table-bordered table-hover">
+<div class="row">
+
+<div class="col-xs-8 col-sm-8 col-md-11 col-lg-11">
+</div>
+    
+    <div class="col-xs-4 col-sm-4 col-md-1 col-lg-1 col-xs-offset-8 col-sm-offset-8 col-md-offset-11 col-lg-offset-11">
+        
+
+        <a href="{{route('excel.area',$maniobraReal)}}" data-toggle="tooltip" data-placement="left" title="Generar Excel">
+    <i class="fa fa-file-excel-o fa-3x" style="color: green;" aria-hidden="true"></i>
+   </a>
+    </div>
+    
+</div>
+
+<div class="table-responsive table-condensed table-hover" style="margin-top: 5px;">
+        <table id="filtararea" class="table table-bordered table-hover">
           <thead>
             <tr class="info">
               <th>Zona</th>
@@ -74,39 +92,12 @@
             </tr>
           </thead>
           <tbody>
-            @foreach($maniobras as $maniobra)
-            @if($maniobra->calificacion < 70)
             
-            @endif
-              <tr>
-     
-                
-                <td>{{$maniobra->zona}}</td>
-                <td>
-                 <a href="{{route('colaborador.maniobra.area',[$maniobra->maniobra,$maniobra->area])}}">{{$maniobra->area}}</a></td>
-                <td>{{$maniobra->RPE}}</td>
-                <td>{{$maniobra->nombre}}</td>
-                <td>{{$maniobra->fecha_evaluacion}}</td>
-                <td>{{$maniobra->maniobra}}</td>
-                <td>{{$maniobra->calificacion}}</td>
-                <!--<td>
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="fa fa-pencil-square-o"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                  <a href="#" class="btn btn-danger">
-                                        <i class="fa fa-trash-o"></i>
-                                    </a>  
-                                </td> -->
-              </tr>
-               
-              @endforeach 
             
           </tbody>
         </table>
       </div> 
-<?php echo $maniobras->render(); ?>
+
 
 		</div>
 
@@ -114,4 +105,81 @@
 @endsection
 
 @section('js')
+{!!Html::script('media/js/jquery.js');!!}
+{!!Html::script('media/js/jquery.dataTables.js');!!}
+{!!Html::script('media/js/dataTables.bootstrap.js');!!}
+
+<script type="text/javascript">
+$(function() {
+
+    var area = $('#ocultoarea').val();
+    console.log(area);
+
+$('#filtararea').DataTable({
+
+
+  
+      "language": {
+            "search":         "Buscar:",
+    "paginate": {
+        "first":      "Primera",
+        "last":       "Ultima",
+        "next":       "Siguiente",
+        "previous":   "Anterior"
+    },
+            "lengthMenu": "Ver _MENU_ registros por pagina",
+            "zeroRecords": "0 coincidencias",
+            "info":           "Mostrando _START_ a _END_ de _TOTAL_ registros",
+    "infoEmpty":      "Showing 0 to 0 of 0 registros",
+    "infoFiltered":   "(filtrando de _MAX_ registros)",
+        },
+        processing: true,
+        serverSide: true,
+        ajax:"{{url('colaboradorcontroller/cachar')}}/"+area+"",
+
+"fnCreatedRow": function( nRow, aData, iDataIndex ) {
+      // Bold the grade for all 'A' grade browsers
+        var $index = $(iDataIndex);
+        var $nrow = $(nRow);
+        //$nrow.css({"background-color":"#1de9b6"});
+       if ( aData.calificacion == 100)
+       {
+            //console.log("es 100");
+            $nrow.css({"background-color":"#1de9b6"});
+            //console.log(aData.nombre+"calificacion"+aData.calificacion);
+       } 
+      
+      //console.log(aData.calificacion +"nombre"+aData.nombre);
+    },
+
+
+        columns: [
+            { data: 'zona'},
+            { data: 'area',"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+            $(nTd).html("<a href='{{url('colaboradorcontroller/AreaDatos')}}/"+oData.area+"'>"+oData.area+"</a>");
+        }},
+            { data: 'RPE',"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+            $(nTd).html("<a href='{{route('welcome')}}/"+oData.RPE+"'>"+oData.RPE+"</a>");
+        }},
+            { data: 'nombre'},
+            { data: 'fecha_evaluacion'},
+            { data: 'maniobra',"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                var $maniobra=oData.maniobra;
+
+                //console.log($maniobra);
+            $(nTd).html("<a href='{{url('colaboradorcontroller/Area1')}}/"+oData.maniobra+"'>"+oData.maniobra+"</a>");
+        }},
+            { data: 'calificacion'}
+            
+    
+        ]
+        
+       
+        
+         }); });
+  
+
+
+
+</script>
 @endsection

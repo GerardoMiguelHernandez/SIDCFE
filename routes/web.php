@@ -44,6 +44,8 @@ Route::get('hola',function(){
 
 	return view('sidcfe.main');
 });
+
+
 Route::resource('usuarios','UsuariosController');
 Route::resource('colaborador','ColaboradoresController');
 
@@ -56,10 +58,23 @@ Route::get('colaboradorcontroller/Maniobras/{maniobra}/{area}',[
      'as'=>'colaborador.maniobra.area']);
 
 
+Route::get('colaboradorcontroller/Area1/{area1}','ColaboradorManiobraController@ver_area1');
+
+
+Route::get('colaboradorcontroller/maniobra/{maniobra1}','ColaboradorManiobraController@obtener');
+
+
+
+//ruta para obtener con ajax desde datatables solo area en especifico
+
+Route::get('colaboradorcontroller/AreaDatos/{areadatos}','ColaboradorManiobraController@areadatos');
+
+Route::get('colaboradorcontroller/cachar/{area23}','ColaboradorManiobraController@areadatosobtener');
+
+
 Route::get('colaboradorcontroller/Area/{area}',[
      'uses' => 'ColaboradorManiobraController@ver_area',
      'as'=>'colaborador.area']);
-
 //ruta para filtrar por area ademas de maniobra en especifico
 Route::get('colaboradorcontroller/Area/{area}/{maniobra}',[
      'uses' => 'ColaboradorManiobraController@ver_area_maniobra',
@@ -80,9 +95,17 @@ return view('Admin.main');
 
     
 Route::group(['prefix' => 'excel'], function() {
-    Route::get('all', 'pdfController@index');
-    Route::get('area/{dato}','pdfController@area');
-    Route::get('maniobra/{maniobra}','pdfController@maniobra');
+    Route::get('all', [
+        'uses'=>'pdfController@index',
+        'as'=>'excel.todos']);
+    Route::get('area/{dato}',[
+        'uses'=>'pdfController@area',
+        'as' =>'excel.area']);
+
+    Route::get('maniobra/{maniobra}',[
+    'uses'=>'pdfController@maniobra',
+    'as'=>'excel.maniobra']
+        );
     Route::get('colaborador/evaluacion/{rpe}','pdfController@colaborador');
 });
 

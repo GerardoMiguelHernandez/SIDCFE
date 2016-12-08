@@ -160,8 +160,8 @@ $('#listadogeneral').DataTable({
             /* Append the grade to the default row class name */
             if ( aData[6]== 100 )
             {
+                console.log("es 100");
             
-<<<<<<< HEAD
                 var $nRow = $(nRow); // cache the row wrapped up in jQuery
 
                 $nRow.css({"background-color":"red"})

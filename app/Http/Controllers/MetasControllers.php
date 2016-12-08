@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\MetaModel;
 use App\Colaborador_ManiobraModel;
+use App\MetaModel;
+
 class MetasControllers extends Controller
 {
     /**
@@ -16,10 +18,11 @@ class MetasControllers extends Controller
      */
     public function index()
     {
-        //
+        $metas = MetaModel::all();
+        $maniobras = Colaborador_ManiobraModel::all();
 
 
-
+        return view()with->(['metas'=>$metas, 'maniobras'=>$maniobras]);
     }
 
     /**

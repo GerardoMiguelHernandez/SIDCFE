@@ -1,7 +1,7 @@
 @extends('cfe.main')
 @section('css')
 {!!Html::style('media/css/jquery.dataTables.css');!!}
- {!!Html::style('media/css/dataTables.bootstrap.css');!!}
+ <!-- {!!Html::style('media/css/dataTables.bootstrap.css');!!} -->
  {!! Html::style('js/highcharts/css/highcharts.css'); !!}
 @endsection
 
@@ -74,10 +74,23 @@
     </div><!--/.row-->
 
 
+<div class="row">
 
+<div class="col-xs-8 col-sm-8 col-md-11 col-lg-11">
+</div>
+    
+    <div class="col-xs-4 col-sm-4 col-md-1 col-lg-1 col-xs-offset-8 col-sm-offset-8 col-md-offset-11 col-lg-offset-11">
+        
+
+        <a href="{{route('excel.todos')}}" data-toggle="tooltip" data-placement="left" title="Generar Excel">
+    <i class="fa fa-file-excel-o fa-3x" style="color: green;" aria-hidden="true"></i>
+   </a>
+    </div>
+    
+</div>
    
-<div class="table-responsive">
-<table id="listadogeneral" class="table table-striped table-bordered" width="100%" cellspacing="0">
+<div class="table-responsive table-hover" style="margin-top: 5px;">
+<table id="listadogeneral" class="table table-bordered" width="100%" cellspacing="0">
         <thead>
             <tr class="success">
                 <th>zona</th>
@@ -114,7 +127,7 @@
 
 {!!Html::script('media/js/jquery.js');!!}
 {!!Html::script('media/js/jquery.dataTables.js');!!}
-{!!Html::script('media/js/dataTables.bootstrap.js');!!}
+{!!Html::script('media/js/dataTables.bootstrap.js');!!} 
 {!! Html::script('js/highcharts/js/highcharts.js'); !!}
 
 {!! Html::script('js/highcharts/js/modules/exporting.js'); !!}
@@ -145,16 +158,38 @@ $('#listadogeneral').DataTable({
         processing: true,
         serverSide: true,
         ajax:'{{route('tabladatos')}}',
+
+"fnCreatedRow": function( nRow, aData, iDataIndex ) {
+      // Bold the grade for all 'A' grade browsers
+        var $index = $(iDataIndex);
+        var $nrow = $(nRow);
+        //$nrow.css({"background-color":"#1de9b6"});
+       if ( aData.calificacion == 100)
+       {
+            //console.log("es 100");
+            $nrow.css({"background-color":"#1de9b6"});
+            //console.log(aData.nombre+"calificacion"+aData.calificacion);
+       } 
+      
+      //console.log(aData.calificacion +"nombre"+aData.nombre);
+    },
+
+
         columns: [
             { data: 'zona' },
-            { data: 'area'},
+            { data: 'area',"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+            $(nTd).html("<a href='{{url('colaboradorcontroller/AreaDatos')}}/"+oData.area+"'>"+oData.area+"</a>");
+        }},
             { data: 'RPE',"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-            $(nTd).html("<a href='{{route('welcome')}}/"+oData.RPE+"'>"+oData.RPE+"</a>");
+            $(nTd).html("<a href='{{url('welcome')}}/"+oData.RPE+"'>"+oData.RPE+"</a>");
         }},
             { data: 'nombre'},
             { data: 'fecha_evaluacion'},
             { data: 'maniobra',"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-            $(nTd).html("<a href='{{route('welcome')}}/"+oData.maniobra+"'>"+oData.maniobra+"</a>");
+                var $maniobra=oData.maniobra;
+
+                //console.log($maniobra);
+            $(nTd).html("<a href='{{url('colaboradorcontroller/Area1')}}/"+oData.maniobra+"'>"+oData.maniobra+"</a>");
         }},
 <<<<<<< HEAD
             { data: 'calificacion',"fnRowCallback": function( nRow, aData, iDisplayIndex ) {
@@ -179,14 +214,9 @@ $('#listadogeneral').DataTable({
             
 >>>>>>> ab8f580b2326cce6bd071ab4d403dda777c953e7
     
-        ],
-        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
-      // Bold the grade for all 'A' grade browsers
-      if ( aData.maniobra == 100 )
-      {
-        $('td:eq()', nRow).html( '<b>A</b>' );
-      }
-    }
+        ]
+        
+       
         
          }); });
 
@@ -263,7 +293,6 @@ $('#listadogeneral').DataTable({
 });
 
 </script>
->>>>>>> d30dcf236e92d057c6f88c43fad55603699dcc50
 @endsection
 
 

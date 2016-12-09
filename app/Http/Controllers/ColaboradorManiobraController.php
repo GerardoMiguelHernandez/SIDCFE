@@ -192,7 +192,9 @@ $this->validate($request,[
         $colaborador_maniobra_model->RPE= $book->rpe;
         $colaborador_maniobra_model->nombre=$book->nombre;
         $colaborador_maniobra_model->fecha_evaluacion=date("y-m-d",strtotime($book->fecha_evaluacion));
-        $colaborador_maniobra_model->maniobra =$book->maniobra;
+        $colaborador_maniobra_model->maniobra =str_replace('/', '-', $book->maniobra);
+
+        //$resultado = str_replace("a", "A", $cadena);
         $colaborador_maniobra_model->calificacion= $book->calificacion;
         $colaborador_maniobra_model->save();
     }
@@ -239,13 +241,77 @@ public function ver_maniobra_area($maniobra, $area){
 
 }
    
+ public function ver_area1($area1){
 
-     public function ver_area($area, Request $request){
+
+
+    $areas = Colaborador_ManiobraModel::where('maniobra',$area1)->paginate(10);
+    //dd($d->count());
+    $areaRe = $areas->first();
+    $areaReal = $areaRe->maniobra;
+    
+    return view('cfe.admin.maniobras_colaboradores.filtrarArea1')->with(['areas'=>$areas,'areaReal'=>$areaReal]);
+
+     
+
+ }
+
+public function obtener($maniobra){
+    $this->maniobra = $maniobra;
+ 
+ //return Datatables::collection(Colaborador_ManiobraModel::all())->make(true);
+
+
+ return Datatables::of(Colaborador_ManiobraModel::where('maniobra',$this->maniobra))->make(true);
+
+ }
+
+
+ public function areadatosobtener($area){
+
+$this->area= $area;
+
+//dd($this->area);
+ 
+ //return Datatables::collection(Colaborador_ManiobraModel::all())->make(true);
+
+
+ return Datatables::of(Colaborador_ManiobraModel::where('area',$area))->make(true);
+
+ }
+
+
+ public function areadatos($areadatos){
+    $this->areadatos = $areadatos;
+    $maniobras = Colaborador_ManiobraModel::where('area',$areadatos)->get();
+    //dd($maniobras->count());
+    //$areaRe = $areas->first();
+    //$areaReal = $areaRe->maniobra;
+//$mani=Colaborador_ManiobraModel::search($request->input_buscar)->paginate(10);
+    //dd($maniobra);
+    $maniobraRe = $maniobras->first();
+    $maniobraReal = $maniobraRe->area;
+    return view('cfe.admin.maniobras_colaboradores.filtrarArea')->with(['maniobras'=>$maniobras,'maniobraReal'=>$maniobraReal]);
+
+ }
+
+ public function obtenerarea($area){
+    $this->maniobra = $maniobra;
+ 
+ //return Datatables::collection(Colaborador_ManiobraModel::all())->make(true);
+
+
+ return Datatables::of(Colaborador_ManiobraModel::where('area',$area))->make(true);
+
+ }
+
+public function ver_area($area, Request $request){
    
 
 
-    $areas = Colaborador_ManiobraModel::where('area',$area)->search($request->input_buscar2)->paginate(10);
+    $areas = Colaborador_ManiobraModel::where('area',$area)->paginate(10);
 
+//dd($areas->count());
     //dd($maniobra);
     $areaRe = $areas->first();
     $areaReal = $areaRe->area;

@@ -60,13 +60,14 @@ public function maniobra($maniobra){
 
 $this->maniobra = $maniobra;
 
-
+//$filtered = $collection->except(['price', 'discount']);
 Excel::create('Laravel Excel Maniobra', function($excel) {
  
             $excel->sheet('Evaluaciones', function($sheet) {
  
-            $Maniobras= Colaborador_ManiobraModel::where('maniobra',$this->maniobra)->get();
- 
+            $Maniobras= Colaborador_ManiobraModel::select('zona', 'area','RPE','nombre','fecha_evaluacion','maniobra','calificacion')->where('maniobra',$this->maniobra)->get();
+
+
                 $sheet->fromArray($Maniobras);
  
             });

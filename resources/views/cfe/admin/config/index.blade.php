@@ -19,7 +19,9 @@
 			</div>
 		</div>
 
- <div class="table-responsive">
+<a href="{{route('metas.create')}}"><button type="button" class="btn btn-primary">Nuevo</button></a>
+
+ <div class="table-responsive" style="margin-top: 5px;">
         <table class="table table-striped table-bordered table-hover">
           <thead>
             <tr class="success">

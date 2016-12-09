@@ -8,6 +8,6 @@ class MetaModel extends Model
 {
     //
 
-    protected $table="meta"
+    protected $table="metas";
     protected $fillable=['mes','meta','year'];
 }

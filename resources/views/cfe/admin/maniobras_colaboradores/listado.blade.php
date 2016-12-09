@@ -156,6 +156,7 @@ $('#listadogeneral').DataTable({
             { data: 'maniobra',"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
             $(nTd).html("<a href='{{route('welcome')}}/"+oData.maniobra+"'>"+oData.maniobra+"</a>");
         }},
+<<<<<<< HEAD
             { data: 'calificacion',"fnRowCallback": function( nRow, aData, iDisplayIndex ) {
             /* Append the grade to the default row class name */
             if ( aData[6]== 100 )
@@ -173,24 +174,26 @@ $('#listadogeneral').DataTable({
         
          }); });
 =======
+=======
+            { data: 'calificacion'}
+            
+>>>>>>> ab8f580b2326cce6bd071ab4d403dda777c953e7
     
         ],
-
-        "createdRow": function ( row, data, index ) {
-            if ( data[6] == 100 ) {
-                $('td', row).css('background-color','red');
-            }
-        }
->>>>>>> 4fc2eb2bd775813d127fd31143984a5407bc57b6
-
+        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
+      // Bold the grade for all 'A' grade browsers
+      if ( aData.maniobra == 100 )
+      {
+        $('td:eq()', nRow).html( '<b>A</b>' );
+      }
+    }
+        
          }); });
 
 
   </script>
 
 
-<<<<<<< HEAD
-=======
 
 <script type="text/javascript">
   

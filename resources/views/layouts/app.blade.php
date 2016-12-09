@@ -20,7 +20,7 @@
         ]); ?>
     </script>
 </head>
-<body>
+<body style="background-image: url('img/fotico.jpg');">
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">

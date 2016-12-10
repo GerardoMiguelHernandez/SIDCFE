@@ -15,10 +15,13 @@ Route::get('/', function () {
     return view('bootstrapTemplate.main');
 });  */
 
-Route::get('Filtros/Areas/{area11}/Maniobras/{maniobra11}','FiltrosControllers@parce');
-Route::get('filtrico','FiltrosControllers@create');
-
 //vtW7XXs7Ju
+
+       Route::get('imagen/{id1}',[
+        'uses'=>'ColaboradoresController@foto',
+        'as'=>'colaborador.foto']);
+
+
 Route::get('/obtenertabla',function(){
 
     return view('cfe.admin.maniobras_colaboradores.tabla');
@@ -122,7 +125,7 @@ Route::group(['prefix' => 'pdf'], function() {
 Route::group(['prefix' => 'admin'], function() {
     Route::resource('slider','ConfiguracionesSlidersControllers');
     Route::resource('metas','MetasControllers');
-   // Route::resource('filtros','FiltrosControllers');
+   Route::resource('filtros','FiltrosControllers');
 
    
 });

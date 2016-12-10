@@ -7,7 +7,7 @@ use App\Http\Requests\MetasRequest;
 
 use App\MetaModel;
 use App\Colaborador_ManiobraModel;
-use App\MetaModel;
+//use App\MetaModel;
 
 class MetasControllers extends Controller
 {
@@ -92,7 +92,7 @@ class MetasControllers extends Controller
         $noviembre=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','11')->count();
         $diciembre=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','12')->count();
 
-        return view()with->(['enero'=>$enero, 'febrero'=>$febrero, 'marzo'=>$marzo, 'abril'=>$abril, 'mayo'=>$mayo, 'junio'=>$junio, 'julio'=>$julio, 'agosto'=>$agosto, 'septiembre'=>$septiembre, 'octubre'=>$octubre, 'noviembre'=>$noviembre, 'diciembre'=>$diciembre]);
+//return view()->with->(['enero'=>$enero, 'febrero'=>$febrero, 'marzo'=>$marzo, 'abril'=>$abril, 'mayo'=>$mayo, 'junio'=>$junio, 'julio'=>$julio, 'agosto'=>$agosto, 'septiembre'=>$septiembre, 'octubre'=>$octubre, 'noviembre'=>$noviembre, 'diciembre'=>$diciembre]);
     }
 
     /**

@@ -8,7 +8,8 @@ use App\Http\Requests;
 use App\Colaborador;
 use App\UsuarioModel;
 use App\BateriaModel;
-
+use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Facades\Response;
 class ColaboradoresController extends Controller
 {
     /**
@@ -65,7 +66,27 @@ class ColaboradoresController extends Controller
      */
     public function show($id)
     {
-        //
+    $picture = Colaborador::find($id);
+    //dd($id);
+    //$pic = Image::make($picture->foto);
+    //$response = Response::make($pic->encode('jpeg'));
+    //$response->header('Content-Type', 'image/jpeg');
+    
+    //return $response;
+    return view('cfe.admin.colaboradores.detalleColaborador')->with(['response'=>$picture,'id'=>$id]);
+
+    }
+
+    public function foto($id1)
+    {
+    $picture = Colaborador::find($id1);
+    $pic = Image::make($picture->foto);
+    $response = Response::make($pic->encode('jpeg'));
+    $response->header('Content-Type', 'image/jpeg');
+    
+    return $response;
+    //return view('cfe.admin.colaboradores.detalleColaborador')->with(['response'=>$response]);
+
     }
 
     /**

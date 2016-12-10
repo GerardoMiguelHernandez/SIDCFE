@@ -191,28 +191,8 @@ $('#listadogeneral').DataTable({
                 //console.log($maniobra);
             $(nTd).html("<a href='{{url('colaboradorcontroller/Area1')}}/"+oData.maniobra+"'>"+oData.maniobra+"</a>");
         }},
-<<<<<<< HEAD
-            { data: 'calificacion',"fnRowCallback": function( nRow, aData, iDisplayIndex ) {
-            /* Append the grade to the default row class name */
-            if ( aData[6]== 100 )
-            {
-                console.log("es 100");
-            
-                var $nRow = $(nRow); // cache the row wrapped up in jQuery
-
-                $nRow.css({"background-color":"red"})
-            }
-        }}
-            
-    
-        ]
-        
-         }); });
-=======
-=======
             { data: 'calificacion'}
             
->>>>>>> ab8f580b2326cce6bd071ab4d403dda777c953e7
     
         ]
         

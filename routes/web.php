@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('bootstrapTemplate.main');
 });  */
 
+Route::get('Filtros/Areas/{area11}/Maniobras/{maniobra11}','FiltrosControllers@parce');
+Route::get('filtrico','FiltrosControllers@create');
+
 //vtW7XXs7Ju
 Route::get('/obtenertabla',function(){
 
@@ -62,6 +65,8 @@ Route::get('colaboradorcontroller/Area1/{area1}','ColaboradorManiobraController@
 
 
 Route::get('colaboradorcontroller/maniobra/{maniobra1}','ColaboradorManiobraController@obtener');
+
+
 
 
 
@@ -117,6 +122,7 @@ Route::group(['prefix' => 'pdf'], function() {
 Route::group(['prefix' => 'admin'], function() {
     Route::resource('slider','ConfiguracionesSlidersControllers');
     Route::resource('metas','MetasControllers');
+   // Route::resource('filtros','FiltrosControllers');
 
    
 });

@@ -15,7 +15,7 @@ class FiltrosControllers extends Controller
      */
     public function index()
     {
-        //
+        return view('cfe.admin.maniobras_colaboradores.filtrar.filtradoFecha');
     }
 
  

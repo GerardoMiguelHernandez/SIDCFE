@@ -170,5 +170,5 @@ $.getJSON( "{{route('colaboradorcontroller.create')}}", function(json) {
 
 });
 </script>
-<
+
 	@endsection

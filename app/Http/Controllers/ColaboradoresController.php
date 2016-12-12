@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Colaborador;
+use App\Colaborador1 as Colaborador;
 use App\UsuarioModel;
 use App\BateriaModel;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -66,6 +66,7 @@ class ColaboradoresController extends Controller
      */
     public function show($id)
     {
+
     $picture = Colaborador::find($id);
     //dd($id);
     //$pic = Image::make($picture->foto);
@@ -80,7 +81,9 @@ class ColaboradoresController extends Controller
     public function foto($id1)
     {
     $picture = Colaborador::find($id1);
-    $pic = Image::make($picture->foto);
+    $pic = Image::make($picture->foto)->resize(180,180);
+
+    //$img->resize(320, 240);
     $response = Response::make($pic->encode('jpeg'));
     $response->header('Content-Type', 'image/jpeg');
     

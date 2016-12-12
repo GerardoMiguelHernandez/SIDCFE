@@ -11,6 +11,57 @@ class pdfController extends Controller
 {
     //
 
+
+
+
+public function filtrarManiobraArea($man, $ar){
+
+    $this->man =$man;
+    $this->ar = $ar;
+
+
+    Excel::create($this->man.' Area '.$this->ar, function($excel) {
+ 
+            $excel->sheet('Evaluaciones Maniobra Area11', function($sheet) {
+ 
+            $Evaluaciones= Colaborador_ManiobraModel::where('maniobra',$this->man)->where('area',$this->ar)->get();
+ 
+                $sheet->fromArray($Evaluaciones);
+ 
+            });
+        })->export('xls');
+
+
+
+
+}
+
+
+
+//metodo para retornar en base a un rango de fechas
+
+public function fechas($fecha1,$fecha2){
+
+$this->fecha1 = $fecha2;
+$this->fecha2 = $fecha2;
+
+
+Excel::create('Laravel Excel Rango de '.$this->fecha1.'a '.$this->fecha2, function($excel) {
+ 
+            $excel->sheet('Evaluaciones', function($sheet) {
+ 
+            $Evaluaciones= Colaborador_ManiobraModel::whereBetween('fecha_evaluacion',[$this->fecha1,$this->fecha2])->get();
+ 
+                $sheet->fromArray($Evaluaciones);
+ 
+            });
+        })->export('xls');
+
+
+
+}
+
+
 //metodo index obtendra todos los datos del Modelo Colaborador_ManiobraModel
 public function index(){
 

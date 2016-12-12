@@ -69,6 +69,8 @@ Route::get('colaboradorcontroller/Area1/{area1}','ColaboradorManiobraController@
 
 Route::get('colaboradorcontroller/maniobra/{maniobra1}','ColaboradorManiobraController@obtener');
 
+Route::get('mostrar', 'ColaboradorManiobraController@max_maniobra');
+
 
 
 

@@ -16,10 +16,10 @@ Route::get('/', function () {
 });  */
 
 //vtW7XXs7Ju
+Route::get('DetalleColaboradorAjax/{clave}','ColaboradorManiobraController@detalleColaboradorAjax');
+Route::get('DetalleColaborador/{id}','ColaboradoresController@show');
 
-       Route::get('imagen/{id1}',[
-        'uses'=>'ColaboradoresController@foto',
-        'as'=>'colaborador.foto']);
+Route::get('imagen/{id1}','ColaboradoresController@foto');
 
 
 Route::get('/obtenertabla',function(){
@@ -59,9 +59,26 @@ Route::get('colaboradorcontroller/Maniobras/{maniobra}',[
      'uses' => 'ColaboradorManiobraController@ver_maniobra',
      'as'=>'colaborador.maniobra']);
 //ruta para filtrar por maniobra ademas de area
-Route::get('colaboradorcontroller/Maniobras/{maniobra}/{area}',[
-     'uses' => 'ColaboradorManiobraController@ver_maniobra_area',
+Route::get('colaboradorcontroller/Maniobras/{maniobra111}/{area111}',[
+     'uses' => 'ColaboradorManiobraController@retornardaticos',
      'as'=>'colaborador.maniobra.area']);
+
+Route::get('colaboradorcontroller/Maniobras/Excel/{man}/{ar}',[
+     'uses' => 'pdfController@filtrarManiobraArea',
+     'as'=>'colaborador.filtrar.maniobra.area']);
+//
+
+//ruta para filtrar en base a un rango de fechas
+Route::get('colaboradorcontroller/Fechas/{fecha111}/{fecha222}',[
+     'uses' => 'ColaboradorManiobraController@rango_fechas',
+     'as'=>'colaborador.maniobra.fecha']);
+
+Route::get('colaboradorcontroller/Fechas/Excel/{fecha1}/{fecha2}',[
+     'uses' => 'pdfController@fechas',
+     'as'=>'colaborador.maniobra.fecharango']);
+
+
+//
 
 
 Route::get('colaboradorcontroller/Area1/{area1}','ColaboradorManiobraController@ver_area1');
@@ -108,6 +125,8 @@ Route::group(['prefix' => 'excel'], function() {
     Route::get('all', [
         'uses'=>'pdfController@index',
         'as'=>'excel.todos']);
+
+
     Route::get('area/{dato}',[
         'uses'=>'pdfController@area',
         'as' =>'excel.area']);
@@ -125,9 +144,10 @@ Route::group(['prefix' => 'pdf'], function() {
 });
 
 Route::group(['prefix' => 'admin'], function() {
-    Route::resource('slider','ConfiguracionesSlidersControllers');
-    Route::resource('metas','MetasControllers');
-   Route::resource('filtros','FiltrosControllers');
+Route::resource('slider','ConfiguracionesSlidersControllers');
+Route::resource('metas','MetasControllers');
+Route::resource('filtros','FiltrosControllers');
+
 
    
 });

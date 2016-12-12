@@ -1,8 +1,12 @@
 @extends('cfe.main')
+
 @section('css')
+{!!Html::style('media/css/jquery.dataTables.css');!!}
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
 @endsection
 
 @section('content')
+
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 
 <div class="row">
@@ -14,56 +18,53 @@
 <div class="row">
 
 			<div class="col-lg-10 col-xs-12 col-md-10">
-				<h2 class="page-header">Seleccionar</h2>
+				<h2 class="page-header">Filtrar por Fechas</h2>
 			</div>
       </div>
-
 
 
 <div class="row">
 	
 <div class="col-xs-3 col-sm-3 col-md-4 col-lg-4">
-	<div class="form-group">
-                <label for="sel1">Elige Area:</label>
-                <select class="form-control" name="mes" id="areadinamico">
-                @foreach($areas as $area)
-                  <option value="{{$area->area}}">{{$area->area}}</option>
-                @endforeach  
-                </select>
-             </div>
+<div class="input-group date">
+    <input class="form-control datepicker" id="fecha">
+    <div class="input-group-addon">
+        <span class="glyphicon glyphicon-th"></span>
+    </div>
+</div>
+
 </div>
 <div class="col-xs-3 col-sm-3 col-md-4 col-lg-4">
-	<div class="form-group">
-                <label for="sel1">Elige Maniobra:</label>
-                <select class="form-control" name="mes" id="maniobradinamico">
-                @foreach($maniobras as $maniobra)
-                  <option value="{{$maniobra->maniobra}}">{{$maniobra->maniobra}}</option>
-                @endforeach  
-                </select>
-             </div>
+	
+<div class="input-group date">
+    <input class="form-control datepicker" id="fecha1">
+    <div class="input-group-addon">
+        <span class="glyphicon glyphicon-th"></span>
+    </div>
 </div>
-<div class="col-xs-3 col-sm-3 col-md-4 col-lg-4" style="padding-top: 23px;">
+
+</div>
+<div class="col-xs-3 col-sm-3 col-md-4 col-lg-4">
 <div class="row">
 <div class="col-sm-3">	
-  <button class="btn btn-primary" id="filtrar_dinamico">Filtrar</button>
+  <button class="btn btn-primary" id="filtrar_fecha">Filtrar</button>
   </div>
 
-
-  <div class="col-sm-3 col-sm-offset-3">
-  <a href="" id="enlace_excel1" data-toggle="tooltip" data-placement="left" title="Generar Excel"><i class="fa fa-file-excel-o fa-3x" style="color: green;" aria-hidden="true"></i>
+<div class="col-sm-3 col-sm-offset-3">
+  <a href="" id="enlace_excel" data-toggle="tooltip" data-placement="left" title="Generar Excel"><i class="fa fa-file-excel-o fa-3x" style="color: green;" aria-hidden="true"></i>
    </a>
    </div>
 </div>
 </div>
 
 </div>
-     
 
 
-<!-- en esta seccion inicia la tabla que vamos a cargar dinamicamente con ajax y datatables -->
+
+<!--- tablas  -->
 
 <div class="table-responsive table-condensed table-hover" style="margin-top: 5px;">
-        <table id="dinamictable" class="table table-bordered table-hover">
+    <table id="table_rangoFechas" class="table table-bordered table-hover">
           <thead>
             <tr class="info">
               <th>Zona</th>
@@ -85,31 +86,42 @@
         </table>
       </div> 
 
-
-
 </div>
 @endsection
 
 
 @section('js')
-
 {!!Html::script('media/js/jquery.js');!!}
 {!!Html::script('media/js/jquery.dataTables.js');!!}
 {!!Html::script('media/js/dataTables.bootstrap.js');!!}
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+	
+$('.datepicker').datepicker({
+    format: 'yyyy-mm-dd',
+    startDate: '-3y'
+});
+</script>
 
 <script type="text/javascript">
-$(function() {
-//var maniobra = $('#maniobradinamico').val();
+	
 
-$('#filtrar_dinamico').click(function(e){
-e.preventDefault();
-var maniobra = $('#maniobradinamico').val();
-var area = $('#areadinamico').val();
-$("#enlace_excel1").attr("href", "{{url('colaboradorcontroller/Maniobras/Excel')}}/"+maniobra+"/"+area+"")
-console.log(area);
+	$(function(){
 
-  $('#dinamictable').DataTable({
+		$('#filtrar_fecha').click(function(e){
+          e.preventDefault();
+           var fecha=$('#fecha').val();
+           var fecha1=$('#fecha1').val();
+           console.log(fecha);
+           console.log(fecha1); 
+//asignar urla dinaminco  para generar archivo excel en base a los filtricos 
+
+
+$("#enlace_excel").attr("href", "{{url('colaboradorcontroller/Fechas/Excel')}}/"+fecha+"/"+fecha1+"")
+
+
+
+           $('#table_rangoFechas').DataTable({
        destroy:true,
       "language": {
             "search":         "Buscar:",
@@ -127,8 +139,10 @@ console.log(area);
         },
         processing: true,
         serverSide: true,
-     //   ajax:"{{url('colaboradorcontroller/maniobra')}}/"+maniobra+"",
-   ajax:"{{url('colaboradorcontroller/Maniobras')}}/"+maniobra+"/"+area+"",
+        //ajax:'{{route('tabladatos')}}',
+        ajax:"{{url('colaboradorcontroller/Fechas')}}/"+fecha+"/"+fecha1+"",
+     //ajax:"{{url('colaboradorcontroller/maniobra')}}/"+maniobra+"",
+  // ajax:"{{url('colaboradorcontroller/Fechas')}}/"+fecha+"/"+fecha1+"",
         //colaboradorcontroller/Maniobras/{maniobra}/{area}
 
 "fnCreatedRow": function( nRow, aData, iDataIndex ) {
@@ -170,11 +184,14 @@ console.log(area);
         
        
         
-         });                  
+         });
 
 
-}) ;   
 
- });
+
+		});
+
+
+	});
 </script>
 @endsection

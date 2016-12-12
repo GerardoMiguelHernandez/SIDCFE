@@ -79,7 +79,7 @@ class MetasControllers extends Controller
     public function show($id)
     {
         //
-        $enero=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','01')->count();
+    $enero=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','01')->count();
         $febrero=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','02')->count();
         $marzo=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','03')->count();
         $abril=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','04')->count();

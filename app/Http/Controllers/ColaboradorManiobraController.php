@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Colaborador_ManiobraModel;
 use Carbon\Carbon;
 //use App\ImportarArchivos;
-use App\Colaborador;
+use App\Colaborador1 as Colaborador;
 use App\UsuarioModel;
 use App\User;
 
@@ -27,6 +27,39 @@ public function __construct()
     {
    
     }
+
+
+
+public function detalleColaboradorAjax($clave){
+
+    //$this->RPE=$RPE;
+
+//return Datatables::of(Colaborador_ManiobraModel::where('RPE',$RPE))->make(true);
+
+
+return Datatables::eloquent(Colaborador_ManiobraModel::where('RPE',$clave))->make(true);
+
+}
+
+public function rango_fechas($fecha111, $fecha222){
+
+
+    $rango_fechas = Colaborador_ManiobraModel::whereBetween('fecha_evaluacion',[$fecha111,$fecha222])->get();
+
+      //$this->fecha111=$fecha111;
+     // $this->fecha222=$area222;
+   return Datatables::of(Colaborador_ManiobraModel::whereBetween('fecha_evaluacion',[$fecha111,$fecha222]))->make(true);
+
+//dd($rango_fechas);
+
+//return response()->json($rango_fechas);
+        
+    }    
+public function retornardaticos($maniobra111, $area111){
+$this->maniobra=$maniobra111;
+$this->area=$area111;
+return Datatables::of(Colaborador_ManiobraModel::where('maniobra',$this->maniobra)->where('area',$this->area))->make(true);
+}
 
 public function listado(){
  $hoy = Carbon::now();   
@@ -424,4 +457,7 @@ $rpe = $id;
     {
         //
     }
+
+
+    
 }

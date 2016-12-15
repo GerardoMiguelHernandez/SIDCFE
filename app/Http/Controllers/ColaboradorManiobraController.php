@@ -398,7 +398,7 @@ $rpe = $id;
 
         $max_tlacolula = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as numero')->where('area','AREA TLACOLULA')->groupBy('maniobra')-> orderBy('numero','DES')->first();
 
-        $max_oaxaca = Colaborador_ManiobraModel::sselectRaw('maniobra, count(maniobra) as numero')->where('area','AREA OAXACA')->groupBy('maniobra')-> orderBy('numero','DES')->first();
+        $max_oaxaca = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as numero')->where('area','AREA OAXACA')->groupBy('maniobra')-> orderBy('numero','DES')->first();
 
         $max_temporales = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as numero')->where('area','Temporales Oax')->groupBy('maniobra')-> orderBy('numero','DES')->first();
 

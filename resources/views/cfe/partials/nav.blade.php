@@ -69,6 +69,20 @@
 						</a>
 					</li>
 					<li>
+						<a class="" href="{{route('filtros.index')}}">
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+
+							 Filtrar por Fecha
+						</a>
+					</li>
+					<li>
+						<a class="" href="{{route('filtros.create')}}">
+						<i class="fa fa-wrench" aria-hidden="true"></i>
+
+							 Filtrar Maniobra
+						</a>
+					</li>
+					<li>
 						<a class="" href="#">
 							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 3
 						</a>

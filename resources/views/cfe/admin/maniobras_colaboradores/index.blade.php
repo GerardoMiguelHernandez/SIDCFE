@@ -135,7 +135,7 @@
         <div class="panel panel-orange panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-5 widget-left">
-              <a href=""data-toggle="modal" data-target="#mymodalarea"><i class="material-icons iconfont3">work</i></a>
+              <a href=""data-toggle="modal" data-target="#mymodalarea"><i class="material-icons iconfont3">place_ubication</i></a>
             </div>
             <div class="col-sm-9 col-lg-7 widget-right">
               <div class="large">{{$count_areas}}</div>
@@ -148,7 +148,7 @@
         <div class="panel panel-teal panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-5 widget-left">
-              <i class="material-icons iconfont3">place_ubication</i>
+              <i class="material-icons iconfont3">school</i>
             </div>
             <div class="col-sm-9 col-lg-7 widget-right">
               <div class="large">{{$count_evaluaciones}}</div>

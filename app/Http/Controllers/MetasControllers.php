@@ -53,6 +53,8 @@ class MetasControllers extends Controller
 
         $this->validate($request, [
         'mes' => 'required',
+        'personalAsignado'=>'required',
+        'centro_trabajo'=>'required',
         'meta' => 'required',
         'year' => 'required',
         ]);
@@ -62,6 +64,8 @@ class MetasControllers extends Controller
         
         $meta = new MetaModel();
         $meta->mes = $request->mes;
+        $meta->personalAsignado = $request->personalAsignado;
+        $meta->centro_trabajo = $request->centro_trabajo;
         $meta->meta = $request->meta;
         $meta->year = $request->year;
         $meta->save();  

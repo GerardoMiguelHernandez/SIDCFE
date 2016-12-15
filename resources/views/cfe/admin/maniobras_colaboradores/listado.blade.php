@@ -181,7 +181,7 @@ $('#listadogeneral').DataTable({
             $(nTd).html("<a href='{{url('colaboradorcontroller/AreaDatos')}}/"+oData.area+"'>"+oData.area+"</a>");
         }},
             { data: 'RPE',"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-            $(nTd).html("<a href='{{url('welcome')}}/"+oData.RPE+"'>"+oData.RPE+"</a>");
+            $(nTd).html("<a href='{{url('DetalleColaborador')}}/"+oData.RPE+"'>"+oData.RPE+"</a>");
         }},
             { data: 'nombre'},
             { data: 'fecha_evaluacion'},

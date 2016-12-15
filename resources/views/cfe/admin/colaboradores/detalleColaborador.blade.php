@@ -131,7 +131,17 @@
 </div> <!-- fin del row-->
 
 
+
+
+
               <input id="valor_rpe" type="hidden" value="{{$id}}">
+
+
+ 
+   <a href="" id="excelColaborador">
+ 	<i class="fa fa-file-excel-o fa-3x" aria-hidden="true"></i>
+ 	</a> 
+             
 
 <div class="table-responsive table-hover" style="margin-top: 5px;">
 <table id="detallecolaborador" class="table table-bordered" width="100%" cellspacing="0">
@@ -175,10 +185,13 @@
 <script type="text/javascript">
 	
 
-	$(function(){
+$(function(){
+
+
 
 
 var rpe = $('#valor_rpe').val();
+$("#excelColaborador").attr("href", "{{url('colaborador/evaluacion')}}/"+rpe+"")
 
 console.log(rpe);	
 
@@ -226,7 +239,7 @@ $('#detallecolaborador').DataTable({
             $(nTd).html("<a href='{{url('colaboradorcontroller/AreaDatos')}}/"+oData.area+"'>"+oData.area+"</a>");
         }},
             { data: 'RPE',"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-            $(nTd).html("<a href='{{url('welcome')}}/"+oData.RPE+"'>"+oData.RPE+"</a>");
+            $(nTd).html("<a href='{{url('DetalleColaborador')}}/"+oData.RPE+"'>"+oData.RPE+"</a>");
         }},
             { data: 'nombre'},
             { data: 'fecha_evaluacion'},

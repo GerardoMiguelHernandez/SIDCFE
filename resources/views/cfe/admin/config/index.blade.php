@@ -15,7 +15,7 @@
 		</div><!--/.row-->
 <div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Usuarios</h1>
+				<h1 class="page-header">Metas</h1>
 			</div>
 		</div>
 
@@ -24,8 +24,10 @@
  <div class="table-responsive" style="margin-top: 5px;">
         <table class="table table-striped table-bordered table-hover">
           <thead>
-            <tr class="success">
+            <tr class="danger">
               <th>Mes</th>
+              <th>Personal Asignado</th>
+              <th>Centro</th>
               <th>Meta</th>
               <th>A&ntilde;o</th>
             </tr>
@@ -36,6 +38,8 @@
      
                 
                 <td>{{$meta->mes}}</td>
+                <td>{{$meta->personalAsignado}}</td>
+                <td>{{$meta->centro_trabajo}}</td>
                 <td>{{$meta->meta}}</td>
                 <td>{{$meta->year}}</td>
                

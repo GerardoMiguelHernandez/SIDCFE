@@ -135,9 +135,9 @@ Route::group(['prefix' => 'excel'], function() {
     'uses'=>'pdfController@maniobra',
     'as'=>'excel.maniobra']
         );
-    Route::get('colaborador/evaluacion/{rpe}','pdfController@colaborador');
+    
 });
-
+Route::get('colaborador/evaluacion/{rpe}','pdfController@colaborador');
 Route::group(['prefix' => 'pdf'], function() {
     Route::get('all', 'ExcelController@evaluaciones_all');
    

@@ -66,14 +66,33 @@
   <input type="number" class="form-control" id="meta" name="meta" placeholder="Ingresa el numero de maniobras" required>
 </div>
 
+ <div class="form-group">
+                <label for="sel1">Elige Centro:</label>
+                <select class="form-control" name="centro_trabajo" id="centro_trabajo">
+                  <option value="AREA ETLA">AREA ETLA</option>
+                  <option value="AREA ZIMATLAN">AREA ZIMATLAN</option>
+                  <option value="AREA OCOTLAN">AREA OCOTLAN</option>
+                  <option value="AREA MIAHUATLAN">AREA MIAHUATLAN</option>
+                  <option value="AREA IXTLAN">AREA IXTLAN</option>
+                  <option value="AREA TLACOLULA">AREA TLACOLULA</option>
+                  <option value="AREA OAXACA">AREA OAXACA</option>
+                  <option value="Temporales Oax.">Temporales Oax.</option>
+
+                </select>
+             </div>
+<div class="form-group">
+  <label for="usr">Personal Asignado:</label>
+  <input type="number" class="form-control" id="personalAsignado" name="personalAsignado" placeholder="Numero de Personal Asignado" required>
+</div>
+
 <div class="form-group">
   <label for="usr">A&ntilde;o</label>
   <select class="form-control" name="year" id="year">
-                  <option value="Enero">2016</option>
-                  <option value="Febrero">2017</option>
-                  <option value="Marzo">2018</option>
-                  <option value="Abril">2019</option>
-                  <option value="Abril">2020</option>
+                  <option value="2016">2016</option>
+                  <option value="2017">2017</option>
+                  <option value="2018">2018</option>
+                  <option value="2019">2019</option>
+                  <option value="2020">2020</option>
                
                   
 

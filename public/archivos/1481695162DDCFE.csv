@@ -1,0 +1,110 @@
+zona,area,RPE,nombre,fecha_evaluacion,maniobra,calificacion
+ZONA OAXACA,AREA MIAHUATLAN,QW780,Hector Valentin Hernandez España,2016-07-29,43.-Reposicion de un fusible en un ramal,100
+ZONA OAXACA,AREA ZIMATLAN,9A9HN,Virgilio Adolfo Gonzalez Hernandez,2016-08-18,9.-Conversión de estructura de TS30 a PS30,100
+ZONA OAXACA,AREA ETLA,9A9HN,Virgilio Adolfo Gonzalez Hernandez,2016-08-18,9.-Conversión de estructura de TS30 a PS30,100
+ZONA OAXACA,AREA ETLA,9A9HN,Virgilio Adolfo Gonzalez Hernandez,2016-08-30,11.-Conversión de estructura de TS30 a VS30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9A9HN,Virgilio Adolfo Gonzalez Hernandez,2016-08-30,9.-Conversión de estructura de TS30 a PS30,96
+ZONA OAXACA,AREA ETLA,9A9HN,Virgilio Adolfo Gonzalez Hernandez,2016-08-30,10.-Conversión de estructura de TS30 a VS30 con una plataforma,100
+ZONA OAXACA,AREA ETLA,9A9HN,Virgilio Adolfo Gonzalez Hernandez,2016-09-14,13.-Cambio de cruceta en estructura VS30 con dos plataformas giratorias,100
+ZONA OAXACA,AREA ETLA,9A9HN,Virgilio Adolfo Gonzalez Hernandez,2016-09-14,12.-Conversión de estructura de TS30 a AD30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9A9HN,Virgilio Adolfo Gonzalez Hernandez,2016-09-14,14.-Instalación de cuchillas unipolares en estructura AD30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9B4RX,Javier Julio Raymundo Cortez Gonzalez,2016-06-20,9.-Conversión de estructura de TS30 a PS30,0
+ZONA OAXACA,AREA ETLA,9B4RX,Javier Julio Raymundo Cortez Gonzalez,2016-06-20,10.-Conversión de estructura de TS30 a VS30 con una plataforma,0
+ZONA OAXACA,AREA ETLA,9B4RX,Javier Julio Raymundo Cortez Gonzalez,2016-06-28,42.-Instalación de transformador de distribución,90
+ZONA OAXACA,AREA ETLA,9B4RX,Javier Julio Raymundo Cortez Gonzalez,2016-06-28,36.-Instalación de equipo de puesta a tierra,100
+ZONA OAXACA,AREA ETLA,9B4RX,Javier Julio Raymundo Cortez Gonzalez,2016-08-19,9.-Conversión de estructura de TS30 a PS30,100
+ZONA OAXACA,AREA ETLA,9B4RX,Javier Julio Raymundo Cortez Gonzalez,2016-08-19,10.-Conversión de estructura de TS30 a VS30 con una plataforma,100
+ZONA OAXACA,AREA ETLA,9B4RX,Javier Julio Raymundo Cortez Gonzalez,2016-08-19,11.-Conversión de estructura de TS30 a VS30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9B4RX,Javier Julio Raymundo Cortez Gonzalez,2016-08-30,11.-Conversión de estructura de TS30 a VS30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9B4RX,Javier Julio Raymundo Cortez Gonzalez,2016-08-30,10.-Conversión de estructura de TS30 a VS30 con una plataforma,100
+ZONA OAXACA,AREA ETLA,9B4RX,Javier Julio Raymundo Cortez Gonzalez,2016-08-30,9.-Conversión de estructura de TS30 a PS30,100
+ZONA OAXACA,AREA ETLA,9B4RX,Javier Julio Raymundo Cortez Gonzalez,2016-09-08,12.-Conversión de estructura de TS30 a AD30 con dos plataformas,80
+ZONA OAXACA,AREA ETLA,9B4RX,Javier Julio Raymundo Cortez Gonzalez,2016-09-08,13.-Cambio de cruceta en estructura VS30 con dos plataformas giratorias,100
+ZONA OAXACA,AREA ETLA,9B4RX,Javier Julio Raymundo Cortez Gonzalez,2016-09-08,14.-Instalación de cuchillas unipolares en estructura AD30 con dos plataformas,92
+ZONA OAXACA,AREA ETLA,9B4RX,Javier Julio Raymundo Cortez Gonzalez,2016-10-05,16.-Instalación de estribos en estructura TS30 con canastilla,100
+ZONA OAXACA,AREA ETLA,9B4RX,Javier Julio Raymundo Cortez Gonzalez,2016-10-05,15.-Cambio de poste y estructura PS30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9B59K,Lorenzo Abel Ruiz Carballido,2016-05-02,8.-Cambio de poste y estructura TS30 con plataforma,100
+ZONA OAXACA,AREA ETLA,9B59K,Lorenzo Abel Ruiz Carballido,2016-05-02,7.-Cambio de estructura dañada AP30 con dos plataformas,96
+ZONA OAXACA,AREA ETLA,9B59K,Lorenzo Abel Ruiz Carballido,2016-06-28,42.-Instalación de transformador de distribución,95
+ZONA OAXACA,AREA ETLA,9B59K,Lorenzo Abel Ruiz Carballido,2016-06-28,36.-Instalación de equipo de puesta a tierra,82
+ZONA OAXACA,AREA ETLA,9B59K,Lorenzo Abel Ruiz Carballido,2016-06-28,9.-Conversión de estructura de TS30 a PS30,0
+ZONA OAXACA,AREA ETLA,9B59K,Lorenzo Abel Ruiz Carballido,2016-08-12,10.-Conversión de estructura de TS30 a VS30 con una plataforma,91
+ZONA OAXACA,AREA ETLA,9B59K,Lorenzo Abel Ruiz Carballido,2016-08-12,11.-Conversión de estructura de TS30 a VS30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9B59K,Lorenzo Abel Ruiz Carballido,2016-08-12,9.-Conversión de estructura de TS30 a PS30,84
+ZONA OAXACA,AREA ETLA,9B59K,Lorenzo Abel Ruiz Carballido,2016-09-14,12.-Conversión de estructura de TS30 a AD30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9B59K,Lorenzo Abel Ruiz Carballido,2016-09-14,13.-Cambio de cruceta en estructura VS30 con dos plataformas giratorias,100
+ZONA OAXACA,AREA ETLA,9B59K,Lorenzo Abel Ruiz Carballido,2016-09-14,14.-Instalación de cuchillas unipolares en estructura AD30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9B59K,Lorenzo Abel Ruiz Carballido,2016-10-04,16.-Instalación de estribos en estructura TS30 con canastilla,96
+ZONA OAXACA,AREA ETLA,9B59K,Lorenzo Abel Ruiz Carballido,2016-10-04,15.-Cambio de poste y estructura PS30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9B59Y,Angel Garcia Santiago,2016-04-16,7.-Cambio de estructura dañada AP30 con dos plataformas,96
+ZONA OAXACA,AREA ETLA,9B59Y,Angel Garcia Santiago,2016-05-02,8.-Cambio de poste y estructura TS30 con plataforma,100
+ZONA OAXACA,AREA ETLA,9B59Y,Angel Garcia Santiago,2016-07-30,19.-Cambio de aislador de suspensión en estructura RS30 con canastilla,82
+ZONA OAXACA,AREA ETLA,9B59Y,Angel Garcia Santiago,2016-08-06,4.-Cambio de cortacircuito fusible (CCF) en estructura TS30/RD3,100
+ZONA OAXACA,AREA ETLA,9B59Y,Angel Garcia Santiago,2016-08-19,10.-Conversión de estructura de TS30 a VS30 con una plataforma,100
+ZONA OAXACA,AREA ETLA,9B59Y,Angel Garcia Santiago,2016-08-19,11.-Conversión de estructura de TS30 a VS30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9B59Y,Angel Garcia Santiago,2016-08-19,9.-Conversión de estructura de TS30 a PS30,100
+ZONA OAXACA,AREA ETLA,9B59Y,Angel Garcia Santiago,2016-10-06,16.-Instalación de estribos en estructura TS30 con canastilla,76
+ZONA OAXACA,AREA ETLA,9B59Y,Angel Garcia Santiago,2016-10-06,12.-Conversión de estructura de TS30 a AD30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9B59Y,Angel Garcia Santiago,2016-10-06,15.-Cambio de poste y estructura PS30 con dos plataformas,93
+ZONA OAXACA,AREA ETLA,9B59Y,Angel Garcia Santiago,2016-10-19,14.-Instalación de cuchillas unipolares en estructura AD30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9B59Y,Angel Garcia Santiago,2016-10-19,13.-Cambio de cruceta en estructura VS30 con dos plataformas giratorias,100
+ZONA OAXACA,AREA ETLA,9FD9D,Salvador Cisneros Osorio,2016-09-17,7.-Cambio de estructura dañada AP30 con dos plataformas,92
+ZONA OAXACA,AREA ETLA,9FHDE,Jose De Jesus Antonio Dominguez,2016-02-20,6.-Cambio de una cadena de aisladores en estructura RS30,100
+ZONA OAXACA,AREA ETLA,9FHDE,Jose De Jesus Antonio Dominguez,2016-02-20,4.-Cambio de cortacircuito fusible (CCF) en estructura TS30/RD3,93
+ZONA OAXACA,AREA ETLA,9FHDE,Jose De Jesus Antonio Dominguez,2016-02-20,5.-Cambio de apartarrayos en estructura TS30/1TR3 con canastilla,90
+ZONA OAXACA,AREA ETLA,9FHDE,Jose De Jesus Antonio Dominguez,2016-05-02,7.-Cambio de estructura dañada AP30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9FHDE,Jose De Jesus Antonio Dominguez,2016-05-02,8.-Cambio de poste y estructura TS30 con plataforma,97
+ZONA OAXACA,AREA ETLA,9FHDE,Jose De Jesus Antonio Dominguez,2016-09-14,12.-Conversión de estructura de TS30 a AD30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9FHDE,Jose De Jesus Antonio Dominguez,2016-09-14,9.-Conversión de estructura de TS30 a PS30,100
+ZONA OAXACA,AREA ETLA,9FHDE,Jose De Jesus Antonio Dominguez,2016-09-14,10.-Conversión de estructura de TS30 a VS30 con una plataforma,100
+ZONA OAXACA,AREA ETLA,9FHDE,Jose De Jesus Antonio Dominguez,2016-09-14,13.-Cambio de cruceta en estructura VS30 con dos plataformas giratorias,100
+ZONA OAXACA,AREA ETLA,9FHDE,Jose De Jesus Antonio Dominguez,2016-09-14,11.-Conversión de estructura de TS30 a VS30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9FHDE,Jose De Jesus Antonio Dominguez,2016-09-14,14.-Instalación de cuchillas unipolares en estructura AD30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9FHDK,Noe Velasquez Lozano,2016-04-25,8.-Cambio de poste y estructura TS30 con plataforma,100
+ZONA OAXACA,AREA ETLA,9FHDK,Noe Velasquez Lozano,2016-04-25,7.-Cambio de estructura dañada AP30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9FHDK,Noe Velasquez Lozano,2016-06-28,36.-Instalación de equipo de puesta a tierra,100
+ZONA OAXACA,AREA ETLA,9FHDK,Noe Velasquez Lozano,2016-06-28,42.-Instalación de transformador de distribución,85
+ZONA OAXACA,AREA ETLA,9FHDK,Noe Velasquez Lozano,2016-08-19,10.-Conversión de estructura de TS30 a VS30 con una plataforma,96
+ZONA OAXACA,AREA ETLA,9FHDK,Noe Velasquez Lozano,2016-08-19,11.-Conversión de estructura de TS30 a VS30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9FHDK,Noe Velasquez Lozano,2016-08-19,9.-Conversión de estructura de TS30 a PS30,96
+ZONA OAXACA,AREA ETLA,9FHDK,Noe Velasquez Lozano,2016-09-14,13.-Cambio de cruceta en estructura VS30 con dos plataformas giratorias,100
+ZONA OAXACA,AREA ETLA,9FHDK,Noe Velasquez Lozano,2016-09-14,14.-Instalación de cuchillas unipolares en estructura AD30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9FHDK,Noe Velasquez Lozano,2016-09-14,12.-Conversión de estructura de TS30 a AD30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9FHDK,Noe Velasquez Lozano,2016-10-04,16.-Instalación de estribos en estructura TS30 con canastilla,100
+ZONA OAXACA,AREA ETLA,9FHDK,Noe Velasquez Lozano,2016-10-04,15.-Cambio de poste y estructura PS30 con dos plataformas,93
+ZONA OAXACA,AREA ETLA,9L0BG,Carlos Alberto Perez Cordova,2016-02-20,4.-Cambio de cortacircuito fusible (CCF) en estructura TS30/RD3,100
+ZONA OAXACA,AREA ETLA,9L0BG,Carlos Alberto Perez Cordova,2016-02-20,6.-Cambio de una cadena de aisladores en estructura RS30,100
+ZONA OAXACA,AREA ETLA,9L0BG,Carlos Alberto Perez Cordova,2016-02-20,5.-Cambio de apartarrayos en estructura TS30/1TR3 con canastilla,100
+ZONA OAXACA,AREA ETLA,9L0BG,Carlos Alberto Perez Cordova,2016-04-16,7.-Cambio de estructura dañada AP30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9L0BG,Carlos Alberto Perez Cordova,2016-05-02,8.-Cambio de poste y estructura TS30 con plataforma,100
+ZONA OAXACA,AREA ETLA,9L0BG,Carlos Alberto Perez Cordova,2016-08-06,4.-Cambio de cortacircuito fusible (CCF) en estructura TS30/RD3,100
+ZONA OAXACA,AREA ETLA,9L0FV,Cesar Perez Gallegos,2016-02-20,5.-Cambio de apartarrayos en estructura TS30/1TR3 con canastilla,100
+ZONA OAXACA,AREA ETLA,9L0FV,Cesar Perez Gallegos,2016-02-20,6.-Cambio de una cadena de aisladores en estructura RS30,96
+ZONA OAXACA,AREA ETLA,9L0FV,Cesar Perez Gallegos,2016-02-20,4.-Cambio de cortacircuito fusible (CCF) en estructura TS30/RD3,100
+ZONA OAXACA,AREA ETLA,9L0FV,Cesar Perez Gallegos,2016-04-16,7.-Cambio de estructura dañada AP30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9L0FV,Cesar Perez Gallegos,2016-05-02,8.-Cambio de poste y estructura TS30 con plataforma,100
+ZONA OAXACA,AREA ETLA,9L0FV,Cesar Perez Gallegos,2016-06-28,42.-Instalación de transformador de distribución,100
+ZONA OAXACA,AREA ETLA,9L0FV,Cesar Perez Gallegos,2016-06-28,36.-Instalación de equipo de puesta a tierra,100
+ZONA OAXACA,AREA ETLA,9L0FV,Cesar Perez Gallegos,2016-07-30,4.-Cambio de cortacircuito fusible (CCF) en estructura TS30/RD3,100
+ZONA OAXACA,AREA ETLA,9L0FV,Cesar Perez Gallegos,2016-07-30,19.-Cambio de aislador de suspensión en estructura RS30 con canastilla,76
+ZONA OAXACA,AREA ETLA,9L0FV,Cesar Perez Gallegos,2016-08-19,11.-Conversión de estructura de TS30 a VS30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9L0FV,Cesar Perez Gallegos,2016-08-19,10.-Conversión de estructura de TS30 a VS30 con una plataforma,100
+ZONA OAXACA,AREA ETLA,9L0FV,Cesar Perez Gallegos,2016-08-19,9.-Conversión de estructura de TS30 a PS30,100
+ZONA OAXACA,AREA ETLA,9L0FV,Cesar Perez Gallegos,2016-10-06,15.-Cambio de poste y estructura PS30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9L0FV,Cesar Perez Gallegos,2016-10-06,12.-Conversión de estructura de TS30 a AD30 con dos plataformas,96
+ZONA OAXACA,AREA ETLA,9L0FV,Cesar Perez Gallegos,2016-10-06,16.-Instalación de estribos en estructura TS30 con canastilla,100
+ZONA OAXACA,AREA ETLA,9L0FV,Cesar Perez Gallegos,2016-10-19,13.-Cambio de cruceta en estructura VS30 con dos plataformas giratorias,100
+ZONA OAXACA,AREA ETLA,9L0FV,Cesar Perez Gallegos,2016-10-19,14.-Instalación de cuchillas unipolares en estructura AD30 con dos plataformas,100
+ZONA OAXACA,AREA ETLA,9L0RG,Abel Trujillo Flores,2016-02-20,5.-Cambio de apartarrayos en estructura TS30/1TR3 con canastilla,100
+ZONA OAXACA,AREA ETLA,9L0RG,Abel Trujillo Flores,2016-02-20,4.-Cambio de cortacircuito fusible (CCF) en estructura TS30/RD3,100
+ZONA OAXACA,AREA ETLA,9L0RG,Abel Trujillo Flores,2016-02-20,6.-Cambio de una cadena de aisladores en estructura RS30,96
+ZONA OAXACA,AREA ETLA,9L0RG,Abel Trujillo Flores,2016-03-29,7.-Cambio de estructura dañada AP30 con dos plataformas,77
+ZONA OAXACA,AREA ETLA,9L0RG,Abel Trujillo Flores,2016-03-29,8.-Cambio de poste y estructura TS30 con plataforma,76
+ZONA OAXACA,AREA ETLA,9L0RG,Abel Trujillo Flores,2016-04-12,7.-Cambio de estructura dañada AP30 con dos plataformas,96
+ZONA OAXACA,AREA ETLA,9L0RG,Abel Trujillo Flores,2016-05-02,8.-Cambio de poste y estructura TS30 con plataforma,100
+ZONA OAXACA,AREA ETLA,9L0RG,Abel Trujillo Flores,2016-08-06,4.-Cambio de cortacircuito fusible (CCF) en estructura TS30/RD3,98
+ZONA OAXACA,AREA ETLA,9L0RG,Abel Trujillo Flores,2016-08-12,10.-Conversión de estructura de TS30 a VS30 con una plataforma,74
+ZONA OAXACA,AREA ETLA,9L0RG,Abel Trujillo Flores,2016-08-12,11.-Conversión de estructura de TS30 a VS30 con dos plataformas,92
+ZONA OAXACA,AREA ETLA,9L0RG,Abel Trujillo Flores,2016-08-12,9.-Conversión de estructura de TS30 a PS30,100
+ZONA OAXACA,AREA ETLA,9L0RG,Abel Trujillo Flores,2016-08-16,10.-Conversión de estructura de TS30 a VS30 con una plataforma,96
+ZONA OAXACA,AREA ETLA,9L0RG,Abel Trujillo Flores,2016-08-16,9.-Conversión de estructura de TS30 a PS30,100

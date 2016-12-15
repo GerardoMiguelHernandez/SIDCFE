@@ -16,12 +16,12 @@ class CrearTablaManiobraColaboradores extends Migration
         Schema::create('maniobra_colaborador', function (Blueprint $table) {
             //
             //$table->char('utf8_spanish_ci');
-           // $table->collate('utf_unicode_ci'); 
+           //$table->collate('utf_unicode_ci'); 
             $table->increments('id');
             $table->string('zona');
             $table->string('area');
             $table->string('RPE');
-            $table->string('nombre');
+            $table->string('nombre')->char('utf8_spanish_ci');
             $table->date('fecha_evaluacion');
             $table->string('maniobra')->char('utf8_spanish_ci');
             $table->integer('calificacion');

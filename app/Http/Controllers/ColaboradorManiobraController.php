@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Collection;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests;
 use App\Colaborador_ManiobraModel;
@@ -115,7 +116,7 @@ public function uploadFile(){
 
 
        
-       $areas = Colaborador_ManiobraModel::orderBy('maniobra','DES')->select('maniobra')->distinct()->get();
+       $areas = Colaborador_ManiobraModel::orderBy('maniobra','ASC')->select('maniobra')->distinct()->get();
        $mani=Colaborador_ManiobraModel::search($request->input_buscar)->paginate(10);
        $count_areas =$zonas->count();
        $count_evaluaciones = Colaborador_ManiobraModel::all()->count();
@@ -219,7 +220,16 @@ $this->validate($request,[
          Excel::load($archivo, function($reader) {
 
             foreach ($reader->get() as $book) {
-                 $colaborador_maniobra_model  = new Colaborador_ManiobraModel();
+
+
+         $checar_datos=Colaborador_ManiobraModel::where('maniobra',$book->maniobra)->where('fecha_evaluacion',$book->fecha_evaluacion)->where('nombre',$book->nombre)->get();
+         
+         if($checar_datos!=null){       
+       
+        }
+        else{
+
+             $colaborador_maniobra_model  = new Colaborador_ManiobraModel();
         $colaborador_maniobra_model->zona =$book->zona;
         $colaborador_maniobra_model->area=$book->area;
         $colaborador_maniobra_model->RPE= $book->rpe;
@@ -229,7 +239,11 @@ $this->validate($request,[
 
         //$resultado = str_replace("a", "A", $cadena);
         $colaborador_maniobra_model->calificacion= $book->calificacion;
-        $colaborador_maniobra_model->save();
+       
+          
+        $colaborador_maniobra_model->save(); 
+          
+        }
     }
         }); 
 
@@ -277,13 +291,27 @@ public function ver_maniobra_area($maniobra, $area){
  public function ver_area1($area1){
 
 
+//querys para obtener el numero de evaluaciones por zona
 
-    $areas = Colaborador_ManiobraModel::where('maniobra',$area1)->paginate(10);
+  //$etla=AREA ETLA  
+   $count_zimatlan = Colaborador_ManiobraModel::where('area','AREA ZIMATLAN')->where('maniobra',$area1)->count();
+        $count_etla = Colaborador_ManiobraModel::where('area','AREA ETLA')->where('maniobra',$area1)->count();
+        $count_ixtlan = Colaborador_ManiobraModel::where('area','AREA IXTLAN')->where('maniobra',$area1)->count();
+        $count_ocotlan = Colaborador_ManiobraModel::where('area','AREA OCOTLAN')->where('maniobra',$area1)->count();
+        $count_miahuatlan = Colaborador_ManiobraModel::where('area','AREA MIAHUATLAN')->where('maniobra',$area1)->count();
+        $count_tlacolula = Colaborador_ManiobraModel::where('area','AREA TLACOLULA')->where('maniobra',$area1)->count();
+        $count_oaxaca = Colaborador_ManiobraModel::where('area','AREA OAXACA')->where('maniobra',$area1)->count();
+        $count_temporales = Colaborador_ManiobraModel::where('area','Temporales Oax')->where('maniobra',$area1)->count();
+
+
+
+
+    $areas = Colaborador_ManiobraModel::where('maniobra',$area1)->get();
     //dd($d->count());
     $areaRe = $areas->first();
     $areaReal = $areaRe->maniobra;
     
-    return view('cfe.admin.maniobras_colaboradores.filtrarArea1')->with(['areas'=>$areas,'areaReal'=>$areaReal]);
+    return view('cfe.admin.maniobras_colaboradores.filtrarArea1')->with(['areas'=>$areas,'areaReal'=>$areaReal,'zimatlan'=>$count_zimatlan,'etla'=>$count_etla,'ixtlan'=>$count_ixtlan,'ocotlan'=>$count_ocotlan,'miahuatlan'=>$count_miahuatlan,'tlacolula'=>$count_tlacolula,'oaxaca'=>$count_oaxaca,'temporales'=>$count_temporales]);
 
      
 
@@ -348,7 +376,7 @@ public function ver_area($area, Request $request){
     //dd($maniobra);
     $areaRe = $areas->first();
     $areaReal = $areaRe->area;
-    return view('cfe.admin.maniobras_colaboradores.filtrarArea1')->with(['areas'=>$areas,'areaReal'=>$areaReal]);
+    return view('cfe.admin.maniobras_colaboradores.filtrarArea')->with(['areas'=>$areas,'areaReal'=>$areaReal]);
 
    }
 

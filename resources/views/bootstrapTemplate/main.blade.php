@@ -31,7 +31,7 @@
             		<img src="digitalagency/images/cfe.png" class="animated bounceInUp" alt="logo">
               		<h2 class="animated bounceInLeft">{{$slider->Titulo}}</h2>
               		<p class="animated bounceInRight">Departamento de Informatica</p>
-              		<div class="scroll animated fadeInUp"><a href="#works" class="btn btn-default"><i class="fa fa-flask"></i>  Ver mas</a> <a href="#contact" class="btn btn-default"><i class="fa fa-paper-plane-o"></i> Unete </a></div>
+              		<div class="scroll animated fadeInUp"><a href="#" class="btn btn-default"><i class="fa fa-flask"></i>  Ver mas</a> <a href="#" class="btn btn-default"><i class="fa fa-paper-plane-o"></i> Unete </a></div>
               		</div>
               	</div>
             </div>

@@ -81,7 +81,9 @@ Route::get('colaboradorcontroller/Fechas/Excel/{fecha1}/{fecha2}',[
 //
 
 
-Route::get('colaboradorcontroller/Area1/{area1}','ColaboradorManiobraController@ver_area1');
+Route::get('colaboradorcontroller/Area1/{area1}',[
+    'uses'=>'ColaboradorManiobraController@ver_area1',
+    'as'=>'maniobra.filtro']);
 
 
 Route::get('colaboradorcontroller/maniobra/{maniobra1}','ColaboradorManiobraController@obtener');
@@ -94,7 +96,9 @@ Route::get('mostrar', 'ColaboradorManiobraController@max_maniobra');
 
 //ruta para obtener con ajax desde datatables solo area en especifico
 
-Route::get('colaboradorcontroller/AreaDatos/{areadatos}','ColaboradorManiobraController@areadatos');
+Route::get('colaboradorcontroller/AreaDatos/{areadatos}',[
+    'uses'=>'ColaboradorManiobraController@areadatos',
+    'as'=>'ruta.areas']);
 
 Route::get('colaboradorcontroller/cachar/{area23}','ColaboradorManiobraController@areadatosobtener');
 

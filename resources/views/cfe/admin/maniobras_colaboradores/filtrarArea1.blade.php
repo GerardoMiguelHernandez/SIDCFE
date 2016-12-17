@@ -11,12 +11,135 @@
         <li class="active">Maniobras</li>
       </ol>
     </div><!--/.row-->
+
+    
+
+    
+
+
+   
+  
+ 
+
 <div class="row">
 
 			<div class="col-lg-10 col-xs-12 col-md-10">
 				<h2 class="page-header">{{$areaReal}}</h2>
 			</div>
+      <div class="col-lg-2 col-xs-12 col-md-2">
+        <h5 class="label label-primary">TOTAL:{{$areas->count()}}</h5>
       </div>
+      </div>
+
+
+
+
+      <div class="row">
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <div class="panel panel-blue panel-widget ">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-5 widget-left">
+              <i class="material-icons iconfont3">settings</i>
+            </div>
+            <div class="col-sm-9 col-lg-7 widget-right">
+              <div class="large">{{$zimatlan}}</div>
+              <div class="text-muted">AREA ZIMATLAN</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <div class="panel panel-orange panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-5 widget-left">
+              <i class="material-icons iconfont3">work</i>
+            </div>
+            <div class="col-sm-9 col-lg-7 widget-right">
+              <div class="large">{{$etla}}</div>
+              <div class="text-muted">AREA ETLA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <div class="panel panel-teal panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-5 widget-left">
+              <i class="material-icons iconfont3">place_ubication</i>
+            </div>
+            <div class="col-sm-9 col-lg-7 widget-right">
+              <div class="large">{{$ixtlan}}</div>
+              <div class="text-muted">AREA IXTLAN</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <div class="panel panel-red panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-5 widget-left">
+              <i class="material-icons iconfont3">perm_identity</i>
+            </div>
+            <div class="col-sm-9 col-lg-7 widget-right">
+              <div class="large">{{$tlacolula}}</div>
+              <div class="text-muted">AREA TLACOLULA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <div class="panel panel-red panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-5 widget-left">
+              <i class="material-icons iconfont3">perm_identity</i>
+            </div>
+            <div class="col-sm-9 col-lg-7 widget-right">
+              <div class="large">{{$miahuatlan}}</div>
+              <div class="text-muted">AREA MIAHUATLAN</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <div class="panel panel-red panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-5 widget-left">
+              <i class="material-icons iconfont3">perm_identity</i>
+            </div>
+            <div class="col-sm-9 col-lg-7 widget-right">
+              <div class="large">{{$ocotlan}}</div>
+              <div class="text-muted">AREA OCOTLAN</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <div class="panel panel-red panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-5 widget-left">
+              <i class="material-icons iconfont3">perm_identity</i>
+            </div>
+            <div class="col-sm-9 col-lg-7 widget-right">
+              <div class="large">{{$oaxaca}}</div>
+              <div class="text-muted">AREA OAXACA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <div class="panel panel-red panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-5 widget-left">
+              <i class="material-icons iconfont3">perm_identity</i>
+            </div>
+            <div class="col-sm-9 col-lg-7 widget-right">
+              <div class="large">{{$temporales}}</div>
+              <div class="text-muted">Temporales Oax.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!--/.row-->
       <!--
       <div class="col-lg-1 col-xs-6 col-md-1">
         <a href="" data-toggle="modal" data-target="#mymodal4"><button type="button" class="btn btn-primary" style="border-radius: 100%; width: 35px;height: 35px;"><i class="material-icons">search</i></button> </a>

@@ -2,7 +2,8 @@
 
 @section('css')
 {!!Html::style('media/css/jquery.dataTables.css');!!}
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
+{!!Html::style('css/bootstrap-datepicker.css');!!}
+
 @endsection
 
 @section('content')
@@ -94,7 +95,7 @@
 {!!Html::script('media/js/jquery.js');!!}
 {!!Html::script('media/js/jquery.dataTables.js');!!}
 {!!Html::script('media/js/dataTables.bootstrap.js');!!}
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+{!!Html::script('js/bootstrap-datepicker.js');!!}
 <script type="text/javascript">
 	
 $('.datepicker').datepicker({

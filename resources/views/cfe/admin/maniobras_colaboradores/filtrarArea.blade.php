@@ -13,7 +13,7 @@
     </div><!--/.row-->
 <div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">{{$maniobraReal}}</h1>
+				<h1 class="page-header">{{$areaReal}}</h1>
         
 			</div>
      <!-- <div class="col-lg-2">
@@ -27,7 +27,7 @@
           <a href="" data-toggle="modal" data-target="#mymodal4"><button class="btn btn-group btn-default btn-success"><i class="material-icons blue600">search</i></button></a>
         </div>
         <div class="btn-group" role="group">
-          <a href="{{route('colaborador.maniobra',$maniobraReal)}}"><button class="btn btn-group btn-default btn-warning"><i class="material-icons blue600">refresh</i></button></a>
+          <a href="{{route('colaborador.maniobra',$areaReal)}}"><button class="btn btn-group btn-default btn-warning"><i class="material-icons blue600">refresh</i></button></a>
           
       </div>
       </div>
@@ -41,7 +41,7 @@
       <h4 class="modal-title">Buscar</h4>
     </div>
     <div class="modal-body">
-      <form action="{{route('colaborador.maniobra',$maniobraReal)}}" method="GET">
+      <form action="{{route('colaborador.maniobra',$areaReal)}}" method="GET">
         
                            
                             
@@ -60,7 +60,7 @@
   
 </div>
 
-<input id="ocultoarea" type="hidden" value="{{$maniobraReal}}"></input>
+<input id="ocultoarea" type="hidden" value="{{$areaReal}}"></input>
 
 <div class="row">
 
@@ -70,7 +70,7 @@
     <div class="col-xs-4 col-sm-4 col-md-1 col-lg-1 col-xs-offset-8 col-sm-offset-8 col-md-offset-11 col-lg-offset-11">
         
 
-        <a href="{{route('excel.area',$maniobraReal)}}" data-toggle="tooltip" data-placement="left" title="Generar Excel">
+        <a href="{{route('excel.area',$areaReal)}}" data-toggle="tooltip" data-placement="left" title="Generar Excel">
     <i class="fa fa-file-excel-o fa-3x" style="color: green;" aria-hidden="true"></i>
    </a>
     </div>
@@ -156,7 +156,7 @@ $('#filtararea').DataTable({
         columns: [
             { data: 'zona'},
             { data: 'area',"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-            $(nTd).html("<a href='{{url('colaboradorcontroller/AreaDatos')}}/"+oData.area+"'>"+oData.area+"</a>");
+            $(nTd).html("<a href='{{url('colaboradorcontroller/Area')}}/"+oData.area+"'>"+oData.area+"</a>");
         }},
             { data: 'RPE',"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
             $(nTd).html("<a href='{{url('DetalleColaborador')}}/"+oData.RPE+"'>"+oData.RPE+"</a>");

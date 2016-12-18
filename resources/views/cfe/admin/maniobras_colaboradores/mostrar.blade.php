@@ -7,7 +7,7 @@
   <div class="row">
     <ol class="breadcrumb">
       <li><a href="#"><i class="material-icons blue600">Estadisticas</i></a></li>
-      <li class="active">Maniobras por áreas</li>
+      <li class="active">Maniobras</li>
     </ol>
   </div>
 
@@ -15,7 +15,7 @@
 
   <div class="row">
     <div class="col-lg-12">
-      <h2 class="page-header">Áreas de maniobras realizadas (mayor y menor)</h2>
+      <h2 class="page-header">Áreas de evaluaciones realizadas aprobadas (mayor y menor)</h2>
     </div>
   </div>
 
@@ -29,10 +29,10 @@
             @if(!$max_area)
               <div class="text-warning">Ninguna maniobra realizada</div>
             @else
-              <div class="text-info">ÁREA CON MAYOR MANIOBRAS
+              <div class="text-info">ÁREA CON MAYOR EVALUACIONES
               REALIZADAS</div>
               <div class="text-warning">{{$max_area->area}}</div>
-              <div class="text-success">Maniobras realizadas: {{$max_area->Numero}}</div>
+              <div class="text-success">Evaluaciones realizadas: {{$max_area->Numero}}</div>
             @endif
             </div>
           </div>
@@ -49,10 +49,10 @@
             @if(!$min_area)
               <div class="text-warning">Ninguna maniobra realizada</div>
             @else
-              <div class="text-info">ÁREA CON MENOR MANIOBRAS
+              <div class="text-info">ÁREA CON MENOR EVALUACIONES
               REALIZADAS</div>
               <div class="text-warning">{{$min_area->area}}</div>
-              <div class="text-success">Maniobras realizadas: {{$min_area->Numero}}</div>
+              <div class="text-success">Evaluaciones realizadas: {{$min_area->Numero}}</div>
             @endif
             </div>
           </div>
@@ -63,7 +63,7 @@
 
   <div class="row">
     <div class="col-lg-12">
-      <h2 class="page-header">Maniobra mayor realizada por área</h2>
+      <h2 class="page-header">Maniobra mayor realizada por área (Aprobadas)</h2>
     </div>
   </div>
 
@@ -238,7 +238,7 @@
 
   <div class="row">
     <div class="col-lg-12">
-      <h2 class="page-header">Maniobra menor realizada por área</h2>
+      <h2 class="page-header">Maniobra menor realizada por área (Aprobadas)</h2>
     </div>
   </div>
 

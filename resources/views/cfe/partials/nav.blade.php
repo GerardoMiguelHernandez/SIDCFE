@@ -83,6 +83,13 @@
 						</a>
 					</li>
 					<li>
+						<a class="" href="{{('/mostrar')}}">
+						<i class="fa fa-align-left" aria-hidden="true"></i>
+
+							 Estadísticas
+						</a>
+					</li>
+					<li>
 						<a class="" href="#">
 							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 3
 						</a>
@@ -127,6 +134,13 @@
 					<li>
 						<a class="" href="{{route('metas.index')}}">
 							<i class="material-icons">search</i>Ver Metas
+						</a>
+					</li>
+					<li>
+						<a class="" href="{{('/metas')}}">
+						<i class="fa fa-flag-checkered" aria-hidden="true"></i>
+
+							 Estadísticas de metas
 						</a>
 					</li>
 					<li>

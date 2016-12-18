@@ -82,8 +82,8 @@ class MetasControllers extends Controller
      */
     public function show($id)
     {
-        //
-    $enero=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','01')->count();
+        
+        /*$enero=Colaborador_ManiobraModel::whereYear('fecha_evaluacion',$id)->whereMonth('fecha_evaluacion','01')->all();/*
         $febrero=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','02')->count();
         $marzo=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','03')->count();
         $abril=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','04')->count();
@@ -95,8 +95,23 @@ class MetasControllers extends Controller
         $octubre=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','10')->count();
         $noviembre=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','11')->count();
         $diciembre=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','12')->count();
-
+*/
 //return view()->with->(['enero'=>$enero, 'febrero'=>$febrero, 'marzo'=>$marzo, 'abril'=>$abril, 'mayo'=>$mayo, 'junio'=>$junio, 'julio'=>$julio, 'agosto'=>$agosto, 'septiembre'=>$septiembre, 'octubre'=>$octubre, 'noviembre'=>$noviembre, 'diciembre'=>$diciembre]);
+        
+    }
+
+    public function metas(){
+        $anio = MetaModel::selectRaw('year')->groupBy('year')->orderBy('year','ASC')->get();
+        $area = Colaborador_ManiobraModel::selectRaw('area')->groupBy('area')->orderBy('area','ASC')->get();
+        
+        /*$eneroZimatlan=Colaborador_ManiobraModel::whereYear('fecha_evaluacion',$id)->whereMonth('fecha_evaluacion','01')->where('centro_trabajo','AREA ZIMATLAN')->get();*/
+
+        return view('cfe.admin.maniobras_colaboradores.metas2')->with(['anio'=>$anio, 'area'=>$area]);
+    }
+
+    public function metasconsulta($area, $year){
+        $enero=Colaborador_ManiobraModel::whereYear('fecha_evaluacion',$id)->whereMonth('fecha_evaluacion','01')->all();
+        return view('cfe.admin.maniobras_colaboradores.metas-area')->with(['']);
     }
 
     /**

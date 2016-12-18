@@ -388,47 +388,47 @@ $rpe = $id;
 
     public function max_maniobra()
     {
-        $max_zimatlan = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as numero')->where('area','AREA ZIMATLAN')->groupBy('maniobra')-> orderBy('numero','DES')->first();
+        $max_zimatlan = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as numero')->where('area','AREA ZIMATLAN')->where('calificacion','>=',95)->groupBy('maniobra')-> orderBy('numero','DES')->first();
 
-        $max_etla = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as numero')->where('area','AREA ETLA')->groupBy('maniobra')-> orderBy('numero','DES')->first();
+        $max_etla = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as numero')->where('area','AREA ETLA')->where('calificacion','>=',95)->groupBy('maniobra')-> orderBy('numero','DES')->first();
 
-        $max_ocotlan = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as numero')->where('area','AREA OCOTLAN')->groupBy('maniobra')-> orderBy('numero','DES')->first();
+        $max_ocotlan = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as numero')->where('area','AREA OCOTLAN')->where('calificacion','>=',95)->groupBy('maniobra')-> orderBy('numero','DES')->first();
 
-        $max_miahuatlan = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as numero')->where('area','AREA MIAHUATLAN')->groupBy('maniobra')-> orderBy('numero','DES')->first();
+        $max_miahuatlan = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as numero')->where('area','AREA MIAHUATLAN')->where('calificacion','>=',95)->groupBy('maniobra')-> orderBy('numero','DES')->first();
 
-        $max_tlacolula = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as numero')->where('area','AREA TLACOLULA')->groupBy('maniobra')-> orderBy('numero','DES')->first();
+        $max_tlacolula = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as numero')->where('area','AREA TLACOLULA')->where('calificacion','>=',95)->groupBy('maniobra')-> orderBy('numero','DES')->first();
 
-        $max_oaxaca = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as numero')->where('area','AREA OAXACA')->groupBy('maniobra')-> orderBy('numero','DES')->first();
+        $max_oaxaca = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as numero')->where('area','AREA OAXACA')->where('calificacion','>=',95)->groupBy('maniobra')-> orderBy('numero','DES')->first();
 
-        $max_temporales = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as numero')->where('area','Temporales Oax')->groupBy('maniobra')-> orderBy('numero','DES')->first();
+        $max_temporales = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as numero')->where('area','Temporales Oax')->where('calificacion','>=',95)->groupBy('maniobra')-> orderBy('numero','DES')->first();
 
-        $max_ixtlan = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as numero')->where('area','AREA IXTLAN')->groupBy('maniobra')-> orderBy('numero','DES')->first();
-
-
-
-
-        $min_zimatlan = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as Numero')->where('area','AREA ZIMATLAN')->groupBy('maniobra')-> orderBy('Numero','ASC')->first();
-
-        $min_etla = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as Numero')->where('area','AREA ETLA')->groupBy('maniobra')-> orderBy('Numero','ASC')->first();
-
-        $min_ocotlan = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as Numero')->where('area','AREA OCOTLAN')->groupBy('maniobra')-> orderBy('Numero','ASC')->first();
-
-        $min_miahuatlan = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as Numero')->where('area','AREA MIAHUATLAN')->groupBy('maniobra')-> orderBy('Numero','ASC')->first();
-
-        $min_tlacolula = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as Numero')->where('area','AREA TLACOLULA')->groupBy('maniobra')-> orderBy('Numero','ASC')->first();
-
-        $min_oaxaca = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as Numero')->where('area','AREA OAXACA')->groupBy('maniobra')-> orderBy('Numero','ASC')->first();
-
-        $min_temporales = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as Numero')->where('area','Temporales Oax')->groupBy('maniobra')-> orderBy('Numero','ASC')->first();
-
-        $min_ixtlan = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as numero')->where('area','AREA IXTLAN')->groupBy('maniobra')-> orderBy('Numero','ASC')->first();
+        $max_ixtlan = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as numero')->where('area','AREA IXTLAN')->where('calificacion','>=',95)->groupBy('maniobra')-> orderBy('numero','DES')->first();
 
 
 
 
-        $min_area = Colaborador_ManiobraModel::selectRaw('area, count(area) as Numero')->groupBy('area')-> orderBy('Numero','ASC')->first();
+        $min_zimatlan = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as Numero')->where('area','AREA ZIMATLAN')->where('calificacion','>=',95)->groupBy('maniobra')-> orderBy('Numero','ASC')->first();
 
-        $max_area = Colaborador_ManiobraModel::selectRaw('area, count(area) as Numero')->groupBy('area')-> orderBy('Numero','DES')->first();
+        $min_etla = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as Numero')->where('area','AREA ETLA')->where('calificacion','>=',95)->groupBy('maniobra')-> orderBy('Numero','ASC')->first();
+
+        $min_ocotlan = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as Numero')->where('area','AREA OCOTLAN')->where('calificacion','>=',95)->groupBy('maniobra')-> orderBy('Numero','ASC')->first();
+
+        $min_miahuatlan = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as Numero')->where('area','AREA MIAHUATLAN')->where('calificacion','>=',95)->groupBy('maniobra')-> orderBy('Numero','ASC')->first();
+
+        $min_tlacolula = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as Numero')->where('area','AREA TLACOLULA')->where('calificacion','>=',95)->groupBy('maniobra')-> orderBy('Numero','ASC')->first();
+
+        $min_oaxaca = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as Numero')->where('area','AREA OAXACA')->where('calificacion','>=',95)->groupBy('maniobra')-> orderBy('Numero','ASC')->first();
+
+        $min_temporales = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as Numero')->where('area','Temporales Oax')->where('calificacion','>=',95)->groupBy('maniobra')-> orderBy('Numero','ASC')->first();
+
+        $min_ixtlan = Colaborador_ManiobraModel::selectRaw('maniobra, count(maniobra) as numero')->where('area','AREA IXTLAN')->where('calificacion','>=',95)->groupBy('maniobra')-> orderBy('Numero','ASC')->first();
+
+
+
+
+        $min_area = Colaborador_ManiobraModel::selectRaw('area, count(area) as Numero')->where('calificacion','>=',95)->groupBy('area')-> orderBy('Numero','ASC')->first();
+
+        $max_area = Colaborador_ManiobraModel::selectRaw('area, count(area) as Numero')->where('calificacion','>=',95)->groupBy('area')-> orderBy('Numero','DES')->first();
 
 
         return view('cfe.admin.maniobras_colaboradores.mostrar')->with(['max_zimatlan'=>$max_zimatlan,'max_etla'=>$max_etla,'max_ocotlan'=>$max_ocotlan,'max_miahuatlan'=>$max_miahuatlan,'max_tlacolula'=>$max_tlacolula,'max_oaxaca'=>$max_oaxaca,'max_temporales'=>$max_temporales,'max_ixtlan'=>$max_ixtlan, 'min_zimatlan'=>$min_zimatlan,'min_etla'=>$min_etla,'min_ocotlan'=>$min_ocotlan,'min_miahuatlan'=>$min_miahuatlan,'min_tlacolula'=>$min_tlacolula,'min_oaxaca'=>$min_oaxaca,'min_temporales'=>$min_temporales,'min_ixtlan'=>$min_ixtlan,'min_area'=>$min_area,'max_area'=>$max_area]);

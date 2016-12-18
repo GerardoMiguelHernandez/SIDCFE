@@ -88,7 +88,10 @@ Route::get('colaboradorcontroller/maniobra/{maniobra1}','ColaboradorManiobraCont
 
 Route::get('mostrar', 'ColaboradorManiobraController@max_maniobra');
 
+Route::get('metas', 'MetasControllers@metas');
 
+Route::get('metas-area/{area}/{anio}',['uses' => 'MetasControllers@metasconsulta',
+    'as'=>'metas-ar']);
 
 
 

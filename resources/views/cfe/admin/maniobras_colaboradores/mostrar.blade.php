@@ -15,11 +15,11 @@
 
   <div class="row">
     <div class="col-lg-12">
-      <h2 class="page-header">Áreas de maniobras realizadas (mayor y menor)</h2>
+      <h2 class="page-header block-center">Áreas de maniobras realizadas (mayor y menor)</h2>
     </div>
   </div>
-
-      <div class="col-xs-12 col-md-6 col-lg-5">
+<div class="row">
+      <div class="col-xs-12 col-md-6 col-lg-6">
         <div class="panel panel-blue panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-4 widget-left">
@@ -32,14 +32,14 @@
               <div class="text-info">ÁREA CON MAYOR MANIOBRAS
               REALIZADAS</div>
               <div class="text-warning">{{$max_area->area}}</div>
-              <div class="text-success">Maniobras realizadas: {{$max_area->Numero}}</div>
+              <div class="text-success">Evaluaciones realizadas: {{$max_area->Numero}}</div>
             @endif
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-xs-12 col-md-6 col-lg-5">
+      <div class="col-xs-12 col-md-6 col-lg-6">
         <div class="panel panel-orange panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-4 widget-left">
@@ -74,7 +74,7 @@
     </div>
   </div>
 
-      <div class="col-xs-12 col-md-6 col-lg-5">
+      <div class="col-xs-12 col-md-6 col-lg-6">
         <div class="panel panel-teal panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-4 widget-left">
@@ -94,7 +94,7 @@
         </div>
       </div>
 
-      <div class="col-xs-12 col-md-6 col-lg-5">
+      <div class="col-xs-12 col-md-6 col-lg-6">
         <div class="panel panel-teal panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-4 widget-left">
@@ -114,7 +114,7 @@
         </div>
       </div>
 
-            <div class="col-xs-12 col-md-6 col-lg-5">
+            <div class="col-xs-12 col-md-6 col-lg-6">
         <div class="panel panel-teal panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-4 widget-left">
@@ -134,7 +134,7 @@
         </div>
       </div>
 
-                  <div class="col-xs-12 col-md-6 col-lg-5">
+                  <div class="col-xs-12 col-md-6 col-lg-6">
         <div class="panel panel-teal panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-4 widget-left">
@@ -154,7 +154,7 @@
         </div>
       </div>
 
-            <div class="col-xs-12 col-md-6 col-lg-5">
+            <div class="col-xs-12 col-md-6 col-lg-6">
         <div class="panel panel-teal panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-4 widget-left">
@@ -174,7 +174,7 @@
         </div>
       </div>
 
-      <div class="col-xs-12 col-md-6 col-lg-5">
+      <div class="col-xs-12 col-md-6 col-lg-6">
         <div class="panel panel-teal panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-4 widget-left">
@@ -194,7 +194,7 @@
         </div>
       </div>
 
-      <div class="col-xs-12 col-md-6 col-lg-5">
+      <div class="col-xs-12 col-md-6 col-lg-6">
         <div class="panel panel-teal panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-4 widget-left">
@@ -214,7 +214,7 @@
         </div>
       </div>
 
-      <div class="col-xs-12 col-md-6 col-lg-5">
+      <div class="col-xs-12 col-md-6 col-lg-6">
         <div class="panel panel-teal panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-4 widget-left">
@@ -249,7 +249,7 @@
     </div>
   </div>
 
-        <div class="col-xs-12 col-md-6 col-lg-5">
+        <div class="col-xs-12 col-md-6 col-lg-6">
         <div class="panel panel-red panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-4 widget-left">
@@ -269,7 +269,7 @@
         </div>
       </div>
 
-      <div class="col-xs-12 col-md-6 col-lg-5">
+      <div class="col-xs-12 col-md-6 col-lg-6">
         <div class="panel panel-red panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-4 widget-left">
@@ -289,7 +289,7 @@
         </div>
       </div>
 
-            <div class="col-xs-12 col-md-6 col-lg-5">
+            <div class="col-xs-12 col-md-6 col-lg-6">
         <div class="panel panel-red panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-4 widget-left">
@@ -309,7 +309,7 @@
         </div>
       </div>
 
-                  <div class="col-xs-12 col-md-6 col-lg-5">
+                  <div class="col-xs-12 col-md-6 col-lg-6">
         <div class="panel panel-red panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-4 widget-left">
@@ -329,7 +329,7 @@
         </div>
       </div>
 
-            <div class="col-xs-12 col-md-6 col-lg-5">
+            <div class="col-xs-12 col-md-6 col-lg-6">
         <div class="panel panel-red panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-4 widget-left">
@@ -349,7 +349,7 @@
         </div>
       </div>
 
-      <div class="col-xs-12 col-md-6 col-lg-5">
+      <div class="col-xs-12 col-md-6 col-lg-6">
         <div class="panel panel-red panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-4 widget-left">
@@ -369,7 +369,7 @@
         </div>
       </div>
 
-      <div class="col-xs-12 col-md-6 col-lg-5">
+      <div class="col-xs-12 col-md-6 col-lg-6">
         <div class="panel panel-red panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-4 widget-left">
@@ -389,7 +389,7 @@
         </div>
       </div>
 
-      <div class="col-xs-12 col-md-6 col-lg-5">
+      <div class="col-xs-12 col-md-6 col-lg-6">
         <div class="panel panel-red panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-4 widget-left">
@@ -407,6 +407,7 @@
             </div>
           </div>
         </div>
+      </div>
       </div>
 
 </div>

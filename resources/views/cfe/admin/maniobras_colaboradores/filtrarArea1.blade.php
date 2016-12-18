@@ -41,9 +41,10 @@
             <div class="col-sm-3 col-lg-5 widget-left">
               <i class="material-icons iconfont3">settings</i>
             </div>
-            <div class="col-sm-9 col-lg-7 widget-right">
-              <div class="large">{{$zimatlan}}</div>
-              <div class="text-muted">AREA ZIMATLAN</div>
+            <div class="col-sm-9 col-lg-7 widget-down">
+              <div class="text-primary">{{$zimatlan}}</div>
+              <div class="text-danger">AREA ZIMATLAN</div>
+              <div class="text-success">Promedio:{{number_format($zimatlan1->totalZimatlan,2)}}</div>
             </div>
           </div>
         </div>
@@ -54,9 +55,10 @@
             <div class="col-sm-3 col-lg-5 widget-left">
               <i class="material-icons iconfont3">work</i>
             </div>
-            <div class="col-sm-9 col-lg-7 widget-right">
-              <div class="large">{{$etla}}</div>
-              <div class="text-muted">AREA ETLA</div>
+            <div class="col-sm-9 col-lg-7 widget-down">
+              <div class="text-primary">{{$etla}}</div>
+              <div class="text-danger">AREA ETLA</div>
+              <div class="text-success">Promedio:{{number_format($etla1->totalEtla,2)}}</div>
             </div>
           </div>
         </div>
@@ -67,9 +69,10 @@
             <div class="col-sm-3 col-lg-5 widget-left">
               <i class="material-icons iconfont3">place_ubication</i>
             </div>
-            <div class="col-sm-9 col-lg-7 widget-right">
-              <div class="large">{{$ixtlan}}</div>
-              <div class="text-muted">AREA IXTLAN</div>
+            <div class="col-sm-9 col-lg-7 widget-down">
+              <div class="text-primary">{{$ixtlan}}</div>
+              <div class="text-danger">AREA IXTLAN</div>
+              <div class="text-success">Promedio:{{number_format($ixtlan1->totalIxtlan,2)}}</div>
             </div>
           </div>
         </div>
@@ -80,9 +83,10 @@
             <div class="col-sm-3 col-lg-5 widget-left">
               <i class="material-icons iconfont3">perm_identity</i>
             </div>
-            <div class="col-sm-9 col-lg-7 widget-right">
-              <div class="large">{{$tlacolula}}</div>
-              <div class="text-muted">AREA TLACOLULA</div>
+             <div class="col-sm-9 col-lg-7 widget-down">
+              <div class="text-primary">{{$ocotlan}}</div>
+              <div class="text-danger">AREA OCOTLAN</div>
+              <div class="text-success">Promedio:{{number_format($ocotlan1->totalOcotlan,2)}}</div>
             </div>
           </div>
         </div>
@@ -93,9 +97,10 @@
             <div class="col-sm-3 col-lg-5 widget-left">
               <i class="material-icons iconfont3">perm_identity</i>
             </div>
-            <div class="col-sm-9 col-lg-7 widget-right">
-              <div class="large">{{$miahuatlan}}</div>
-              <div class="text-muted">AREA MIAHUATLAN</div>
+           <div class="col-sm-9 col-lg-7 widget-down">
+              <div class="text-primary">{{$miahuatlan}}</div>
+              <div class="text-danger">AREA MIAHUATLAN</div>
+              <div class="text-success">Promedio:{{number_format($miahuatlan1->totalMiahuatlan,2)}}</div>
             </div>
           </div>
         </div>
@@ -106,9 +111,10 @@
             <div class="col-sm-3 col-lg-5 widget-left">
               <i class="material-icons iconfont3">perm_identity</i>
             </div>
-            <div class="col-sm-9 col-lg-7 widget-right">
-              <div class="large">{{$ocotlan}}</div>
-              <div class="text-muted">AREA OCOTLAN</div>
+            <div class="col-sm-9 col-lg-7 widget-down">
+              <div class="text-primary">{{$tlacolula}}</div>
+              <div class="text-danger">AREA TLACOLULA</div>
+              <div class="text-success">Promedio:{{ number_format($tlacolula1->totalTlacolula,2) }}</div>
             </div>
           </div>
         </div>
@@ -119,9 +125,10 @@
             <div class="col-sm-3 col-lg-5 widget-left">
               <i class="material-icons iconfont3">perm_identity</i>
             </div>
-            <div class="col-sm-9 col-lg-7 widget-right">
-              <div class="large">{{$oaxaca}}</div>
-              <div class="text-muted">AREA OAXACA</div>
+            <div class="col-sm-9 col-lg-7 widget-down">
+              <div class="text-primary">{{$oaxaca}}</div>
+              <div class="text-danger">AREA OAXACA</div>
+              <div class="text-success">Promedio:{{ number_format($oaxaca1->totalOaxaca,2) }}</div>
             </div>
           </div>
         </div>
@@ -132,9 +139,10 @@
             <div class="col-sm-3 col-lg-5 widget-left">
               <i class="material-icons iconfont3">perm_identity</i>
             </div>
-            <div class="col-sm-9 col-lg-7 widget-right">
-              <div class="large">{{$temporales}}</div>
-              <div class="text-muted">Temporales Oax.</div>
+             <div class="col-sm-9 col-lg-7 widget-down">
+              <div class="text-primary">{{$temporales}}</div>
+              <div class="text-danger">Temporales Oax.</div>
+              <div class="text-success">Promedio:{{ number_format($temporales1->totalTemporales,2) }}</div>
             </div>
           </div>
         </div>

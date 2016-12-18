@@ -12,7 +12,7 @@ use Carbon\Carbon;
 use App\Colaborador1 as Colaborador;
 use App\UsuarioModel;
 use App\User;
-
+use Illuminate\Support\Facades\DB;
 use Datatables;
 
 class ColaboradorManiobraController extends Controller
@@ -38,7 +38,11 @@ public function detalleColaboradorAjax($clave){
 //return Datatables::of(Colaborador_ManiobraModel::where('RPE',$RPE))->make(true);
 
 
-return Datatables::eloquent(Colaborador_ManiobraModel::where('RPE',$clave))->make(true);
+//return Datatables::eloquent(Colaborador_ManiobraModel::distinct()->where('RPE',$clave))->make(true);
+
+   // return Datatables::of(Colaborador_ManiobraModel::where('RPE',$clave))->make(true);
+
+    return Datatables::of(Colaborador_ManiobraModel::distinct()->where('RPE',$clave))->make(true);
 
 }
 
@@ -295,13 +299,92 @@ public function ver_maniobra_area($maniobra, $area){
 
   //$etla=AREA ETLA  
    $count_zimatlan = Colaborador_ManiobraModel::where('area','AREA ZIMATLAN')->where('maniobra',$area1)->count();
+
+   $zimatlan1= Colaborador_ManiobraModel::select(DB::raw('sum(calificacion) as totalZimatlan'))->where('area','AREA ZIMATLAN')->where('maniobra',$area1)->first();
+if($zimatlan1->totalZimatlan==null || $count_zimatlan==0){
+    $zimatlan1->totalZimatlan = 0;
+}
+else{
+$zimatlan1->totalZimatlan = $zimatlan1->totalZimatlan/$count_zimatlan;
+}
+
         $count_etla = Colaborador_ManiobraModel::where('area','AREA ETLA')->where('maniobra',$area1)->count();
+
+
+        $etla1= Colaborador_ManiobraModel::select(DB::raw('sum(calificacion) as totalEtla'))->where('area','AREA ETLA')->where('maniobra',$area1)->first();
+if($etla1->totalEtla==null || $count_etla==0){
+    $etla1->totalEtla = 0;
+}
+else{
+$etla1->totalEtla = $etla1->totalEtla/$count_etla;
+}
         $count_ixtlan = Colaborador_ManiobraModel::where('area','AREA IXTLAN')->where('maniobra',$area1)->count();
+
+$ixtlan1= Colaborador_ManiobraModel::select(DB::raw('sum(calificacion) as totalIxtlan'))->where('area','AREA IXTLAN')->where('maniobra',$area1)->first();
+if($ixtlan1->totalIxtlan==null || $count_ixtlan==0){
+    $ixtlan1->totalIxtlan = 0;
+}
+else{
+$ixtlan1->totalIxtlan = $ixtlan1->totalIxtlan/$count_ixtlan;
+}
+
+
         $count_ocotlan = Colaborador_ManiobraModel::where('area','AREA OCOTLAN')->where('maniobra',$area1)->count();
+
+
+$ocotlan1= Colaborador_ManiobraModel::select(DB::raw('sum(calificacion) as totalOcotlan'))->where('area','AREA OCOTLAN')->where('maniobra',$area1)->first();
+if($ocotlan1->totalOcotlan==null || $count_ocotlan==0){
+    $ocotlan1->totalOcotlan = 0;
+}
+else{
+$ocotlan1->totalOcotlan = $ocotlan1->totalOcotlan/$count_ocotlan;
+}
+
+
         $count_miahuatlan = Colaborador_ManiobraModel::where('area','AREA MIAHUATLAN')->where('maniobra',$area1)->count();
+
+$miahuatlan1= Colaborador_ManiobraModel::select(DB::raw('sum(calificacion) as totalMiahuatlan'))->where('area','AREA MIAHUATLAN')->where('maniobra',$area1)->first();
+if($miahuatlan1->totalMiahuatlan==null || $count_miahuatlan==0){
+    $miahuatlan1->totalMiahuatlan = 0;
+}
+else{
+$miahuatlan1->totalMiahuatlan = $miahuatlan1->totalMiahuatlan/$count_miahuatlan;
+}
+
+
+
+
         $count_tlacolula = Colaborador_ManiobraModel::where('area','AREA TLACOLULA')->where('maniobra',$area1)->count();
+
+$tlacolula1= Colaborador_ManiobraModel::select(DB::raw('sum(calificacion) as totalTlacolula'))->where('area','AREA TLACOLULA')->where('maniobra',$area1)->first();
+if($tlacolula1->totalTlacolula==null || $count_tlacolula==0){
+    $tlacolula1->totalTlacolula = 0;
+}
+else{
+$tlacolula1->totalTlacolula = $tlacolula1->totalTlacolula/$count_tlacolula;
+}
+
+
         $count_oaxaca = Colaborador_ManiobraModel::where('area','AREA OAXACA')->where('maniobra',$area1)->count();
+
+$oaxaca1= Colaborador_ManiobraModel::select(DB::raw('sum(calificacion) as totalOaxaca'))->where('area','AREA OAXACA')->where('maniobra',$area1)->first();
+if($oaxaca1->totalOaxaca==null || $count_oaxaca==0){
+    $oaxaca1->totalOaxaca = 0;
+}
+else{
+$oaxaca1->totalOaxaca = $oaxaca1->totalOaxaca/$count_oaxaca;
+}
+
         $count_temporales = Colaborador_ManiobraModel::where('area','Temporales Oax')->where('maniobra',$area1)->count();
+
+$temporales1= Colaborador_ManiobraModel::select(DB::raw('sum(calificacion) as totalTemporales'))->where('area','Temporales Oax')->where('maniobra',$area1)->first();
+if($temporales1->totalTemporales==null || $count_temporales==0){
+    $temporales1->totalTemporales = 0;
+}
+else{
+$temporales1->totalTemporales = $temporales1->totalTemporales/$count_temporales;
+}
+
 
 
 
@@ -311,7 +394,7 @@ public function ver_maniobra_area($maniobra, $area){
     $areaRe = $areas->first();
     $areaReal = $areaRe->maniobra;
     
-    return view('cfe.admin.maniobras_colaboradores.filtrarArea1')->with(['areas'=>$areas,'areaReal'=>$areaReal,'zimatlan'=>$count_zimatlan,'etla'=>$count_etla,'ixtlan'=>$count_ixtlan,'ocotlan'=>$count_ocotlan,'miahuatlan'=>$count_miahuatlan,'tlacolula'=>$count_tlacolula,'oaxaca'=>$count_oaxaca,'temporales'=>$count_temporales]);
+    return view('cfe.admin.maniobras_colaboradores.filtrarArea1')->with(['areas'=>$areas,'areaReal'=>$areaReal,'zimatlan'=>$count_zimatlan,'etla'=>$count_etla,'ixtlan'=>$count_ixtlan,'ocotlan'=>$count_ocotlan,'miahuatlan'=>$count_miahuatlan,'tlacolula'=>$count_tlacolula,'oaxaca'=>$count_oaxaca,'temporales'=>$count_temporales,'zimatlan1'=>$zimatlan1,'etla1'=>$etla1,'ixtlan1'=>$ixtlan1,'ocotlan1'=>$ocotlan1,'miahuatlan1'=>$miahuatlan1,'tlacolula1'=>$tlacolula1,'oaxaca1'=>$oaxaca1,'temporales1'=>$temporales1]);
 
      
 

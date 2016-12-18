@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Collection;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests;
 use App\Colaborador_ManiobraModel;
@@ -11,7 +12,7 @@ use Carbon\Carbon;
 use App\Colaborador1 as Colaborador;
 use App\UsuarioModel;
 use App\User;
-
+use Illuminate\Support\Facades\DB;
 use Datatables;
 
 class ColaboradorManiobraController extends Controller
@@ -37,7 +38,11 @@ public function detalleColaboradorAjax($clave){
 //return Datatables::of(Colaborador_ManiobraModel::where('RPE',$RPE))->make(true);
 
 
-return Datatables::eloquent(Colaborador_ManiobraModel::where('RPE',$clave))->make(true);
+//return Datatables::eloquent(Colaborador_ManiobraModel::distinct()->where('RPE',$clave))->make(true);
+
+   // return Datatables::of(Colaborador_ManiobraModel::where('RPE',$clave))->make(true);
+
+    return Datatables::of(Colaborador_ManiobraModel::distinct()->where('RPE',$clave))->make(true);
 
 }
 
@@ -115,7 +120,7 @@ public function uploadFile(){
 
 
        
-       $areas = Colaborador_ManiobraModel::orderBy('maniobra','DES')->select('maniobra')->distinct()->get();
+       $areas = Colaborador_ManiobraModel::orderBy('maniobra','ASC')->select('maniobra')->distinct()->get();
        $mani=Colaborador_ManiobraModel::search($request->input_buscar)->paginate(10);
        $count_areas =$zonas->count();
        $count_evaluaciones = Colaborador_ManiobraModel::all()->count();
@@ -219,7 +224,16 @@ $this->validate($request,[
          Excel::load($archivo, function($reader) {
 
             foreach ($reader->get() as $book) {
-                 $colaborador_maniobra_model  = new Colaborador_ManiobraModel();
+
+
+         $checar_datos=Colaborador_ManiobraModel::where('maniobra',$book->maniobra)->where('fecha_evaluacion',$book->fecha_evaluacion)->where('nombre',$book->nombre)->get();
+         
+         if($checar_datos!=null){       
+       
+        }
+        else{
+
+             $colaborador_maniobra_model  = new Colaborador_ManiobraModel();
         $colaborador_maniobra_model->zona =$book->zona;
         $colaborador_maniobra_model->area=$book->area;
         $colaborador_maniobra_model->RPE= $book->rpe;
@@ -229,7 +243,11 @@ $this->validate($request,[
 
         //$resultado = str_replace("a", "A", $cadena);
         $colaborador_maniobra_model->calificacion= $book->calificacion;
-        $colaborador_maniobra_model->save();
+       
+          
+        $colaborador_maniobra_model->save(); 
+          
+        }
     }
         }); 
 
@@ -277,13 +295,106 @@ public function ver_maniobra_area($maniobra, $area){
  public function ver_area1($area1){
 
 
+//querys para obtener el numero de evaluaciones por zona
 
-    $areas = Colaborador_ManiobraModel::where('maniobra',$area1)->paginate(10);
+  //$etla=AREA ETLA  
+   $count_zimatlan = Colaborador_ManiobraModel::where('area','AREA ZIMATLAN')->where('maniobra',$area1)->count();
+
+   $zimatlan1= Colaborador_ManiobraModel::select(DB::raw('sum(calificacion) as totalZimatlan'))->where('area','AREA ZIMATLAN')->where('maniobra',$area1)->first();
+if($zimatlan1->totalZimatlan==null || $count_zimatlan==0){
+    $zimatlan1->totalZimatlan = 0;
+}
+else{
+$zimatlan1->totalZimatlan = $zimatlan1->totalZimatlan/$count_zimatlan;
+}
+
+        $count_etla = Colaborador_ManiobraModel::where('area','AREA ETLA')->where('maniobra',$area1)->count();
+
+
+        $etla1= Colaborador_ManiobraModel::select(DB::raw('sum(calificacion) as totalEtla'))->where('area','AREA ETLA')->where('maniobra',$area1)->first();
+if($etla1->totalEtla==null || $count_etla==0){
+    $etla1->totalEtla = 0;
+}
+else{
+$etla1->totalEtla = $etla1->totalEtla/$count_etla;
+}
+        $count_ixtlan = Colaborador_ManiobraModel::where('area','AREA IXTLAN')->where('maniobra',$area1)->count();
+
+$ixtlan1= Colaborador_ManiobraModel::select(DB::raw('sum(calificacion) as totalIxtlan'))->where('area','AREA IXTLAN')->where('maniobra',$area1)->first();
+if($ixtlan1->totalIxtlan==null || $count_ixtlan==0){
+    $ixtlan1->totalIxtlan = 0;
+}
+else{
+$ixtlan1->totalIxtlan = $ixtlan1->totalIxtlan/$count_ixtlan;
+}
+
+
+        $count_ocotlan = Colaborador_ManiobraModel::where('area','AREA OCOTLAN')->where('maniobra',$area1)->count();
+
+
+$ocotlan1= Colaborador_ManiobraModel::select(DB::raw('sum(calificacion) as totalOcotlan'))->where('area','AREA OCOTLAN')->where('maniobra',$area1)->first();
+if($ocotlan1->totalOcotlan==null || $count_ocotlan==0){
+    $ocotlan1->totalOcotlan = 0;
+}
+else{
+$ocotlan1->totalOcotlan = $ocotlan1->totalOcotlan/$count_ocotlan;
+}
+
+
+        $count_miahuatlan = Colaborador_ManiobraModel::where('area','AREA MIAHUATLAN')->where('maniobra',$area1)->count();
+
+$miahuatlan1= Colaborador_ManiobraModel::select(DB::raw('sum(calificacion) as totalMiahuatlan'))->where('area','AREA MIAHUATLAN')->where('maniobra',$area1)->first();
+if($miahuatlan1->totalMiahuatlan==null || $count_miahuatlan==0){
+    $miahuatlan1->totalMiahuatlan = 0;
+}
+else{
+$miahuatlan1->totalMiahuatlan = $miahuatlan1->totalMiahuatlan/$count_miahuatlan;
+}
+
+
+
+
+        $count_tlacolula = Colaborador_ManiobraModel::where('area','AREA TLACOLULA')->where('maniobra',$area1)->count();
+
+$tlacolula1= Colaborador_ManiobraModel::select(DB::raw('sum(calificacion) as totalTlacolula'))->where('area','AREA TLACOLULA')->where('maniobra',$area1)->first();
+if($tlacolula1->totalTlacolula==null || $count_tlacolula==0){
+    $tlacolula1->totalTlacolula = 0;
+}
+else{
+$tlacolula1->totalTlacolula = $tlacolula1->totalTlacolula/$count_tlacolula;
+}
+
+
+        $count_oaxaca = Colaborador_ManiobraModel::where('area','AREA OAXACA')->where('maniobra',$area1)->count();
+
+$oaxaca1= Colaborador_ManiobraModel::select(DB::raw('sum(calificacion) as totalOaxaca'))->where('area','AREA OAXACA')->where('maniobra',$area1)->first();
+if($oaxaca1->totalOaxaca==null || $count_oaxaca==0){
+    $oaxaca1->totalOaxaca = 0;
+}
+else{
+$oaxaca1->totalOaxaca = $oaxaca1->totalOaxaca/$count_oaxaca;
+}
+
+        $count_temporales = Colaborador_ManiobraModel::where('area','Temporales Oax')->where('maniobra',$area1)->count();
+
+$temporales1= Colaborador_ManiobraModel::select(DB::raw('sum(calificacion) as totalTemporales'))->where('area','Temporales Oax')->where('maniobra',$area1)->first();
+if($temporales1->totalTemporales==null || $count_temporales==0){
+    $temporales1->totalTemporales = 0;
+}
+else{
+$temporales1->totalTemporales = $temporales1->totalTemporales/$count_temporales;
+}
+
+
+
+
+
+    $areas = Colaborador_ManiobraModel::where('maniobra',$area1)->get();
     //dd($d->count());
     $areaRe = $areas->first();
     $areaReal = $areaRe->maniobra;
     
-    return view('cfe.admin.maniobras_colaboradores.filtrarArea1')->with(['areas'=>$areas,'areaReal'=>$areaReal]);
+    return view('cfe.admin.maniobras_colaboradores.filtrarArea1')->with(['areas'=>$areas,'areaReal'=>$areaReal,'zimatlan'=>$count_zimatlan,'etla'=>$count_etla,'ixtlan'=>$count_ixtlan,'ocotlan'=>$count_ocotlan,'miahuatlan'=>$count_miahuatlan,'tlacolula'=>$count_tlacolula,'oaxaca'=>$count_oaxaca,'temporales'=>$count_temporales,'zimatlan1'=>$zimatlan1,'etla1'=>$etla1,'ixtlan1'=>$ixtlan1,'ocotlan1'=>$ocotlan1,'miahuatlan1'=>$miahuatlan1,'tlacolula1'=>$tlacolula1,'oaxaca1'=>$oaxaca1,'temporales1'=>$temporales1]);
 
      
 
@@ -348,7 +459,7 @@ public function ver_area($area, Request $request){
     //dd($maniobra);
     $areaRe = $areas->first();
     $areaReal = $areaRe->area;
-    return view('cfe.admin.maniobras_colaboradores.filtrarArea1')->with(['areas'=>$areas,'areaReal'=>$areaReal]);
+    return view('cfe.admin.maniobras_colaboradores.filtrarArea')->with(['areas'=>$areas,'areaReal'=>$areaReal]);
 
    }
 

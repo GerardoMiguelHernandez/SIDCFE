@@ -23,6 +23,8 @@
         <a href="" data-toggle="modal" data-target="#mymodal3"><button type="button" class="btn btn-primary" style="border-radius: 100%; width: 50px;height: 50px;"><i class="material-icons">add</i></button> </a>
       </div> -->
 		</div>
+
+    
     <!-- modal para subir el archivo -->
 
     <div class="modal fade" id="mymodal3" tabindex="-1" role="dialog" arialabelledby="mymodallabel">
@@ -60,7 +62,7 @@
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" arialabel="close"><span aria-hidden="true">&times;</span></button>
-      <h4 class="modal-title">Buscar</h4>
+      <h4 class="modal-title">Maniobras</h4>
     </div>
     <div class="modal-body">
       
@@ -68,7 +70,7 @@
       <ul class="list-group">
       @foreach($areas as $maniobras)
         <li class="list-group-item">
-        <a href="{{route('colaborador.maniobra',$maniobras->maniobra)}}">
+        <a href="{{route('maniobra.filtro',$maniobras->maniobra)}}">
         {{$maniobras->maniobra}} <i class="material-icons blue600">start</i></a>
         </li>
         @endforeach
@@ -91,7 +93,7 @@
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" arialabel="close"><span aria-hidden="true">&times;</span></button>
-      <h4 class="modal-title">Buscar</h4>
+      <h4 class="modal-title">Areas</h4>
     </div>
     <div class="modal-body">
       

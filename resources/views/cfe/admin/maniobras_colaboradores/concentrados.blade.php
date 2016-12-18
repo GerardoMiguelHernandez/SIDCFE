@@ -1,0 +1,12 @@
+@extends('cfe.main')
+@section('css')
+
+@endsection
+
+@section('content')
+
+@endsection
+
+@section('js')
+
+@endsection

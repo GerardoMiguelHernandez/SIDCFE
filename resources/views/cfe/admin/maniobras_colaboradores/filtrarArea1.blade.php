@@ -11,12 +11,143 @@
         <li class="active">Maniobras</li>
       </ol>
     </div><!--/.row-->
+
+    
+
+    
+
+
+   
+  
+ 
+
 <div class="row">
 
 			<div class="col-lg-10 col-xs-12 col-md-10">
 				<h2 class="page-header">{{$areaReal}}</h2>
 			</div>
+      <div class="col-lg-2 col-xs-12 col-md-2">
+        <h5 class="label label-primary">TOTAL:{{$areas->count()}}</h5>
       </div>
+      </div>
+
+
+
+
+      <div class="row">
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <div class="panel panel-blue panel-widget ">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-5 widget-left">
+              <i class="material-icons iconfont3">settings</i>
+            </div>
+            <div class="col-sm-9 col-lg-7 widget-down">
+              <div class="text-primary">{{$zimatlan}}</div>
+              <div class="text-danger">AREA ZIMATLAN</div>
+              <div class="text-success">Promedio:{{number_format($zimatlan1->totalZimatlan,2)}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <div class="panel panel-orange panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-5 widget-left">
+              <i class="material-icons iconfont3">work</i>
+            </div>
+            <div class="col-sm-9 col-lg-7 widget-down">
+              <div class="text-primary">{{$etla}}</div>
+              <div class="text-danger">AREA ETLA</div>
+              <div class="text-success">Promedio:{{number_format($etla1->totalEtla,2)}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <div class="panel panel-teal panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-5 widget-left">
+              <i class="material-icons iconfont3">place_ubication</i>
+            </div>
+            <div class="col-sm-9 col-lg-7 widget-down">
+              <div class="text-primary">{{$ixtlan}}</div>
+              <div class="text-danger">AREA IXTLAN</div>
+              <div class="text-success">Promedio:{{number_format($ixtlan1->totalIxtlan,2)}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <div class="panel panel-red panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-5 widget-left">
+              <i class="material-icons iconfont3">perm_identity</i>
+            </div>
+             <div class="col-sm-9 col-lg-7 widget-down">
+              <div class="text-primary">{{$ocotlan}}</div>
+              <div class="text-danger">AREA OCOTLAN</div>
+              <div class="text-success">Promedio:{{number_format($ocotlan1->totalOcotlan,2)}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <div class="panel panel-red panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-5 widget-left">
+              <i class="material-icons iconfont3">perm_identity</i>
+            </div>
+           <div class="col-sm-9 col-lg-7 widget-down">
+              <div class="text-primary">{{$miahuatlan}}</div>
+              <div class="text-danger">AREA MIAHUATLAN</div>
+              <div class="text-success">Promedio:{{number_format($miahuatlan1->totalMiahuatlan,2)}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <div class="panel panel-red panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-5 widget-left">
+              <i class="material-icons iconfont3">perm_identity</i>
+            </div>
+            <div class="col-sm-9 col-lg-7 widget-down">
+              <div class="text-primary">{{$tlacolula}}</div>
+              <div class="text-danger">AREA TLACOLULA</div>
+              <div class="text-success">Promedio:{{ number_format($tlacolula1->totalTlacolula,2) }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <div class="panel panel-red panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-5 widget-left">
+              <i class="material-icons iconfont3">perm_identity</i>
+            </div>
+            <div class="col-sm-9 col-lg-7 widget-down">
+              <div class="text-primary">{{$oaxaca}}</div>
+              <div class="text-danger">AREA OAXACA</div>
+              <div class="text-success">Promedio:{{ number_format($oaxaca1->totalOaxaca,2) }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <div class="panel panel-red panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-5 widget-left">
+              <i class="material-icons iconfont3">perm_identity</i>
+            </div>
+             <div class="col-sm-9 col-lg-7 widget-down">
+              <div class="text-primary">{{$temporales}}</div>
+              <div class="text-danger">Temporales Oax.</div>
+              <div class="text-success">Promedio:{{ number_format($temporales1->totalTemporales,2) }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!--/.row-->
       <!--
       <div class="col-lg-1 col-xs-6 col-md-1">
         <a href="" data-toggle="modal" data-target="#mymodal4"><button type="button" class="btn btn-primary" style="border-radius: 100%; width: 35px;height: 35px;"><i class="material-icons">search</i></button> </a>

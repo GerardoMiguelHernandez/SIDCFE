@@ -33,7 +33,7 @@ public function __construct()
 
 public function detalleColaboradorAjax($clave){
 
-    //$this->RPE=$RPE;
+    //$this->RPE=$RPE; //9512909122
 
 //return Datatables::of(Colaborador_ManiobraModel::where('RPE',$RPE))->make(true);
 
@@ -42,7 +42,7 @@ public function detalleColaboradorAjax($clave){
 
    // return Datatables::of(Colaborador_ManiobraModel::where('RPE',$clave))->make(true);
 
-    return Datatables::of(Colaborador_ManiobraModel::distinct()->where('RPE',$clave))->make(true);
+    return Datatables::of(Colaborador_ManiobraModel::distinct('fecha_evaluacion','calificacion','maniobra','zona','area','nombre')->where('RPE',$clave))->make(true);
 
 }
 
@@ -465,7 +465,7 @@ public function ver_area($area, Request $request){
 
    public function ver_area_maniobra($area, $maniobra){
      
-    $area_maniobra = Colaborador_ManiobraModel::where('area',$area)->where('maniobra',$maniobra)->paginate(10);
+    $area_maniobra = Colaborador_ManiobraModel::select('zona','area','RPE','nombre','fecha_evaluacion','calificacion')->where('area',$area)->where('maniobra',$maniobra)->distinct('zona','area','RPE','nombre','fecha_evaluacion')->paginate(10);
 
     $count_area_maniobra = Colaborador_ManiobraModel::where('area',$area)->where('maniobra',$maniobra)->count();
 

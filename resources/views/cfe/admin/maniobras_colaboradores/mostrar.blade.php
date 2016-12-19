@@ -15,11 +15,11 @@
 
   <div class="row">
     <div class="col-lg-12">
-<<<<<<< HEAD
+
       <h2 class="page-header">Áreas de evaluaciones realizadas aprobadas (mayor y menor)</h2>
-=======
+
       <h2 class="page-header block-center">Áreas de maniobras realizadas (mayor y menor)</h2>
->>>>>>> 8727cf1c692932b0c8f144041984bb178c2f1e7e
+
     </div>
   </div>
 <div class="row">

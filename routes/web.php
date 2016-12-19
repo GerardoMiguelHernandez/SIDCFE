@@ -16,6 +16,11 @@ Route::get('/', function () {
 });  */
 
 //vtW7XXs7Ju
+
+
+Route::get('Estadisticas/general',[
+    'uses'=>'Estadisticas@maniobras_areas',
+    'as'=>'Estadisticas.general']);
 Route::get('DetalleColaboradorAjax/{clave}','ColaboradorManiobraController@detalleColaboradorAjax');
 Route::get('DetalleColaborador/{id}','ColaboradoresController@show');
 

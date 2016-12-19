@@ -49,16 +49,7 @@
                 <td>{{$maniobra->fecha_evaluacion}}</td>
                 <td>{{$maniobra->maniobra}}</td>
                 <td>{{$maniobra->calificacion}}</td>
-                <td>
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="fa fa-pencil-square-o"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                  <a href="#" class="btn btn-danger">
-                                        <i class="fa fa-trash-o"></i>
-                                    </a>  
-                                </td>
+                
               </tr>
                
               @endforeach 

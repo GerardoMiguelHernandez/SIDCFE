@@ -142,6 +142,10 @@ console.log(area);
             $nrow.css({"background-color":"#1de9b6"});
             //console.log(aData.nombre+"calificacion"+aData.calificacion);
        } 
+       else if(aData.calificacion < 95){
+
+           $nrow.css({"background-color":"#ffcdd2"});
+       }
       
       //console.log(aData.calificacion +"nombre"+aData.nombre);
     },

@@ -90,8 +90,8 @@
 						</a>
 					</li>
 					<li>
-						<a class="" href="#">
-							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 3
+						<a class="" href="{{route('Estadisticas.general')}}">
+							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Concentrados
 						</a>
 					</li>
 				</ul>

@@ -83,35 +83,165 @@ class MetasControllers extends Controller
     public function show($id)
     {
         
-        /*$enero=Colaborador_ManiobraModel::whereYear('fecha_evaluacion',$id)->whereMonth('fecha_evaluacion','01')->all();/*
-        $febrero=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','02')->count();
-        $marzo=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','03')->count();
-        $abril=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','04')->count();
-        $mayo=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','05')->count();
-        $junio=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','06')->count();
-        $julio=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','07')->count();
-        $agosto=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','08')->count();
-        $septiembre=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','09')->count();
-        $octubre=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','10')->count();
-        $noviembre=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','11')->count();
-        $diciembre=Colaborador_ManiobraModel::whereYear('fecha_evaluacion','$anio')->whereMonth('fecha_evaluacion','12')->count();
-*/
-//return view()->with->(['enero'=>$enero, 'febrero'=>$febrero, 'marzo'=>$marzo, 'abril'=>$abril, 'mayo'=>$mayo, 'junio'=>$junio, 'julio'=>$julio, 'agosto'=>$agosto, 'septiembre'=>$septiembre, 'octubre'=>$octubre, 'noviembre'=>$noviembre, 'diciembre'=>$diciembre]);
-        
     }
 
     public function metas(){
         $anio = MetaModel::selectRaw('year')->groupBy('year')->orderBy('year','ASC')->get();
+
         $area = Colaborador_ManiobraModel::selectRaw('area')->groupBy('area')->orderBy('area','ASC')->get();
-        
-        /*$eneroZimatlan=Colaborador_ManiobraModel::whereYear('fecha_evaluacion',$id)->whereMonth('fecha_evaluacion','01')->where('centro_trabajo','AREA ZIMATLAN')->get();*/
 
         return view('cfe.admin.maniobras_colaboradores.metas2')->with(['anio'=>$anio, 'area'=>$area]);
     }
 
     public function metasconsulta($area, $year){
-        $enero=Colaborador_ManiobraModel::whereYear('fecha_evaluacion',$id)->whereMonth('fecha_evaluacion','01')->all();
-        return view('cfe.admin.maniobras_colaboradores.metas-area')->with(['']);
+
+        $ar = $area;
+
+        $eneroReal=Colaborador_ManiobraModel::selectRaw('area, count(area) as numero')->whereYear('fecha_evaluacion',$year)->whereMonth('fecha_evaluacion','01')->where('area',$area)->groupBy('area')->first();
+
+        $eneroProgramado=MetaModel::selectRaw('meta')->where('year',$year)->where('mes','ENERO')->where('centro_trabajo',$area)->first();
+
+        $febreroReal=Colaborador_ManiobraModel::selectRaw('area, count(area) as numero')->whereYear('fecha_evaluacion',$year)->whereMonth('fecha_evaluacion','02')->where('area',$area)->groupBy('area')->first();
+
+        $febreroProgramado=MetaModel::selectRaw('meta')->where('year',$year)->where('mes','FEBRERO')->where('centro_trabajo',$area)->first();
+        
+        $marzoReal=Colaborador_ManiobraModel::selectRaw('area, count(area) as numero')->whereYear('fecha_evaluacion',$year)->whereMonth('fecha_evaluacion','03')->where('area',$area)->groupBy('area')->first();
+
+        $marzoProgramado=MetaModel::selectRaw('meta')->where('year',$year)->where('mes','MARZO')->where('centro_trabajo',$area)->first();
+
+        $abrilReal=Colaborador_ManiobraModel::selectRaw('area, count(area) as numero')->whereYear('fecha_evaluacion',$year)->whereMonth('fecha_evaluacion','04')->where('area',$area)->groupBy('area')->first();
+
+        $abrilProgramado=MetaModel::selectRaw('meta')->where('year',$year)->where('mes','ABRIL')->where('centro_trabajo',$area)->first();        
+
+        $mayoReal=Colaborador_ManiobraModel::selectRaw('area, count(area) as numero')->whereYear('fecha_evaluacion',$year)->whereMonth('fecha_evaluacion','05')->where('area',$area)->groupBy('area')->first();
+
+        $mayoProgramado=MetaModel::selectRaw('meta')->where('year',$year)->where('mes','MAYO')->where('centro_trabajo',$area)->first();
+
+        $junioReal=Colaborador_ManiobraModel::selectRaw('area, count(area) as numero')->whereYear('fecha_evaluacion',$year)->whereMonth('fecha_evaluacion','06')->where('area',$area)->groupBy('area')->first();
+
+        $junioProgramado=MetaModel::selectRaw('meta')->where('year',$year)->where('mes','JUNIO')->where('centro_trabajo',$area)->first();
+
+        $julioReal=Colaborador_ManiobraModel::selectRaw('area, count(area) as numero')->whereYear('fecha_evaluacion',$year)->whereMonth('fecha_evaluacion','07')->where('area',$area)->groupBy('area')->first();
+
+        $julioProgramado=MetaModel::selectRaw('meta')->where('year',$year)->where('mes','JULIO')->where('centro_trabajo',$area)->first();
+
+        $agostoReal=Colaborador_ManiobraModel::selectRaw('area, count(area) as numero')->whereYear('fecha_evaluacion',$year)->whereMonth('fecha_evaluacion','08')->where('area',$area)->groupBy('area')->first();
+
+        $agostoProgramado=MetaModel::selectRaw('meta')->where('year',$year)->where('mes','AGOSTO')->where('centro_trabajo',$area)->first();
+
+        $septiembreReal=Colaborador_ManiobraModel::selectRaw('area, count(area) as numero')->whereYear('fecha_evaluacion',$year)->whereMonth('fecha_evaluacion','09')->where('area',$area)->groupBy('area')->first();
+
+        $septiembreProgramado=MetaModel::selectRaw('meta')->where('year',$year)->where('mes','SEPTIEMBRE')->where('centro_trabajo',$area)->first();
+
+        $octubreReal=Colaborador_ManiobraModel::selectRaw('area, count(area) as numero')->whereYear('fecha_evaluacion',$year)->whereMonth('fecha_evaluacion','10')->where('area',$area)->groupBy('area')->first();
+
+        $octubreProgramado=MetaModel::selectRaw('meta')->where('year',$year)->where('mes','OCTUBRE')->where('centro_trabajo',$area)->first();
+
+        $noviembreReal=Colaborador_ManiobraModel::selectRaw('area, count(area) as numero')->whereYear('fecha_evaluacion',$year)->whereMonth('fecha_evaluacion','11')->where('area',$area)->groupBy('area')->first();
+
+        $noviembreProgramado=MetaModel::selectRaw('meta')->where('year',$year)->where('mes','NOVIEMBRE')->where('centro_trabajo',$area)->first();
+
+        $diciembreReal=Colaborador_ManiobraModel::selectRaw('area, count(area) as numero')->whereYear('fecha_evaluacion',$year)->whereMonth('fecha_evaluacion','12')->where('area',$area)->groupBy('area')->first();
+
+        $diciembreProgramado=MetaModel::selectRaw('meta')->where('year',$year)->where('mes','DICIEMBRE')->where('centro_trabajo',$area)->first();
+
+
+        if(!$eneroReal || !$eneroProgramado){
+            $porcientoenero = 0;
+        }
+        else{
+            $porcientoenero = ($eneroReal->numero * 100)/($eneroProgramado->meta);
+        }
+
+        if(!$febreroReal || !$febreroProgramado){
+            $porcientofebrero = 0;
+        }
+        else{
+            $porcientofebrero = ($febreroReal->numero * 100)/($febreroProgramado->meta);
+        }
+
+        if(!$marzoReal || !$marzoProgramado){
+            $porcientomarzo = 0;    
+        }
+        else{
+            $porcientomarzo = ($marzoReal->numero * 100)/($marzoProgramado->meta);
+        }
+
+        if(!$abrilReal || !$abrilProgramado){
+            $porcientoabril = 0;    
+        }
+        else{
+            $porcientoabril = ($abrilReal->numero * 100)/($abrilProgramado->meta);    
+        }
+        
+        if(!$mayoReal || !$mayoProgramado){
+            $porcientomayo = 0;
+        }
+        else{
+            $porcientomayo = ($mayoReal->numero * 100)/($mayoProgramado->meta);    
+        }
+        
+        if(!$junioReal || !$junioProgramado){
+            $porcientojunio = 0;    
+        }
+        else{
+            $porcientojunio = ($junioReal->numero * 100)/($junioProgramado->meta);
+        }
+
+        if(!$julioReal || !$julioProgramado){
+            $porcientojulio = 0;
+        }
+        else{
+            $porcientojulio = ($julioReal->numero * 100)/($julioProgramado->meta);
+        }
+
+        if(!$agostoReal || !$agostoProgramado){
+            $porcientoagosto = 0;
+        }
+        else{
+            $porcientoagosto = ($agostoReal->numero * 100)/($agostoProgramado->meta);
+        }
+
+        if(!$septiembreReal || !$septiembreProgramado){
+            $porcientoseptiembre = 0;
+        }
+        else{
+            $porcientoseptiembre = ($septiembreReal->numero * 100)/($septiembreProgramado->meta);
+        }
+
+        if(!$octubreReal || !$octubreProgramado){
+            $porcientooctubre = 0;
+        }
+        else{
+            $porcientooctubre = ($octubreReal->numero * 100)/($octubreProgramado->meta);
+        }
+        if(!$noviembreReal || !$noviembreProgramado){
+            $porcientonoviembre = 0;
+        }
+        else{
+            $porcientonoviembre = ($noviembreReal->numero * 100)/($noviembreProgramado->meta);
+        }
+
+        if(!$diciembreReal || !$diciembreProgramado){
+            $porcientodiciembre = 0;
+        }
+        else{
+            $porcientodiciembre = ($diciembreReal->numero * 100)/($diciembreProgramado->meta);
+        }
+
+        $totalreal = Colaborador_ManiobraModel::selectRaw('count(area) as numero')->whereYear('fecha_evaluacion',$year)->where('area',$area)->groupBy('area')->first();      
+
+        $totalprogramado = MetaModel::selectRaw('sum(meta) as total')->where('year',$year)->where('centro_trabajo',$area)->first();
+
+        if(!$totalreal || !$totalprogramado || $totalprogramado->total == 0){
+            $porcientototal = 0;
+        }
+        else{
+            $porcientototal = ($totalreal->numero * 100)/($totalprogramado->total);
+        }
+
+
+        return view('cfe.admin.maniobras_colaboradores.metas-area')->with(['ar'=>$ar, 'eneroReal'=>$eneroReal, 'eneroProgramado'=>$eneroProgramado, 'febreroReal'=>$febreroReal, 'febreroProgramado'=>$febreroProgramado, 'marzoReal'=>$marzoReal, 'marzoProgramado'=>$marzoProgramado, 'abrilReal'=>$abrilReal, 'abrilProgramado'=>$abrilProgramado, 'mayoReal'=>$mayoReal, 'mayoProgramado'=>$mayoProgramado, 'junioReal'=>$junioReal, 'junioProgramado'=>$junioProgramado, 'julioReal'=>$julioReal, 'julioProgramado'=>$julioProgramado, 'agostoReal'=>$agostoReal, 'agostoProgramado'=>$agostoProgramado, 'septiembreReal'=>$septiembreReal, 'septiembreProgramado'=>$septiembreProgramado, 'octubreReal'=>$octubreReal, 'octubreProgramado'=>$octubreProgramado, 'noviembreReal'=>$noviembreReal, 'noviembreProgramado'=>$noviembreProgramado, 'diciembreReal'=>$diciembreReal, 'diciembreProgramado'=>$diciembreProgramado, 'porcientoenero'=>$porcientoenero, 'porcientofebrero'=>$porcientofebrero, 'porcientomarzo'=>$porcientomarzo, 'porcientoabril'=>$porcientoabril, 'porcientomayo'=>$porcientomayo, 'porcientojunio'=>$porcientojunio, 'porcientojulio'=>$porcientojulio, 'porcientoagosto'=>$porcientoagosto, 'porcientoseptiembre'=>$porcientoseptiembre, 'porcientooctubre'=>$porcientooctubre, 'porcientonoviembre'=>$porcientonoviembre, 'porcientodiciembre'=>$porcientodiciembre, 'totalprogramado'=>$totalprogramado, 'totalreal'=>$totalreal, 'porcientototal'=>$porcientototal]);
     }
 
     /**

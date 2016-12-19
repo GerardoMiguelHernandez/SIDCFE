@@ -46,7 +46,7 @@
               @else
                 <div class="text-warning">Programados: {{$eneroProgramado->meta}}</div>
                 <div class="text-warning">Reales: {{$eneroReal->numero}}</div>
-                <div class="text-warning">{{$porcientoenero}}%</div>
+                <div class="text-warning">${{number_format($porcientoenero,2)}}%</div>
               @endif
             @endif
             </div>
@@ -84,7 +84,7 @@
               @else
                 <div class="text-warning">Programados: {{$febreroProgramado->meta}}</div>
                 <div class="text-warning">Reales: {{$febreroReal->numero}}</div>
-                <div class="text-warning">{{$porcientofebrero}}%</div>
+                <div class="text-warning">${{number_format($porcientofebrero,2)}}%</div>
               @endif
             @endif
             </div>
@@ -122,7 +122,7 @@
               @else
                 <div class="text-warning">Programados: {{$marzoProgramado->meta}}</div>
                 <div class="text-warning">Reales: {{$marzoReal->numero}}</div>
-                <div class="text-warning">{{$porcientomarzo}}%</div>
+                <div class="text-warning">${{number_format($porcientomarzo,2)}}%</div>
               @endif
             @endif
             </div>
@@ -160,7 +160,7 @@
               @else
                 <div class="text-warning">Programados: {{$abrilProgramado->meta}}</div>
                 <div class="text-warning">Reales: {{$abrilReal->numero}}</div>
-                <div class="text-warning">{{$porcientoabril}}%</div>
+                <div class="text-warning">${{number_format($porcientoabril,2)}}%</div>
               @endif
             @endif
             </div>
@@ -198,7 +198,7 @@
               @else
                 <div class="text-warning">Programados: {{$mayoProgramado->meta}}</div>
                 <div class="text-warning">Reales: {{$mayoReal->numero}}</div>
-                <div class="text-warning">{{$porcientomayo}}%</div>
+                <div class="text-warning">${{number_format($porcientomayo,2)}}%</div>
               @endif
             @endif
             </div>
@@ -236,7 +236,7 @@
               @else
                 <div class="text-warning">Programados: {{$junioProgramado->meta}}</div>
                 <div class="text-warning">Reales: {{$junioReal->numero}}</div>
-                <div class="text-warning">{{$porcientojunio}}%</div>
+                <div class="text-warning">${{number_format($porcientojunio,2)}}%</div>
               @endif
             @endif
             </div>
@@ -274,7 +274,7 @@
               @else
                 <div class="text-warning">Programados: {{$julioProgramado->meta}}</div>
                 <div class="text-warning">Reales: {{$julioReal->numero}}</div>
-                <div class="text-warning">{{$porcientojulio}}%</div>
+                <div class="text-warning">${{number_format($porcientojulio,2)}}%</div>
               @endif
             @endif
             </div>
@@ -312,7 +312,7 @@
               @else
                 <div class="text-warning">Programados: {{$agostoProgramado->meta}}</div>
                 <div class="text-warning">Reales: {{$agostoReal->numero}}</div>
-                <div class="text-warning">{{$porcientoagosto}}%</div>
+                <div class="text-warning">${{number_format($porcientoagosto,2)}}%</div>
               @endif
             @endif
             </div>
@@ -350,7 +350,7 @@
               @else
                 <div class="text-warning">Programados: {{$septiembreProgramado->meta}}</div>
                 <div class="text-warning">Reales: {{$septiembreReal->numero}}</div>
-                <div class="text-warning">{{$porcientoseptiembre}}%</div>
+                <div class="text-warning">${{number_format($porcientoseptiembre,2)}}%</div>
               @endif
             @endif
             </div>
@@ -388,7 +388,7 @@
               @else
                 <div class="text-warning">Programados: {{$octubreProgramado->meta}}</div>
                 <div class="text-warning">Reales: {{$octubreReal->numero}}</div>
-                <div class="text-warning">{{$porcientooctubre}}%</div>
+                <div class="text-warning">${{number_format($porcientooctubre,2)}}%</div>
               @endif
             @endif
             </div>
@@ -426,7 +426,7 @@
               @else
                 <div class="text-warning">Programados: {{$noviembreProgramado->meta}}</div>
                 <div class="text-warning">Reales: {{$noviembreReal->numero}}</div>
-                <div class="text-warning">{{$porcientonoviembre}}%</div>
+                <div class="text-warning">${{number_format($porcientonoviembre,2)}}%</div>
               @endif
             @endif
             </div>
@@ -464,7 +464,7 @@
               @else
                 <div class="text-warning">Programados: {{$diciembreProgramado->meta}}</div>
                 <div class="text-warning">Reales: {{$diciembreReal->numero}}</div>
-                <div class="text-warning">{{$porcientodiciembre}}%</div>
+                <div class="text-warning">${{number_format($porcientodiciembre,2)}}%</div>
               @endif
             @endif
             </div>
@@ -489,7 +489,7 @@
         @else
           <h4 class="page-header">Total Reales: {{$totalreal->numero}}</h4>
         @endif
-        <h4 class="page-header">Porcentaje General: {{$porcientototal}}%</h4>
+        <h4 class="page-header">Porcentaje General: ${{number_format($porcientototal,2)}}%</h4>
       </div>
   </div>
 

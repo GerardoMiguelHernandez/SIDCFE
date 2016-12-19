@@ -24,18 +24,18 @@
                 <label for="sel1">Elige año:</label>
                 <select class="form-control" name="fecha" id="anio">
                 @foreach($anio as $an)
-                  <option value="{{$an}}">{{$an->year}}</option>
+                  <option value="{{$an->year}}">{{$an->year}}</option>
                 @endforeach  
                 </select>
   </div>
 </div>
 
-<div class="col-xs-3 col-sm-3 col-md-4 col-lg-2">
+<div class="col-xs-3 col-sm-3 col-md-4 col-lg-3">
    <div class="form-group">
                 <label for="sel1">Elige área:</label>
                 <select class="form-control" name="lugar" id="area">
                 @foreach($area as $ar)
-                  <option value="{{$ar}}">{{$ar->area}}</option>
+                  <option value="{{$ar->area}}">{{$ar->area}}</option>
                 @endforeach  
                 </select>
   </div>
@@ -44,8 +44,9 @@
 <div class="col-xs-3 col-sm-3 col-md-4 col-lg-4" style="padding-top: 23px;">
   <div class="row">
     <div class="col-sm-3">
-      <a href="{{route('metas-ar',[$ar->area,$an->year])}}">
-      <button class="btn btn-primary" id="buscar">Buscar</button></a>
+      
+      <button class="btn btn-primary" id="buscar">Buscar</button>
+
     </div>
   </div>
 </div>
@@ -54,3 +55,25 @@
 
 </div>
      
+@endsection
+
+@section('js')
+
+{!!Html::script('media/js/jquery.js');!!}
+
+<script type="text/javascript">
+
+
+    $('#buscar').click(function(e){
+          e.preventDefault();
+           var fec=$('#anio').val();
+           var area=$('#area').val();
+           window.location.href = "{{url('metas-area')}}/"+area+"/"+fec+"";
+
+/*$("#prueba").attr("href", "{{url('metas-area')}}/"+area+"/"+fec+"");
+console.log(area);*/
+console.log(area);
+  });
+</script>
+
+@endsection

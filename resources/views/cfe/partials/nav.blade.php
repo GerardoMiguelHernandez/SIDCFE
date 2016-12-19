@@ -39,7 +39,7 @@
 		
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 	    <section class="success">
-		<img src="/img/cfe.png" class="nav-brand" style="width: 100%;">
+<img src="/img/cfe.png" class="nav-brand" style="width: 100%;">
 		</section>
 		<br>
 		<ul class="nav menu">

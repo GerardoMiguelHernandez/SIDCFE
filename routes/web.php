@@ -97,7 +97,8 @@ Route::get('mostrar', 'ColaboradorManiobraController@max_maniobra');
 
 Route::get('metas', 'MetasControllers@metas');
 
-Route::get('metas-area/{area}/{anio}',['uses' => 'MetasControllers@metasconsulta',
+Route::get('metas-area/{anio}',[
+    'uses' => 'MetasControllers@metasconsulta',
     'as'=>'metas-ar']);
 
 
@@ -109,7 +110,6 @@ Route::get('colaboradorcontroller/AreaDatos/{areadatos}',[
     'as'=>'ruta.areas']);
 
 Route::get('colaboradorcontroller/cachar/{area23}','ColaboradorManiobraController@areadatosobtener');
-
 
 Route::get('colaboradorcontroller/Area/{area}',[
      'uses' => 'ColaboradorManiobraController@ver_area',

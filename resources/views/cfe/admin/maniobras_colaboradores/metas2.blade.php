@@ -1,5 +1,6 @@
 @extends('cfe.main')
 @section('css')
+{!!Html::style('media/css/jquery.dataTables.css');!!}
 @endsection
 
 @section('content')
@@ -30,16 +31,6 @@
   </div>
 </div>
 
-<div class="col-xs-3 col-sm-3 col-md-4 col-lg-3">
-   <div class="form-group">
-                <label for="sel1">Elige área:</label>
-                <select class="form-control" name="lugar" id="area">
-                @foreach($area as $ar)
-                  <option value="{{$ar->area}}">{{$ar->area}}</option>
-                @endforeach  
-                </select>
-  </div>
-</div>
 
 <div class="col-xs-3 col-sm-3 col-md-4 col-lg-4" style="padding-top: 23px;">
   <div class="row">
@@ -52,6 +43,7 @@
 </div>
 
 </div>
+
 
 </div>
      
@@ -67,12 +59,11 @@
     $('#buscar').click(function(e){
           e.preventDefault();
            var fec=$('#anio').val();
-           var area=$('#area').val();
-           window.location.href = "{{url('metas-area')}}/"+area+"/"+fec+"";
+           window.location.href = "{{url('metas-area')}}/"+fec+"";
 
 /*$("#prueba").attr("href", "{{url('metas-area')}}/"+area+"/"+fec+"");
 console.log(area);*/
-console.log(area);
+
   });
 </script>
 

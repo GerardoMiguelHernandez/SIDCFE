@@ -61,7 +61,7 @@ class UsuariosController extends Controller
         //$user->save();
 
         if($request->ajax()){
-$user = new User();
+$ user = new User();
        $user->name=$request->nombre;
        $user->email=$request->email;
        $user->password=$request->password;

@@ -27,6 +27,7 @@ class ColaboradorManiobraController extends Controller
 public function __construct()
     {
    
+   Carbon::setlocale('es');
     }
 
 
@@ -224,14 +225,14 @@ $this->validate($request,[
          Excel::load($archivo, function($reader) {
 
             foreach ($reader->get() as $book) {
-
+        /*
 
          $checar_datos=Colaborador_ManiobraModel::where('maniobra',$book->maniobra)->where('fecha_evaluacion',$book->fecha_evaluacion)->where('nombre',$book->nombre)->get();
          
          if($checar_datos!=null){       
        
         }
-        else{
+        else{ */
 
              $colaborador_maniobra_model  = new Colaborador_ManiobraModel();
         $colaborador_maniobra_model->zona =$book->zona;
@@ -247,7 +248,7 @@ $this->validate($request,[
           
         $colaborador_maniobra_model->save(); 
           
-        }
+       // }
     }
         }); 
 

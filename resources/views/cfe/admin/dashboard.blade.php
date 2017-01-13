@@ -161,10 +161,10 @@ $.getJSON( "{{route('colaboradorcontroller.create')}}", function(json) {
 
   })
   .done(function() {
-    alert( "También sirve para saber que funcionó" );
+   // alert( "También sirve para saber que funcionó" );
   })
   .fail(function() {
-    alert( "Ha ocurrido un error" );
+    //alert( "Ha ocurrido un error" );
   });
 
 

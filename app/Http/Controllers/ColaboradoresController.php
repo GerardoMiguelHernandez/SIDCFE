@@ -68,6 +68,8 @@ class ColaboradoresController extends Controller
     {
 
     $picture = Colaborador::find($id);
+
+    
     //dd($id);
     //$pic = Image::make($picture->foto);
     //$response = Response::make($pic->encode('jpeg'));

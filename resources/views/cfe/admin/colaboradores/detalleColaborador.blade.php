@@ -142,10 +142,10 @@
  	<i class="fa fa-file-excel-o fa-3x" aria-hidden="true"></i>
  	</a> 
              
-
-<div class="table-responsive table-hover" style="margin-top: 5px;">
+<div class="table-responsive table-hover">
 <table id="detallecolaborador" class="table table-bordered" width="100%" cellspacing="0">
         <thead>
+        <div class="page-header"><h1><small>Historial de Colaborador</small></h1></div>
             <tr class="success">
                 <th>zona</th>
                 <th>area</th>
@@ -198,7 +198,7 @@ console.log(rpe);
 $('#detallecolaborador').DataTable({
 
 
-  
+      //"lengthMenu": [["All", 5, 50, -1], ["All"]],
       "language": {
             "search":         "Buscar:",
     "paginate": {
@@ -207,7 +207,8 @@ $('#detallecolaborador').DataTable({
         "next":       "Siguiente",
         "previous":   "Anterior"
     },
-            "lengthMenu": "Ver _MENU_ registros por pagina",
+            //"lengthMenu": "Ver _MENU_ registros por pagina",
+            "lengthMenu": "Listado de todos los registros",
             "zeroRecords": "0 coincidencias",
             "info":           "Mostrando _START_ a _END_ de _TOTAL_ registros",
     "infoEmpty":      "Showing 0 to 0 of 0 registros",
@@ -215,6 +216,7 @@ $('#detallecolaborador').DataTable({
         },
         processing: true,
         serverSide: true,
+        "paginate": false,
         ajax: "{{url('DetalleColaboradorAjax')}}/"+rpe+"",
 
 "fnCreatedRow": function( nRow, aData, iDataIndex ) {
@@ -222,7 +224,7 @@ $('#detallecolaborador').DataTable({
         var $index = $(iDataIndex);
         var $nrow = $(nRow);
         //$nrow.css({"background-color":"#1de9b6"});
-       if ( aData.calificacion == 100)
+       if ( aData.calificacion >= 95)
        {
             //console.log("es 100");
             $nrow.css({"background-color":"#1de9b6"});

@@ -51,6 +51,52 @@ class MetasControllers extends Controller
     public function store(Request $request)
     {
 
+
+
+
+if($request->ajax()){
+           $meses = $request->meses;
+           $metas = $request->metas;
+           $personal = $request->personal;
+           $year = $request->year;
+           $centro = $request->centro;
+
+
+$max = sizeof($metas);
+
+
+for($i = 0; $i < $max;$i++)
+{
+//$datos[$i] = $metas[$i];
+/*
+$checar = MetaModel::where('mes',$mes[$i])->where('year',$year)->get();
+
+if($checar==null){*/
+
+$meta = new MetaModel();
+$meta->mes = $meses[$i];
+$meta->personalAsignado=$personal[$i];
+$meta->centro_trabajo=$centro;
+$meta->meta=$metas[$i];
+$meta->year=$year;
+$meta->save();
+//return response()->json($meta);
+/*}
+
+else{
+
+
+}*/
+
+}
+
+           
+
+return response()->json($meta);
+         
+
+        } 
+/*
         $this->validate($request, [
         'mes' => 'required',
         'personalAsignado'=>'required',
@@ -59,8 +105,7 @@ class MetasControllers extends Controller
         'year' => 'required',
         ]);
 
-        //dd($request->all());
-        //
+       
         
         $meta = new MetaModel();
         $meta->mes = $request->mes;
@@ -72,6 +117,11 @@ class MetasControllers extends Controller
         
         return redirect()->action('MetasControllers@index');
 
+        */
+
+
+
+
     }
 
     /**
@@ -82,6 +132,10 @@ class MetasControllers extends Controller
      */
     public function show($id)
     {
+         $meta = MetaModel::find($id);
+
+     return response()->json($meta);
+
         
     }
 
@@ -276,5 +330,13 @@ class MetasControllers extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+
+    public function mandarDatos($id){
+
+
+
     }
 }

@@ -16,49 +16,9 @@
 				<h1 class="page-header">{{$areaReal}}</h1>
         
 			</div>
-     <!-- <div class="col-lg-2">
-        <a href="" data-toggle="modal" data-target="#mymodal4"><button type="button" class="btn btn-primary" style="border-radius: 100%; width: 35px;height: 35px;"><i class="material-icons">search</i></button> </a>
-      </div> -->
+    
 		</div>
-		<!-- <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 col-sm-offset-6 col-xs-offset-6 col-md-offset-10">
-      <div class="btn-group btn-group-justified" role="group" aria-label="..">
-      <div class="btn-group" role="group">
-          <a href="" data-toggle="modal" data-target="#mymodal4"><button class="btn btn-group btn-default btn-success"><i class="material-icons blue600">search</i></button></a>
-        </div>
-        <div class="btn-group" role="group">
-          <a href="{{route('colaborador.maniobra',$areaReal)}}"><button class="btn btn-group btn-default btn-warning"><i class="material-icons blue600">refresh</i></button></a>
-          
-      </div>
-      </div>
-		</div>
-    </div>   -->
-		<div class="modal fade" id="mymodal4" tabindex="-1" role="dialog" arialabelledby="mymodallabel">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" arialabel="close"><span aria-hidden="true">&times;</span></button>
-      <h4 class="modal-title">Buscar</h4>
-    </div>
-    <div class="modal-body">
-      <form action="{{route('colaborador.maniobra',$areaReal)}}" method="GET">
-        
-                           
-                            
-                                <input id="input_buscar1" type="text" class="form-control" name="input_buscar1" required>
-                                <button class="btn btn-primary" type="submit">save changes</button>
-
-                                
-                            
-                        
-
-      </form>
-
-    </div>
-  </div>
-</div>
-  
-</div>
+		
 
 <input id="ocultoarea" type="hidden" value="{{$areaReal}}"></input>
 

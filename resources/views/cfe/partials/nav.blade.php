@@ -43,10 +43,12 @@
 		</section>
 		<br>
 		<ul class="nav menu">
-			<li><a href="{{url('/hola1')}}">
+
+			<li><a href="{{route('colaboradorcontroller.index')}}">
 			<i class="fa fa-tachometer fa-2x"></i>   Panel Principal</a></li>
+			<!--
 			<li><a href=""><i class="fa fa-briefcase fa-2x"></i>   SICAP</a></li>
-			<li><a href="{{route('colaboradorcontroller.index')}}"><i class="fa fa-chain fa-2x"></i> Alen3D</a></li>
+			<li><a href="{{route('colaboradorcontroller.index')}}"><i class="fa fa-chain fa-2x"></i> Alen3D</a></li> -->
 			
 			
 			<li class="parent ">
@@ -96,7 +98,7 @@
 					</li>
 				</ul>
 			</li>
-			
+			<!--
 			<li class="parent ">
 				<a href="#">
 					<span data-toggle="collapse" href="#sub-item-1">
@@ -121,7 +123,7 @@
 						</a>
 					</li>
 				</ul>
-			</li>
+			</li> -->
 			@if (Auth::user()->email=='9B515')
 			<li class="parent ">
 				<a href="{{route('metas.index')}}">
@@ -154,7 +156,7 @@
 			</li>
 			@endif
 			<li role="presentation" class="divider"></li>
-			<li><a href="login.html"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Login Page</a></li>
+			
 		</ul>
 
 	</div><!--/.sidebar-->

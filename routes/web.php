@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('bootstrapTemplate.main');
 });  */
 
-//vtW7XXs7Ju
+//vtW7XXs7Juro
 
 
 Route::get('Estadisticas/general',[
@@ -39,10 +39,16 @@ Route::get('uploadfile',[
     'uses'=>'ColaboradorManiobraController@uploadFile',
     'as'=>'uploadfile']); 
 
+/*
 Route::get('/hola1',function(){
 
 	return view('cfe.admin.dashboard');
-});
+}); */
+
+
+Route::get('/hola1',[
+    'uses'=>'ColaboradorManiobraController@index',
+    'as'=>'hola1']);
 
 Route::get('/',[
 	'uses'=>'Welcome@Bienvenido',
@@ -61,8 +67,8 @@ Route::resource('usuarios','UsuariosController');
 Route::resource('colaborador','ColaboradoresController');
 
 Route::get('colaboradorcontroller/Maniobras/{maniobra}',[
-     'uses' => 'ColaboradorManiobraController@ver_maniobra',
-     'as'=>'colaborador.maniobra']);
+   'uses' => 'ColaboradorManiobraController@ver_maniobra',
+'as'=>'colaborador.maniobra']);
 //ruta para filtrar por maniobra ademas de area
 Route::get('colaboradorcontroller/Maniobras/{maniobra111}/{area111}',[
      'uses' => 'ColaboradorManiobraController@retornardaticos',

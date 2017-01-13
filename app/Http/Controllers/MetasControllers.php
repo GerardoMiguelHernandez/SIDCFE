@@ -8,6 +8,7 @@ use App\Http\Requests\MetasRequest;
 use App\MetaModel;
 use App\Colaborador_ManiobraModel;
 //use App\MetaModel;
+use Datatables;
 
 class MetasControllers extends Controller
 {
@@ -147,7 +148,7 @@ return response()->json($meta);
         return view('cfe.admin.maniobras_colaboradores.metas2')->with(['anio'=>$anio, 'area'=>$area]);
     }
 
-    public function metasconsulta($area, $year){
+    public function metasconsulta2($area, $year){
 
         $ar = $area;
 
@@ -332,6 +333,7 @@ return response()->json($meta);
         //
     }
 
+<<<<<<< HEAD
 
 
     public function mandarDatos($id){
@@ -339,4 +341,171 @@ return response()->json($meta);
 
 
     }
+=======
+    public function metasconsulta($year){
+
+        $areas = Colaborador_ManiobraModel::select('area')->distinct()->get();
+        $ye = $year;
+        $meses = array('Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre');
+
+        for($i = 1; $i <= 12; $i++){
+            //Reales
+            $metaEtla[] = Colaborador_ManiobraModel::where('area','AREA ETLA')->whereYear('fecha_evaluacion',$year)->whereMonth('fecha_evaluacion',$i)->count();
+            $metaIxtlan[] = Colaborador_ManiobraModel::where('area','AREA IXTLAN')->whereYear('fecha_evaluacion',$year)->whereMonth('fecha_evaluacion',$i)->count();
+            $metaMiahuatlan[] = Colaborador_ManiobraModel::where('area','AREA MIAHUATLAN')->whereYear('fecha_evaluacion',$year)->whereMonth('fecha_evaluacion',$i)->count();
+            $metaOaxaca[] = Colaborador_ManiobraModel::where('area','AREA OAXACA')->whereYear('fecha_evaluacion',$year)->whereMonth('fecha_evaluacion',$i)->count();
+            $metaOcotlan[] = Colaborador_ManiobraModel::where('area','AREA OCOTLAN')->whereYear('fecha_evaluacion',$year)->whereMonth('fecha_evaluacion',$i)->count();
+            $metaTlacolula[] = Colaborador_ManiobraModel::where('area','AREA TLACOLULA')->whereYear('fecha_evaluacion',$year)->whereMonth('fecha_evaluacion',$i)->count();
+            $metaZimatlan[] = Colaborador_ManiobraModel::where('area','AREA ZIMATLAN')->whereYear('fecha_evaluacion',$year)->whereMonth('fecha_evaluacion',$i)->count();
+            $metaTemporales[] = Colaborador_ManiobraModel::where('area','Temporales Oax')->whereYear('fecha_evaluacion',$year)->whereMonth('fecha_evaluacion',$i)->count();
+        }
+
+        //Programados
+        
+        for($i = 0; $i < 12; $i++){
+            $var =  MetaModel::selectraw('meta')->where('centro_trabajo','AREA ETLA')->where('year',$year)->where('mes',$meses[$i])->first();
+            if(!$var){
+                $metaEt[] = 0;
+            }
+            else{
+                $metaEt[] = $var->meta;
+            }
+            
+            $var = MetaModel::selectraw('meta')->where('centro_trabajo','AREA IXTLAN')->where('year',$year)->where('mes',$meses[$i])->first();
+            if(!$var){
+                $metaIx[] = 0;
+            }
+            else{
+                $metaIx[] = $var->meta;
+            }
+
+            $var = MetaModel::selectraw('meta')->where('centro_trabajo','AREA MIAHUATLAN')->where('year',$year)->where('mes',$meses[$i])->first();
+            if(!$var){
+                $metaMia[] = 0;
+            }
+            else{
+                $metaMia[] = $var->meta;
+            }
+            $var = MetaModel::selectraw('meta')->where('centro_trabajo','AREA OAXACA')->where('year',$year)->where('mes',$meses[$i])->first();
+            if(!$var){
+                $metaOax[] = 0;
+            }
+            else{
+                $metaOax[] = $var->meta;
+            }
+            $var = MetaModel::selectraw('meta')->where('centro_trabajo','AREA OCOTLAN')->where('year',$year)->where('mes',$meses[$i])->first();
+            if(!$var){
+                $metaOco[] = 0;
+            }
+            else{
+                $metaOco[] = $var->meta;
+            }
+            $var = MetaModel::selectraw('meta')->where('centro_trabajo','AREA TLACOLULA')->where('year',$year)->where('mes',$meses[$i])->first();
+            if(!$var){
+                $metaTlac[] = 0;
+            }
+            else{
+                $metaTlac[] = $var->meta;
+            }
+            $var = MetaModel::selectraw('meta')->where('centro_trabajo','AREA ZIMATLAN')->where('year',$year)->where('mes',$meses[$i])->first();
+            if(!$var){
+                $metaZim[] = 0;
+            }
+            else{
+                $metaZim[] = $var->meta;
+            }
+            $var = MetaModel::selectraw('meta')->where('centro_trabajo','Temporales Oax')->where('year',$year)->where('mes',$meses[$i])->first();
+            if(!$var){
+                $metaTem[] = 0;
+            }
+            else{
+                $metaTem[] = $var->meta;
+            }
+        }
+
+        //Total Real
+        $sumEtla = Colaborador_ManiobraModel::selectraw('count(area) AS total')->where('area','AREA ETLA')->whereYear('fecha_evaluacion',$year)->first();
+        $sumIxtlan = Colaborador_ManiobraModel::selectraw('count(area) AS total')->where('area','AREA IXTLAN')->whereYear('fecha_evaluacion',$year)->first();
+        $sumMiahuatlan = Colaborador_ManiobraModel::selectraw('count(area) AS total')->where('area','AREA MIAHUATLAN')->whereYear('fecha_evaluacion',$year)->first();
+        $sumOaxaca = Colaborador_ManiobraModel::selectraw('count(area) AS total')->where('area','AREA OAXACA')->whereYear('fecha_evaluacion',$year)->first();
+        $sumOcotlan = Colaborador_ManiobraModel::selectraw('count(area) AS total')->where('area','AREA OCOTLAN')->whereYear('fecha_evaluacion',$year)->first();
+        $sumTlacolula = Colaborador_ManiobraModel::selectraw('count(area) AS total')->where('area','AREA TLACOLULA')->whereYear('fecha_evaluacion',$year)->first();
+        $sumZimatlan = Colaborador_ManiobraModel::selectraw('count(area) AS total')->where('area','AREA ZIMATLAN')->whereYear('fecha_evaluacion',$year)->first();
+        $sumTemporales = Colaborador_ManiobraModel::selectraw('count(area) AS total')->where('area','Temporales Oax')->whereYear('fecha_evaluacion',$year)->first();
+        //Total programado
+        $sumEt = MetaModel::selectRaw('sum(meta) as total')->where('year',$year)->where('centro_trabajo','AREA ETLA')->first();
+        $sumIx = MetaModel::selectRaw('sum(meta) as total')->where('year',$year)->where('centro_trabajo','AREA IXTLAN')->first();
+        $sumMia = MetaModel::selectRaw('sum(meta) as total')->where('year',$year)->where('centro_trabajo','AREA MIAHUATLAN')->first();
+        $sumOax = MetaModel::selectRaw('sum(meta) as total')->where('year',$year)->where('centro_trabajo','AREA OAXACA')->first();
+        $sumOco = MetaModel::selectRaw('sum(meta) as total')->where('year',$year)->where('centro_trabajo','AREA OCOTLAN')->first();
+        $sumTla = MetaModel::selectRaw('sum(meta) as total')->where('year',$year)->where('centro_trabajo','AREA TLACOLULA')->first();
+        $sumZim = MetaModel::selectRaw('sum(meta) as total')->where('year',$year)->where('centro_trabajo','AREA ZIMATLAN')->first();
+        $sumTem = MetaModel::selectRaw('sum(meta) as total')->where('year',$year)->where('centro_trabajo','AREA Temporales Oax')->first();
+
+        //Porcentaje
+
+
+        if(!$sumEtla->total || !$sumEt->total){
+            $porcientoEtla = 0;
+        }
+        else{
+            $porcientoEtla = ($sumEtla->total * 100)/($sumEt->total);
+        }
+
+        if(!$sumIxtlan->total || !$sumIx->total){
+            $porcientoIxtlan = 0;
+        }
+        else{
+            $porcientoIxtlan= ($sumIxtlan->total * 100)/($sumIx->total);
+        }
+
+        if(!$sumMiahuatlan->total || !$sumMia->total){
+            $porcientoMiahuatlan = 0;
+        }
+        else{
+            $porcientoMiahuatlan = ($sumMiahuatlan->total * 100)/($sumMia->total);
+        }
+
+        if(!$sumOaxaca->total || !$sumOax->total){
+            $porcientoOaxaca = 0;
+        }
+        else{
+            $porcientoOaxaca = ($sumOaxaca->total * 100)/($sumOax->total);
+        }
+
+        if(!$sumOcotlan->total || !$sumOco->total){
+            $porcientoOcotlan = 0;
+        }
+        else{
+            $porcientoOcotlan = ($sumOcotlan->total * 100)/($sumOco->total);
+        }
+
+        if(!$sumTlacolula->total || !$sumTla->total){
+            $porcientoTlacolula = 0;
+        }
+        else{
+            $porcientoTlacolula = ($sumTlacolula->total * 100)/($sumTla->total);
+        }
+
+        if(!$sumZimatlan->total || !$sumZim->total){
+            $porcientoZimatlan = 0;
+        }
+        else{
+            $porcientoZimatlan = ($sumZimatlan->total * 100)/($sumZim->total);
+        }
+
+        if(!$sumTemporales->total || !$sumTem->total){
+            $porcientoTemporales = 0;
+        }
+        else{
+            $porcientoTemporales = ($sumTemporales->total * 100)/($sumTem->total);
+        }
+
+
+
+
+        return view('cfe.admin.maniobras_colaboradores.metas-area')->with(['areas'=>$areas, 'ye'=>$year,'metaEtla'=>$metaEtla,'metaIxtlan'=>$metaIxtlan,'metaMiahuatlan'=>$metaMiahuatlan,'metaOaxaca'=>$metaOaxaca,'metaOcotlan'=>$metaOcotlan,'metaTlacolula'=>$metaTlacolula,'metaZimatlan'=>$metaZimatlan,'metaTemporales'=>$metaTemporales, 'sumEtla'=>$sumEtla, 'sumIxtlan'=>$sumIxtlan, 'sumMiahuatlan'=>$sumMiahuatlan, 'sumOaxaca'=>$sumOaxaca, 'sumOcotlan'=>$sumOcotlan, 'sumTlacolula'=>$sumTlacolula, 'sumZimatlan'=>$sumZimatlan, 'sumTemporales'=>$sumTemporales, 'metaEt'=>$metaEt, 'metaIx'=>$metaIx, 'metaMia'=>$metaMia, 'metaOax'=>$metaOax, 'metaOco'=>$metaOco, 'metaTlac'=>$metaTlac, 'metaZim'=>$metaZim, 'metaTem'=>$metaTem, 'sumEt'=>$sumEt, 'sumIx'=>$sumIx, 'sumMia'=>$sumMia, 'sumOax'=>$sumOax, 'sumOco'=>$sumOco, 'sumTla'=>$sumTla, 'sumZim'=>$sumZim, 'sumTem'=>$sumTem, 'porcientoEtla'=>$porcientoEtla, 'porcientoIxtlan'=>$porcientoIxtlan, 'porcientoMiahuatlan'=>$porcientoMiahuatlan, 'porcientoOaxaca'=>$porcientoOaxaca, 'porcientoOcotlan'=>$porcientoOcotlan, 'porcientoTlacolula'=>$porcientoTlacolula, 'porcientoZimatlan'=>$porcientoZimatlan, 'porcientoTemporales'=>$porcientoTemporales]);
+    }
+
+>>>>>>> 8264a0417dfe82278d1b8a981fd4045897c49163
 }

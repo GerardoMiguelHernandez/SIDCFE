@@ -13,14 +13,14 @@
     </div><!--/.row-->
 <div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">{{$areaReal}}</h1>
+				<h1 class="page-header">{{$maniobraReal}}</h1>
         
 			</div>
     
 		</div>
 		
 
-<input id="ocultoarea" type="hidden" value="{{$areaReal}}"></input>
+<input id="ocultoarea" type="hidden" value="{{$maniobraReal}}"></input>
 
 <div class="row">
 
@@ -30,7 +30,7 @@
     <div class="col-xs-4 col-sm-4 col-md-1 col-lg-1 col-xs-offset-8 col-sm-offset-8 col-md-offset-11 col-lg-offset-11">
         
 
-        <a href="{{route('excel.area',$areaReal)}}" data-toggle="tooltip" data-placement="left" title="Generar Excel">
+        <a href="{{route('excel.area',$maniobraReal)}}" data-toggle="tooltip" data-placement="left" title="Generar Excel">
     <i class="fa fa-file-excel-o fa-3x" style="color: green;" aria-hidden="true"></i>
    </a>
     </div>

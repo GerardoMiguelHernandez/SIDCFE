@@ -106,7 +106,11 @@ Route::get('metas', 'MetasControllers@metas');
 Route::get('metas-area/{anio}',[
     'uses' => 'MetasControllers@metasconsulta',
     'as'=>'metas-ar']);
+//ruta para filtrar por mes y area 
 
+Route::get('filtrarMesArea/{area}/{mes}/{year}',[
+     'uses' => 'MetasControllers@ver_area_mes',
+     'as'=>'mes-area']);
 
 
 //ruta para obtener con ajax desde datatables solo area en especifico

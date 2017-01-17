@@ -73,7 +73,7 @@ echo $mytime->toDayDateTimeString();
       <ul class="list-group">
       @foreach($zonas as $areas)
         <li class="list-group-item">
-        <a href="{{route('colaborador.area',$areas->area)}}">
+        <a href="{{url('colaboradorcontroller/AreaDatos',$areas->area)}}">
         {{$areas->area}} <i class="material-icons blue600">start</i></a>
         </li>
         @endforeach

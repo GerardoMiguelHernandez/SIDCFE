@@ -16,9 +16,9 @@
   <div class="row">
     <div class="col-lg-12">
 
-      <h2 class="page-header">Áreas de evaluaciones realizadas aprobadas (mayor y menor)</h2>
+      <h2 class="page-header">Áreas con evaluaciones realizadas aprobadas (mayor y menor)</h2>
 
-      <h2 class="page-header block-center">Áreas de maniobras realizadas (mayor y menor)</h2>
+      <!--<h2 class="page-header block-center">Áreas de maniobras realizadas (mayor y menor)</h2>-->
 
     </div>
   </div>

@@ -344,7 +344,10 @@ return response()->json($meta);
         //
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 77e9ec5ca9837eb6aecebecf6a49ae6f2018ee3a
 
 
     public function mandarDatos($id){
@@ -515,8 +518,35 @@ return response()->json($meta);
 
 
 
-        return view('cfe.admin.maniobras_colaboradores.metas-area')->with(['areas'=>$areas, 'ye'=>$year,'metaEtla'=>$metaEtla,'metaIxtlan'=>$metaIxtlan,'metaMiahuatlan'=>$metaMiahuatlan,'metaOaxaca'=>$metaOaxaca,'metaOcotlan'=>$metaOcotlan,'metaTlacolula'=>$metaTlacolula,'metaZimatlan'=>$metaZimatlan,'metaTemporales'=>$metaTemporales, 'sumEtla'=>$sumEtla, 'sumIxtlan'=>$sumIxtlan, 'sumMiahuatlan'=>$sumMiahuatlan, 'sumOaxaca'=>$sumOaxaca, 'sumOcotlan'=>$sumOcotlan, 'sumTlacolula'=>$sumTlacolula, 'sumZimatlan'=>$sumZimatlan, 'sumTemporales'=>$sumTemporales, 'metaEt'=>$metaEt, 'metaIx'=>$metaIx, 'metaMia'=>$metaMia, 'metaOax'=>$metaOax, 'metaOco'=>$metaOco, 'metaTlac'=>$metaTlac, 'metaZim'=>$metaZim, 'metaTem'=>$metaTem, 'sumEt'=>$sumEt, 'sumIx'=>$sumIx, 'sumMia'=>$sumMia, 'sumOax'=>$sumOax, 'sumOco'=>$sumOco, 'sumTla'=>$sumTla, 'sumZim'=>$sumZim, 'sumTem'=>$sumTem, 'porcientoEtla'=>$porcientoEtla, 'porcientoIxtlan'=>$porcientoIxtlan, 'porcientoMiahuatlan'=>$porcientoMiahuatlan, 'porcientoOaxaca'=>$porcientoOaxaca, 'porcientoOcotlan'=>$porcientoOcotlan, 'porcientoTlacolula'=>$porcientoTlacolula, 'porcientoZimatlan'=>$porcientoZimatlan, 'porcientoTemporales'=>$porcientoTemporales]);
+        return view('cfe.admin.maniobras_colaboradores.metas-area1')->with(['areas'=>$areas, 'ye'=>$ye,'metaEtla'=>$metaEtla,'metaIxtlan'=>$metaIxtlan,'metaMiahuatlan'=>$metaMiahuatlan,'metaOaxaca'=>$metaOaxaca,'metaOcotlan'=>$metaOcotlan,'metaTlacolula'=>$metaTlacolula,'metaZimatlan'=>$metaZimatlan,'metaTemporales'=>$metaTemporales, 'sumEtla'=>$sumEtla, 'sumIxtlan'=>$sumIxtlan, 'sumMiahuatlan'=>$sumMiahuatlan, 'sumOaxaca'=>$sumOaxaca, 'sumOcotlan'=>$sumOcotlan, 'sumTlacolula'=>$sumTlacolula, 'sumZimatlan'=>$sumZimatlan, 'sumTemporales'=>$sumTemporales, 'metaEt'=>$metaEt, 'metaIx'=>$metaIx, 'metaMia'=>$metaMia, 'metaOax'=>$metaOax, 'metaOco'=>$metaOco, 'metaTlac'=>$metaTlac, 'metaZim'=>$metaZim, 'metaTem'=>$metaTem, 'sumEt'=>$sumEt, 'sumIx'=>$sumIx, 'sumMia'=>$sumMia, 'sumOax'=>$sumOax, 'sumOco'=>$sumOco, 'sumTla'=>$sumTla, 'sumZim'=>$sumZim, 'sumTem'=>$sumTem, 'porcientoEtla'=>$porcientoEtla, 'porcientoIxtlan'=>$porcientoIxtlan, 'porcientoMiahuatlan'=>$porcientoMiahuatlan, 'porcientoOaxaca'=>$porcientoOaxaca, 'porcientoOcotlan'=>$porcientoOcotlan, 'porcientoTlacolula'=>$porcientoTlacolula, 'porcientoZimatlan'=>$porcientoZimatlan, 'porcientoTemporales'=>$porcientoTemporales]);
     }
 
 
+<<<<<<< HEAD
+=======
+
+    public function ver_area_mes($area, $mes, $year){
+        $ye = $year;
+        $ar = $area;
+        $meses = array('ENERO','FEBRERO','MARZO','ABRIL','MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE', 'EN TODO EL AÑO');
+
+
+        for($i = 1; $i <= 13; $i++){
+            if($i == $mes){
+                $nombremes = $meses[$i - 1];
+            }
+        }
+
+        $count_maniobra = Colaborador_ManiobraModel::where('area',$area)->whereMonth('fecha_evaluacion',$mes)->whereYear('fecha_evaluacion', $ye)->count();
+
+        $maniobras = Colaborador_ManiobraModel::select('RPE','nombre','fecha_evaluacion','maniobra','calificacion')->where('area',$area)->whereMonth('fecha_evaluacion',$mes)->whereYear('fecha_evaluacion',$ye)->orderBy('calificacion', 'DES')->get();
+
+        $maniobras_total = Colaborador_ManiobraModel::select('RPE','nombre','fecha_evaluacion','maniobra','calificacion')->where('area',$area)->whereYear('fecha_evaluacion',$ye)->orderBy('calificacion', 'DES')->get();
+
+        $count_maniobratotal = Colaborador_ManiobraModel::where('area',$area)->whereYear('fecha_evaluacion', $ye)->count();
+
+        return view('cfe.admin.maniobras_colaboradores.filtrarMesArea')->with(['ye'=>$ye,'ar'=>$ar, 'count_maniobra'=>$count_maniobra, 'nombremes'=>$nombremes,'maniobras'=>$maniobras, 'maniobras_total'=>$maniobras_total,'count_maniobratotal'=>$count_maniobratotal]);
+   }
+
+>>>>>>> 77e9ec5ca9837eb6aecebecf6a49ae6f2018ee3a
 }

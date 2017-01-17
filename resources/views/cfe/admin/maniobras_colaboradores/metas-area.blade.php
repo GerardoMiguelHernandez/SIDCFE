@@ -1,6 +1,5 @@
 @extends('cfe.main')
 @section('css')
-{!!Html::style('media/css/jquery.dataTables.css');!!}
 @endsection
 
 @section('content')
@@ -12,286 +11,487 @@
         <li class="active">Metas</li>
       </ol>
   </div>
-
   <div class="row">
-      <div class="col-lg-12">
-        <h1 class="page-header text-center bg-info">Estadísticas de Metas {{$ye}}</h1>
+
+      <div class="col-lg-10 col-xs-12 col-md-10">
+        <h2 class="page-header">{{$ar}}</h2>
       </div>
-      
   </div>
 
+                      <!--ENERO-->
 
-<div class="table-responsive table-condensed table-hover" style="margin-top: 5px;">
-        <table id="tabla-metas" class="table table-bordered table-hover">
-
-          <thead>
-            <tr class="info">
-              <th class="text-center">Areas/Meses</th>
-              <th class="text-center">Programa</th>
-              <th class="text-center">Enero</th>
-              <th class="text-center">Febrero</th>
-              <th class="text-center">Marzo</th>
-              <th class="text-center">Abril</th>
-              <th class="text-center">Mayo</th>
-              <th class="text-center">Junio</th>
-              <th class="text-center">Julio</th>
-              <th class="text-center">Agosto</th>
-              <th class="text-center">Septiembre</th>
-              <th class="text-center">Octubre</th>
-              <th class="text-center">Noviembre</th>
-              <th class="text-center">Diciembre</th>
-              <th class="text-center">Total</th>
-              <th class="text-center">Cumplimiento</th>
-            </tr>
-          </thead>
-
-           <tbody id="general_Estadistica">
-           
-
-<!--Etla  bgcolor="#FF5733"-->
-           <tr>
-            <th class="text-center" rowspan="2">Area Etla</th>
-            <th class="text-center">Programado</th>
-           @for($i=0; $i<=11; $i++)
-              <th class="text-center"><a href=""></a>{{$metaEt[$i]}}</th>
-           @endfor
-
-           @if(!$sumEt->total)
-           <th class="text-center">0</th>
-           @else
-           <th class="text-center">{{$sumEt->total}}</th>
-           @endif
-           <th class="text-center" rowspan="2">{{number_format($porcientoEtla,2)}}%</th>
-           </tr>
-
-           <tr>
-            <th class="text-center">Real</th>
-            @for($i=0; $i<=11; $i++)
-              <th class="text-center"><a href=""></a>{{$metaEtla[$i]}}</th>
-            @endfor
-            <th class="text-center">{{$sumEtla->total}}</th>
-
-            
-
-           </tr>
-
-<!--Ixtlan-->
-           <tr>
-            <th class="text-center" rowspan="2">Area Ixtlan</th>
-            <th class="text-center">Programado</th>
-           @for($i=0; $i<=11; $i++)
-              <th class="text-center"><a href=""></a>{{$metaIx[$i]}}</th>
-           @endfor
-           
-           @if(!$sumIx->total)
-            <th class="text-center">0</th>
-           @else
-            <th class="text-center">{{$sumIx->total}}</th>
-           @endif
-
-           <th class="text-center" rowspan="2">{{number_format($porcientoIxtlan,2)}}%</th>
-
-           </tr>
-
-          <tr>
-            <th class="text-center">Real</th>
-            @for($i=0; $i<=11; $i++)
-                <th class="text-center"><a href=""></a>{{$metaIxtlan[$i]}}</th>
-            @endfor
-            <th class="text-center">{{$sumIxtlan->total}}</th>
-          </tr>
-
-<!--Miahuatlan-->
-           <tr>
-            <th class="text-center" rowspan="2">Area Miahuatlan</th>
-            <th class="text-center">Programado</th>
-           @for($i=0; $i<=11; $i++)
-              <th class="text-center"><a href=""></a>{{$metaMia[$i]}}</th>
-           @endfor
-           
-           @if(!$sumMia->total)
-           <th class="text-center">0</th>
-           @else
-           <th class="text-center">{{$sumMia->total}}</th>
-           @endif
-
-           <th class="text-center" rowspan="2">{{number_format($porcientoMiahuatlan,2)}}%</th>
-           </tr>
-          <tr>
-            <th class="text-center">Area Real</th>
-            @for($i=0; $i<=11; $i++)
-                <th class="text-center"><a href=""></a>{{$metaMiahuatlan[$i]}}</th>
-            @endfor
-            <th class="text-center">{{$sumMiahuatlan->total}}</th>
-          </tr>
-
-<!--oaxaca-->
-           <tr>
-            <th class="text-center" rowspan="2">Area Oaxaca</th>
-            <th class="text-center">Programado</th>
-           @for($i=0; $i<=11; $i++)
-            
-              <th class="text-center"><a href=""></a>{{$metaOax[$i]}}</th>
-            
-           @endfor
-           
-           @if(!$sumOax->total)
-           <th class="text-center">0</th>
-           @else
-           <th class="text-center">{{$sumOax->total}}</th>
-           @endif
-
-           <th class="text-center" rowspan="2">{{number_format($porcientoOaxaca,2)}}%</th>
-           </tr>
-
-
-          <tr>
-            <th class="text-center">Real</th>
-            @for($i=0; $i<=11; $i++)
-                <th class="text-center"><a href=""></a>{{$metaOaxaca[$i]}}</th>
-            @endfor
-            <th class="text-center">{{$sumOaxaca->total}}</th>
-          </tr>
-
-<!--ocotlan-->
-           <tr>
-            <th class="text-center" rowspan="2">Area Ocotlan</th>
-            <th class="text-center">Programado</th>
-           @for($i=0; $i<=11; $i++)
-              <th class="text-center"><a href=""></a>{{$metaOco[$i]}}</th>
-            
-           @endfor
-           
-           @if(!$sumOco->total)
-           <th class="text-center">0</th>
-           @else
-           <th class="text-center">{{$sumOco->total}}</th>
-           @endif
-
-           <th class="text-center" rowspan="2">{{number_format($porcientoOcotlan,2)}}%</th>
-
-           </tr>
-
-
-          <tr>
-            <th class="text-center">Real</th>
-            @for($i=0; $i<=11; $i++)
-                <th class="text-center"><a href=""></a>{{$metaOcotlan[$i]}}</th>
-            @endfor
-            <th class="text-center">{{$sumOcotlan->total}}</th>
-          </tr>
-
-
-<!--tlacolula-->
-           <tr>
-            <th class="text-center" rowspan="2">Area Tlacolula</th>
-            <th class="text-center">Programado</th>
-           @for($i=0; $i<=11; $i++) 
-              <th class="text-center"><a href=""></a>{{$metaTlac[$i]}}</th>
-
-           @endfor
-           
-           @if(!$sumTla->total)
-           <th class="text-center">0</th>
-           @else
-           <th class="text-center">{{$sumTla->total}}</th>
-           @endif
-
-           <th class="text-center" rowspan="2">{{number_format($porcientoTlacolula,2)}}%</th>
-
-           </tr>
-
-
-          <tr>
-            <th class="text-center">Real</th>
-            @for($i=0; $i<=11; $i++)
-                <th class="text-center"><a href=""></a>{{$metaTlacolula[$i]}}</th>
-            @endfor
-            <th class="text-center">{{$sumTlacolula->total}}</th>
-          </tr>
-
-
-<!--Zimatlan-->
-           <tr>
-            <th class="text-center" rowspan="2">Area Zimatlan</th>
-            <th class="text-center">Programado</th>
-           @for($i=0; $i<=11; $i++)
-              <th class="text-center"><a href=""></a>{{$metaZim[$i]}}</th>
-            
-           @endfor
-           
-           @if(!$sumZim->total)
-           <th class="text-center">0</th>
-           @else
-           <th class="text-center">{{$sumZim->total}}</th>
-           @endif
-
-           <th class="text-center" rowspan="2">{{number_format($porcientoZimatlan,2)}}%</th>
-
-           </tr>
-
-
-          <tr>
-            <th class="text-center">Real</th>
-            @for($i=0; $i<=11; $i++)
-                <th class="text-center"><a href=""></a>{{$metaZimatlan[$i]}}</th>
-            @endfor
-            <th class="text-center">{{$sumZimatlan->total}}</th>
-          </tr>
-
-
-<!--temporales-->
-           <tr>
-            <th class="text-center" rowspan="2">Temporales Oax</th>
-            <th class="text-center">Programado</th>
-           @for($i=0; $i<=11; $i++)
-              <th class="text-center"><a href=""></a>{{$metaTem[$i]}}</th>
-            
-           @endfor
-
-           @if(!$sumTem->total)
-           <th class="text-center">0</th>
-           @else
-           <th class="text-center">{{$sumTem->total}}</th>
-           @endif
-
-           <th class="text-center" rowspan="2">{{number_format($porcientoTemporales,2)}}%</th>
-
-           </tr>
-
-
-          <tr>
-            <th class="text-center">Real</th>
-            @for($i=0; $i<=11; $i++)
-                <th class="text-center"><a href=""></a>{{$metaTemporales[$i]}}</th>
-            @endfor
-            <th class="text-center">{{$sumTemporales->total}}</th>
-          </tr>
-
-           </tbody>
-        
-
-
-        </table>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="panel panel-teal panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-4 widget-left">
+              <i class="material-icons iconfont3">equalizer</i>
+            </div>
+            <div class="col-sm-5 col-lg-6 widget-down">
+            <div class="text-info">ENERO</div>
+            @if(!$eneroReal)
+              @if(!$eneroProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$eneroProgramado->meta}}</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @endif  
+            @else
+              @if(!$eneroProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: {{$eneroReal->numero}}</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$eneroProgramado->meta}}</div>
+                <div class="text-warning">Reales: {{$eneroReal->numero}}</div>
+                <div class="text-warning">{{number_format($porcientoenero,2)}}%</div>
+              @endif
+            @endif
+            </div>
+          </div>
+        </div>
       </div>
 
+                <!--FIN ENERO-->
+
+                                      <!--FEBRERO-->
+
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="panel panel-teal panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-4 widget-left">
+              <i class="material-icons iconfont3">equalizer</i>
+            </div>
+            <div class="col-sm-5 col-lg-6 widget-down">
+            <div class="text-info">FEBRERO</div>
+            @if(!$febreroReal)
+              @if(!$febreroProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$febreroProgramado->meta}}</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @endif  
+            @else
+              @if(!$febreroProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: {{$febreroReal->numero}}</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$febreroProgramado->meta}}</div>
+                <div class="text-warning">Reales: {{$febreroReal->numero}}</div>
+                <div class="text-warning">{{number_format($porcientofebrero,2)}}%</div>
+              @endif
+            @endif
+            </div>
+          </div>
+        </div>
+      </div>
+
+                <!--FIN FEBRERO-->
+
+                                      <!--MARZO-->
+
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="panel panel-teal panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-4 widget-left">
+              <i class="material-icons iconfont3">equalizer</i>
+            </div>
+            <div class="col-sm-5 col-lg-6 widget-down">
+            <div class="text-info">MARZO</div>
+            @if(!$marzoReal)
+              @if(!$marzoProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$marzoProgramado->meta}}</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @endif  
+            @else
+              @if(!$marzoProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: {{$marzoReal->numero}}</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$marzoProgramado->meta}}</div>
+                <div class="text-warning">Reales: {{$marzoReal->numero}}</div>
+                <div class="text-warning">{{number_format($porcientomarzo,2)}}%</div>
+              @endif
+            @endif
+            </div>
+          </div>
+        </div>
+      </div>
+
+                <!--FIN MARZO-->
+
+                                      <!--ABRIL-->
+
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="panel panel-teal panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-4 widget-left">
+              <i class="material-icons iconfont3">equalizer</i>
+            </div>
+            <div class="col-sm-5 col-lg-6 widget-down">
+            <div class="text-info">ABRIL</div>
+            @if(!$abrilReal)
+              @if(!$abrilProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$abrilProgramado->meta}}</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @endif  
+            @else
+              @if(!$abrilProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: {{$abrilReal->numero}}</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$abrilProgramado->meta}}</div>
+                <div class="text-warning">Reales: {{$abrilReal->numero}}</div>
+                <div class="text-warning">{{number_format($porcientoabril,2)}}%</div>
+              @endif
+            @endif
+            </div>
+          </div>
+        </div>
+      </div>
+
+                <!--FIN ABRIL-->
+
+                                      <!--MAYO-->
+
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="panel panel-teal panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-4 widget-left">
+              <i class="material-icons iconfont3">equalizer</i>
+            </div>
+            <div class="col-sm-5 col-lg-6 widget-down">
+            <div class="text-info">MAYO</div>
+            @if(!$mayoReal)
+              @if(!$mayoProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$mayoProgramado->meta}}</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @endif  
+            @else
+              @if(!$mayoProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: {{$mayoReal->numero}}</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$mayoProgramado->meta}}</div>
+                <div class="text-warning">Reales: {{$mayoReal->numero}}</div>
+                <div class="text-warning">{{number_format($porcientomayo,2)}}%</div>
+              @endif
+            @endif
+            </div>
+          </div>
+        </div>
+      </div>
+
+                <!--FIN MAYO-->
+
+                                      <!--JUNIO-->
+
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="panel panel-teal panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-4 widget-left">
+              <i class="material-icons iconfont3">equalizer</i>
+            </div>
+            <div class="col-sm-5 col-lg-6 widget-down">
+            <div class="text-info">JUNIO</div>
+            @if(!$junioReal)
+              @if(!$junioProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$junioProgramado->meta}}</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @endif  
+            @else
+              @if(!$junioProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: {{$junioReal->numero}}</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$junioProgramado->meta}}</div>
+                <div class="text-warning">Reales: {{$junioReal->numero}}</div>
+                <div class="text-warning">{{number_format($porcientojunio,2)}}%</div>
+              @endif
+            @endif
+            </div>
+          </div>
+        </div>
+      </div>
+
+                <!--FIN JUNIO-->
+
+                                      <!--JULIO-->
+
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="panel panel-teal panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-4 widget-left">
+              <i class="material-icons iconfont3">equalizer</i>
+            </div>
+            <div class="col-sm-5 col-lg-6 widget-down">
+            <div class="text-info">JULIO</div>
+            @if(!$julioReal)
+              @if(!$julioProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$julioProgramado->meta}}</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @endif  
+            @else
+              @if(!$julioProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: {{$julioReal->numero}}</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$julioProgramado->meta}}</div>
+                <div class="text-warning">Reales: {{$julioReal->numero}}</div>
+                <div class="text-warning">{{number_format($porcientojulio,2)}}%</div>
+              @endif
+            @endif
+            </div>
+          </div>
+        </div>
+      </div>
+
+                <!--FIN JULIO-->
+
+                                      <!--AGOSTO-->
+
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="panel panel-teal panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-4 widget-left">
+              <i class="material-icons iconfont3">equalizer</i>
+            </div>
+            <div class="col-sm-5 col-lg-6 widget-down">
+            <div class="text-info">AGOSTO</div>
+            @if(!$agostoReal)
+              @if(!$agostoProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$agostoProgramado->meta}}</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @endif  
+            @else
+              @if(!$agostoProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: {{$agostoReal->numero}}</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$agostoProgramado->meta}}</div>
+                <div class="text-warning">Reales: {{$agostoReal->numero}}</div>
+                <div class="text-warning">{{number_format($porcientoagosto,2)}}%</div>
+              @endif
+            @endif
+            </div>
+          </div>
+        </div>
+      </div>
+
+                <!--FIN AGOSTO-->
+
+                                      <!--SEPTIEMBRE-->
+
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="panel panel-teal panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-4 widget-left">
+              <i class="material-icons iconfont3">equalizer</i>
+            </div>
+            <div class="col-sm-5 col-lg-6 widget-down">
+            <div class="text-info">SEMPTIEMBRE</div>
+            @if(!$septiembreReal)
+              @if(!$septiembreProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$septiembreProgramado->meta}}</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @endif  
+            @else
+              @if(!$septiembreProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: {{$septiembreReal->numero}}</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$septiembreProgramado->meta}}</div>
+                <div class="text-warning">Reales: {{$septiembreReal->numero}}</div>
+                <div class="text-warning">{{number_format($porcientoseptiembre,2)}}%</div>
+              @endif
+            @endif
+            </div>
+          </div>
+        </div>
+      </div>
+
+                <!--FIN SEPTIEMBRE-->
+
+                                      <!--OCTUBRE-->
+
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="panel panel-teal panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-4 widget-left">
+              <i class="material-icons iconfont3">equalizer</i>
+            </div>
+            <div class="col-sm-5 col-lg-6 widget-down">
+            <div class="text-info">OCTUBRE</div>
+            @if(!$octubreReal)
+              @if(!$octubreProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$octubreProgramado->meta}}</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @endif  
+            @else
+              @if(!$octubreProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: {{$octubreReal->numero}}</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$octubreProgramado->meta}}</div>
+                <div class="text-warning">Reales: {{$octubreReal->numero}}</div>
+                <div class="text-warning">{{number_format($porcientooctubre,2)}}%</div>
+              @endif
+            @endif
+            </div>
+          </div>
+        </div>
+      </div>
+
+                <!--FIN OCTUBRE-->
+
+                                      <!--NOVIEMBRE-->
+
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="panel panel-teal panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-4 widget-left">
+              <i class="material-icons iconfont3">equalizer</i>
+            </div>
+            <div class="col-sm-5 col-lg-6 widget-down">
+            <div class="text-info">NOVIEMBRE</div>
+            @if(!$noviembreReal)
+              @if(!$noviembreProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$noviembreProgramado->meta}}</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @endif  
+            @else
+              @if(!$noviembreProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: {{$noviembreReal->numero}}</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$noviembreProgramado->meta}}</div>
+                <div class="text-warning">Reales: {{$noviembreReal->numero}}</div>
+                <div class="text-warning">{{number_format($porcientonoviembre,2)}}%</div>
+              @endif
+            @endif
+            </div>
+          </div>
+        </div>
+      </div>
+
+                <!--FIN NOVIEMBRE-->
+
+                                      <!--DICIEMBRE-->
+
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="panel panel-teal panel-widget">
+          <div class="row no-padding">
+            <div class="col-sm-3 col-lg-4 widget-left">
+              <i class="material-icons iconfont3">equalizer</i>
+            </div>
+            <div class="col-sm-5 col-lg-6 widget-down">
+            <div class="text-info">DICIEMBRE</div>
+            @if(!$diciembreReal)
+              @if(!$diciembreProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$diciembreProgramado->meta}}</div>
+                <div class="text-warning">Reales: 0</div>
+                <div class="text-warning">0%</div>
+              @endif  
+            @else
+              @if(!$diciembreProgramado)
+                <div class="text-warning">Programados: 0</div>
+                <div class="text-warning">Reales: {{$diciembreReal->numero}}</div>
+                <div class="text-warning">0%</div>
+              @else
+                <div class="text-warning">Programados: {{$diciembreProgramado->meta}}</div>
+                <div class="text-warning">Reales: {{$diciembreReal->numero}}</div>
+                <div class="text-warning">{{number_format($porcientodiciembre,2)}}%</div>
+              @endif
+            @endif
+            </div>
+          </div>
+        </div>
+      </div>
+
+                <!--FIN DICIEMBRE-->
 
 
+  <div class="row">
 
+      <div class="col-lg-10 col-xs-12 col-md-10">
+        @if(!$totalprogramado->total)
+          <h4 class="page-header">Total Programados: 0</h4>
+        @else
+          <h4 class="page-header">Total Programados: {{$totalprogramado->total}}</h4>
+        @endif
+
+        @if(!$totalreal->numero)
+          <h4 class="page-header">Total Reales: 0</h4>
+        @else
+          <h4 class="page-header">Total Reales: {{$totalreal->numero}}</h4>
+        @endif
+        <h4 class="page-header">Porcentaje General: {{number_format($porcientototal,2)}}%</h4>
+      </div>
+  </div>
 
 </div>
-
-
-
-
-
-
-@endsection
-
-
-@section('js')
-
-
-
-
-@endsection
+     

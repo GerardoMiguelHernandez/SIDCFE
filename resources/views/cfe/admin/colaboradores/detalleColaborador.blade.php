@@ -229,10 +229,14 @@ $('#detallecolaborador').DataTable({
             //console.log("es 100");
             $nrow.css({"background-color":"#1de9b6"});
             //console.log(aData.nombre+"calificacion"+aData.calificacion);
-       } 
-       else if(aData.calificacion < 95){
+       }
+       else if(aData.calificacion == 0){
 
-           $nrow.css({"background-color":"#ffcdd2"});
+           $nrow.css({"background-color":"#FF0000"});
+       }
+
+       else{
+           $nrow.css({"background-color":"#FF8000"});
        }
       
       //console.log(aData.calificacion +"nombre"+aData.nombre);

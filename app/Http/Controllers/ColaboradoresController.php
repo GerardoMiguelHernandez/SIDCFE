@@ -10,6 +10,7 @@ use App\UsuarioModel;
 use App\BateriaModel;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Response;
+use App\Colaborador_ManiobraModel;
 class ColaboradoresController extends Controller
 {
     /**
@@ -68,7 +69,8 @@ class ColaboradoresController extends Controller
     {
 
     $picture = Colaborador::find($id);
-
+    $detalles= Colaborador_ManiobraModel::select('fecha_evaluacion','calificacion','maniobra','zona','area')->where('RPE',$id)->distinct()->get();
+    $total=count($detalles);
     
     //dd($id);
     //$pic = Image::make($picture->foto);
@@ -76,7 +78,8 @@ class ColaboradoresController extends Controller
     //$response->header('Content-Type', 'image/jpeg');
     
     //return $response;
-    return view('cfe.admin.colaboradores.detalleColaborador')->with(['response'=>$picture,'id'=>$id]);
+    
+    return view('cfe.admin.colaboradores.detalleColaborador')->with(['response'=>$picture,'id'=>$id,'total'=>$total]);
 
     }
 

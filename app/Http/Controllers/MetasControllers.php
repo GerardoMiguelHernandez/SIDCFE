@@ -133,7 +133,7 @@ return response()->json($meta);
      */
     public function show($id)
     {
-         $meta = MetaModel::find($id);
+    $meta = MetaModel::find($id);
 
      return response()->json($meta);
 
@@ -310,16 +310,27 @@ return response()->json($meta);
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function update(Request $request, $id)
     {
-        //
+       
+
+     if($request->ajax()){
+       
+
+       $meta = MetaModel::find($id);
+
+       $meta->meta= $request->meta;
+       $meta->mes=$request->mes;
+       $meta->personalAsignado=$request->personalAsignado;
+       $meta->centro_trabajo=$request->centro_trabajo;
+       $meta->year=$request->year;
+       $meta->save();
+
+         return response()->json($request->all());
+
+        }
+
     }
 
     /**
@@ -333,6 +344,10 @@ return response()->json($meta);
         //
     }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 77e9ec5ca9837eb6aecebecf6a49ae6f2018ee3a
 
 
     public function mandarDatos($id){
@@ -507,6 +522,8 @@ return response()->json($meta);
     }
 
 
+<<<<<<< HEAD
+=======
 
     public function ver_area_mes($area, $mes, $year){
         $ye = $year;
@@ -531,4 +548,5 @@ return response()->json($meta);
         return view('cfe.admin.maniobras_colaboradores.filtrarMesArea')->with(['ye'=>$ye,'ar'=>$ar, 'count_maniobra'=>$count_maniobra, 'nombremes'=>$nombremes,'maniobras'=>$maniobras, 'maniobras_total'=>$maniobras_total,'count_maniobratotal'=>$count_maniobratotal]);
    }
 
+>>>>>>> 77e9ec5ca9837eb6aecebecf6a49ae6f2018ee3a
 }

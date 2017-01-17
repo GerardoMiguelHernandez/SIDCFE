@@ -43,8 +43,12 @@ public function detalleColaboradorAjax($clave){
 
    // return Datatables::of(Colaborador_ManiobraModel::where('RPE',$clave))->make(true);
 
-    return Datatables::of(Colaborador_ManiobraModel::distinct('fecha_evaluacion','calificacion','maniobra','zona','area','nombre')->where('RPE',$clave))->make(true);
+//return Datatables::of(Colaborador_ManiobraModel::distinct('fecha_evaluacion','calificacion','maniobra','zona','area','nombre')->where('RPE',$clave))->make(true);
 
+
+
+$detalles= Colaborador_ManiobraModel::select('fecha_evaluacion','calificacion','maniobra','zona','area')->where('RPE',$clave)->distinct()->get();
+return Datatables::collection($detalles)->make(true);
 }
 
 public function rango_fechas($fecha111, $fecha222){

@@ -1,122 +1,176 @@
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-  <header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
-      <!-- Title -->
-      <span class="mdl-layout-title"><a href="#"> <img src="img/cfe.png"></a></span>
-      <!-- Add spacer, to align navigation to the right -->
-      <div class="mdl-layout-spacer"></div>
-      <!-- Navigation. We hide it in small screens. -->
-      <nav class="nav-link-sup mdl-navigation mdl-layout--large-screen-only">
-        <a class="nav-link-sup mdl-navigation__link mdl-typography--text-uppercase" href="">Link</a>
-        <a class="nav-link-sup mdl-navigation__link mdl-typography--text-uppercase" href="">Link</a>
-        <a class="nav-link-sup mdl-navigation__link mdl-typography--text-uppercase" href="">Link</a>
-        <a class="nav-link-sup mdl-navigation__link mdl-typography--text-uppercase" href="">Link</a>
-      </nav>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
-                  mdl-textfield--floating-label mdl-textfield--align-right">
-        <label class="mdl-button mdl-js-button mdl-button--icon"
-               for="fixed-header-drawer-exp">
-          <i class="material-icons">search</i>
-        </label>
-        <div class="mdl-textfield__expandable-holder">
 
-<form action="#" method="GET">
-          <input class="mdl-textfield__input" type="text" id="fixed-header-drawer-exp">
-          </form>
-        </div>
-      </div>
-      <button class="android-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
-            <i class="material-icons blue600">more_vert</i>
-          </button>
-          <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
-            <li class="mdl-menu__item"><a href="#"> 5.0 Lollipop</a></li>
-            <li class="mdl-menu__item">4.4 KitKat</li>
-            <li disabled class="mdl-menu__item">4.3 Jelly Bean</li>
-            <li class="mdl-menu__item">Android History</li>
-          </ul>
+
+ <div class="navbar-fixed z-depth-5">
+<nav class="top-nav teal scrollTo" >
+    <div class="nav-wrapper">
+     
+            
+        <a href="{{route('welcome')}}" class="brand-logo" onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();"><img src="/img/cfe.png">
+
+                                                 
+
+
+
+      </a>
+      <form id="logout-form" action="" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+<ul class="right hide-on-med-and-down"> 
+
+<li><a href="#maniobras" class="tooltipped modal-trigger" data-position="bottom" data-delay="50"
+data-tooltip="Maniobras">
+<i class="fa fa-cog fa-2x" aria-hidden="true" style="color: blue;"></i>
+</a> </li>
+
+ <li><a href="#files" class="tooltipped modal-trigger" data-position="bottom" data-delay="50" data-tooltip="Subir Archivos"><i class="fa fa-cloud-upload fa-2x" aria-hidden="true" style="color: blue;"></i></a></li>
+
+ <li>
+<a href="" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Salir" onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();"><i class="fa fa-sign-out fa-2x" aria-hidden="true" style="color: #d50000;"></i></a>
+
+                                                 <form id="logout-form" action="" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+
+</li>
+ <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><span class="blue-text text-darken-4"></span><i class="material-icons left blue600">more_vert</i></a></li>
+<!--
+<li><a href="#modalsearch" class="modal-trigger"><i class="material-icons blue600">search</i></a> </li> -->
+
+
+
+
+
+
+        
+
+
+</ul>            
+      
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons blue600">menu</i></a>
+
+<ul id="mobile-demo" class="side-nav">
+    <li><div class="userView">
+      <img class="background" src="images/office.jpg">
+      <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
+      <a href="#!name"><span class="white-text name">John Doe</span></a>
+      <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+    </div></li>
+    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+    <li><a href="#!">Second Link</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Subheader</a></li>
+    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+  </ul>
+
     </div>
-  </header>
-   <div class=" mdl-layout__drawer" style="background-color: #4db6ac;">
-      <div class="layout__drawer_custom">
-      <div class="mdl-grid">
-      <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet ">
-        <img src="img/cfe.png" class="avatar center">
-                          <p><strong>admin@gmail.com</strong></p>
-                          <hr>
-                          </div>
-                        <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet">
-                          
-<div class="demo-list-action mdl-list">
-  <div class="mdl-list__item">
-    <span class="mdl-list__item-primary-content">
-      
-          <i class="material-icons mdl-list__item-avatar">person</i>
+  </nav>
+  </div>
+<ul id="dropdown1" class="dropdown-content">
+   @foreach($areas as $are)
+  <li><a href="#!">{{$are->area}}</a></li>
+  <li class="divider"></li>
+  @endforeach
 
-          <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
-            <li class="mdl-menu__item">Actionqasdfasdfassfd</li>
-            <li class="mdl-menu__item">Actionqasdfdasffasddasf</li>
-            <li class="mdl-menu__item">Actionqawfdadsafdsaffsad</li>
-          </ul>
-      
-      <span>Bryan Cranston</span>
-    </span>
+</ul>
 
-     
-     <button id = "demo-menu-lower-right" class="android-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
-            <i class="material-icons purple600">more_vert</i>
-          </button>
+
+
+
+    <div id="modalsearch" class="modal transparent">
+    <div class="modal-content">
+      
+
+<div class="page-login">
+  <div class="center">
+      <div class="card z-depth-5" style="margin:0% auto; max-width:400px;">
+        <div class="card-header">
+        
+          <h5 class="header center purple-text text-darken-4">Buscar</h5> 
+        </div>
+        <div class="card-content">
+          
+          dsss
+        </div>
+        
+      </div>
+    </div>
+    </div>
     
+  </div></div>
+
+   <div id="maniobras" class="modal">
+
+      <div class="modal-content">
+        <h4>Filtrar por Maniobras</h4>
+
+       <ul class="collection">
+         
+         @foreach($maniobras as $area)
+         <li class="collection-item avatar">
+           
+           <img src="/img/user.jpg" class="circle img-responsive">
+           <span class="title">{{$area->maniobra}}</span><br>
+           
+                   <a href="{{route('colaborador.maniobra',$area->maniobra)}}" class="secondary-content">
+             <i class="fa fa-search-plus fa-3x" aria-hidden="true"></i>
+           </a>
+         </li>
+
+         @endforeach
+       </ul>
+
+
+
+      </div>
+
+
+   </div>
   
-  </div>
-  <div class="mdl-list__item">
-    <span class="mdl-list__item-primary-content">
+<div id="files" class="modal transparent">
+    <div class="modal-content">
       
-          <i class="material-icons mdl-list__item-avatar purple600">person</i>
 
-          <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right2">
-            <li class="mdl-menu__item">Actionqasdfasdfassfd</li>
-            <li class="mdl-menu__item">Actionqasdfdasffasddasf</li>
-            <li class="mdl-menu__item">Actionqawfdadsafdsaffsad</li>
-          </ul>
-      
-      <span>Bryan Cranston</span>
-    </span>
+<div class="page-login">
+  <div class="center">
+      <div class="card z-depth-5">
+        <div class="teal card-header">
+        
+            <h5 class="header center blue-text text-darken-4">Subir archivo</h5>
 
-     
-     
-      <button id = "demo-menu-lower-right2" class="android-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
-            <i class="material-icons purple600">more_vert</i>
-          </button>
+        </div>
+        <div class="card-content">
+          <table class="bordered responsive-table highlight">
+           <thead>
+          <tr class="blue-text text-darken-2">
+              <th data-field="id">zona</th>
+              <th data-field="id">area</th>
+              <th data-field="name">RPE</th>
+              <th data-field="name">nombre</th>
+              <th data-field="name">fecha_evaluacion</th>
+              <th data-field="name">maniobra</th>
+              <th data-field="name">calificacion</th>
+            
+          </tr>
+        </thead>
+        </table>
+          {!! Form::open(['route'=>'colaboradorcontroller.store','method'=>'POST'])!!}
+          {{ csrf_field() }}
+            <div class="center">               
+    <input type="file" class="dropzone center" id="my-dropzone" name="file" value="" multiple>
     
-  
-  </div>
-  <div class="mdl-list__item">
-    <span class="mdl-list__item-primary-content">
-      
-          <i class="material-icons mdl-list__item-avatar purple600">person</i>
-
-          <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right1">
-            <li class="mdl-menu__item">Actionqasdfasdfassfd</li>
-            <li class="mdl-menu__item">Actionqasdfdasffasddasf</li>
-            <li class="mdl-menu__item">Actionqawfdadsafdsaffsad</li>
-          </ul>
-      
-      <span>Bryan Cranston</span>
-    </span>
-
-     
-     <button id = "demo-menu-lower-right1" class="android-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
-            <i class="material-icons purple600">more_vert</i>
-          </button>
-  
-  </div>
-
-
-</div>
-
-
-                        </div>
-                      </div>  
-                  </div>              
-                </div>
-</div>
+    <div class="dropzone-previews"></div>
+   </div>
+            
+             
+            <br>
+              <button type="submit" id="categoria" class="btn-floating btn-large waves-effect waves-light red center"><i class="material-icons">add</i></button>
+        {!!Form::close()!!}
+        </div>
+        
+      </div>
+    </div>
+    </div>
+    
+  </div></div>

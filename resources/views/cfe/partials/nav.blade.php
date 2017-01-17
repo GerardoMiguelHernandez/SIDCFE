@@ -7,7 +7,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><span>SISTEMA</span> SIDCFE</a>
+				<a class="navbar-brand" href="{{url('/home')}}"><span>SISTEMA</span> SIDCFE</a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="material-icons blue600">perm_identity</i> {{ Auth::user()->name }} <span class="caret"></span></a>

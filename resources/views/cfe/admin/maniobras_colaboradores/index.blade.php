@@ -73,7 +73,13 @@ echo $mytime->toDayDateTimeString();
       <ul class="list-group">
       @foreach($zonas as $areas)
         <li class="list-group-item">
+<<<<<<< HEAD
+       <!-- <a href="{{route('colaborador.area',$areas->area)}}"> -->
+ <a href="{{url('colaboradorcontroller/AreaDatos',$areas->area)}}"> 
+
+=======
         <a href="{{url('colaboradorcontroller/AreaDatos',$areas->area)}}">
+>>>>>>> 77e9ec5ca9837eb6aecebecf6a49ae6f2018ee3a
         {{$areas->area}} <i class="material-icons blue600">start</i></a>
         </li>
         @endforeach
@@ -166,7 +172,7 @@ echo $mytime->toDayDateTimeString();
     </div>
       <div class="col-lg-6">
         <div class="panel panel-success">
-          <div class="panel-heading">Grafica de Riesgo</div>
+          <div class="panel-heading">Grafica de Evaluaciones</div>
           <div class="panel-body">
             
 <div id="contenedor1" style="height: 300px;">
@@ -265,7 +271,7 @@ $(function () {
             type: 'column'
         },
         title: {
-            text: 'Colaboradores de Cada area'
+            text: 'Evaluaciones de Cada area'
         },
         subtitle: {
             text: 'Datos actualizados'

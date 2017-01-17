@@ -18,6 +18,8 @@ Route::get('/', function () {
 //vtW7XXs7Juro
 
 
+
+
 Route::get('Estadisticas/general',[
     'uses'=>'Estadisticas@maniobras_areas',
     'as'=>'Estadisticas.general']);
@@ -164,6 +166,8 @@ Route::group(['prefix' => 'pdf'], function() {
 Route::group(['prefix' => 'admin'], function() {
 Route::resource('slider','ConfiguracionesSlidersControllers');
 Route::resource('metas','MetasControllers');
+
+
 Route::resource('filtros','FiltrosControllers');
 
 

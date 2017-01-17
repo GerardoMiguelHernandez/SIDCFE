@@ -8,6 +8,8 @@
 @section('content')
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 
+
+@if($response != null)
 <div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="material-icons blue600">view_module</i></a></li>
@@ -35,16 +37,20 @@
 
 <div class="col-xs-12 col-sm-12 col-md-9 col-lg-10">
 
-<div class="row" style="margin-top: 15px;">
+
+
+
+
+		<div class="row" style="padding-top: 15px;">
 			<div class="col-xs-12 col-md-6 col-lg-4">
 				<div class="panel panel-blue panel-widget ">
 					<div class="row no-padding">
 						<div class="col-sm-3 col-lg-5 widget-left">
-							Seccion
+							 SECCIÓN
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
 							<div class="large"></div>
-							<div class="text-primary">{{$response->seccion}}</div>
+						<div class="text-primary">{{$response->seccion}}</div>
 						</div>
 					</div>
 				</div>
@@ -53,52 +59,7 @@
 				<div class="panel panel-orange panel-widget">
 					<div class="row no-padding">
 						<div class="col-sm-3 col-lg-5 widget-left">
-							Edad
-						</div>
-						<div class="col-sm-9 col-lg-7 widget-right">
-							<div class="large">{{$response->edad}}</div>
-							<div class="text-muted"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-12 col-md-6 col-lg-4">
-				<div class="panel panel-teal panel-widget">
-					<div class="row no-padding">
-						<div class="col-sm-3 col-lg-5 widget-left">
-							Telefono
-						</div>
-						<div class="col-sm-9 col-lg-7 widget-right">
-							<div class="large">{{$response->telefono}}</div>
-							<div class="text-muted"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-		</div><!--/.row-->
-
-
-
-		<div class="row">
-			<div class="col-xs-12 col-md-6 col-lg-4">
-				<div class="panel panel-blue panel-widget ">
-					<div class="row no-padding">
-						<div class="col-sm-3 col-lg-5 widget-left">
-							 Escolaridad
-						</div>
-						<div class="col-sm-9 col-lg-7 widget-right">
-							<div class="large"></div>
-						<div class="text-primary">{{$response->escolaridad}}</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-12 col-md-6 col-lg-4">
-				<div class="panel panel-orange panel-widget">
-					<div class="row no-padding">
-						<div class="col-sm-3 col-lg-5 widget-left">
-							Contrato
+							CONTRATO
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
 							<div class="large"></div>
@@ -132,25 +93,46 @@
 
 
 
+<!--- hasta aqui se va a mostrar en caso del que trabajador si se encuentre registrado en SICAP -->
 
+
+@else
+
+<div class="alert alert-danger" role="alert" style="padding-top: 15px;">
+<h3>EL USUARIO NO SE ENCUENTRA REGISTRADO EN SICAP</h3>
+</div>
+
+@endif
 
               <input id="valor_rpe" type="hidden" value="{{$id}}">
 
 
  
-   <a href="" id="excelColaborador">
+   
+<div class="row">
+
+<div class="col-sm-12 col-md-8 col-lg-8">
+<h1>Historial de Colaborador</h1>
+</div>
+<div class="col-sm-12 col-md-3 col-lg-3">
+	Total de Evaluaciones: <strong class="text-primary">{{$total}}</strong>
+
+</div>
+<div class="col-sm-12 col-md-1 col-lg-1">
+<a href="" id="excelColaborador">
  	<i class="fa fa-file-excel-o fa-3x" aria-hidden="true"></i>
- 	</a> 
-             
-<div class="table-responsive table-hover">
+ 	</a> 	
+</div>	
+	
+
+</div>             
+<div class="table-responsive table-hover" style="padding-top: 1px;">
 <table id="detallecolaborador" class="table table-bordered" width="100%" cellspacing="0">
         <thead>
-        <div class="page-header"><h1><small>Historial de Colaborador</small></h1></div>
+       
             <tr class="success">
                 <th>zona</th>
                 <th>area</th>
-                <th>RPE</th>
-                <th>nombre</th>
                 <th>fecha_evaluacion</th>
                 <th>maniobra</th>
                 <th>calificacion</th>
@@ -160,8 +142,6 @@
             <tr class="warning">
                <th>zona</th>
                 <th>area</th>
-                <th>RPE</th>
-                <th>nombre</th>
                 <th>fecha_evaluacion</th>
                 <th>maniobra</th>
                 <th>calificacion</th
@@ -244,10 +224,6 @@ $('#detallecolaborador').DataTable({
             { data: 'area',"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
             $(nTd).html("<a href='{{url('colaboradorcontroller/AreaDatos')}}/"+oData.area+"'>"+oData.area+"</a>");
         }},
-            { data: 'RPE',"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-            $(nTd).html("<a href='{{url('DetalleColaborador')}}/"+oData.RPE+"'>"+oData.RPE+"</a>");
-        }},
-            { data: 'nombre'},
             { data: 'fecha_evaluacion'},
             { data: 'maniobra',"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
                 var $maniobra=oData.maniobra;

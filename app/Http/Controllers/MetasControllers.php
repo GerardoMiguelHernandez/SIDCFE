@@ -133,7 +133,7 @@ return response()->json($meta);
      */
     public function show($id)
     {
-         $meta = MetaModel::find($id);
+    $meta = MetaModel::find($id);
 
      return response()->json($meta);
 
@@ -310,16 +310,27 @@ return response()->json($meta);
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function update(Request $request, $id)
     {
-        //
+       
+
+     if($request->ajax()){
+       
+
+       $meta = MetaModel::find($id);
+
+       $meta->meta= $request->meta;
+       $meta->mes=$request->mes;
+       $meta->personalAsignado=$request->personalAsignado;
+       $meta->centro_trabajo=$request->centro_trabajo;
+       $meta->year=$request->year;
+       $meta->save();
+
+         return response()->json($request->all());
+
+        }
+
     }
 
     /**
@@ -333,7 +344,7 @@ return response()->json($meta);
         //
     }
 
-<<<<<<< HEAD
+
 
 
     public function mandarDatos($id){
@@ -341,7 +352,7 @@ return response()->json($meta);
 
 
     }
-=======
+
     public function metasconsulta($year){
 
         $areas = Colaborador_ManiobraModel::select('area')->distinct()->get();
@@ -507,5 +518,5 @@ return response()->json($meta);
         return view('cfe.admin.maniobras_colaboradores.metas-area')->with(['areas'=>$areas, 'ye'=>$year,'metaEtla'=>$metaEtla,'metaIxtlan'=>$metaIxtlan,'metaMiahuatlan'=>$metaMiahuatlan,'metaOaxaca'=>$metaOaxaca,'metaOcotlan'=>$metaOcotlan,'metaTlacolula'=>$metaTlacolula,'metaZimatlan'=>$metaZimatlan,'metaTemporales'=>$metaTemporales, 'sumEtla'=>$sumEtla, 'sumIxtlan'=>$sumIxtlan, 'sumMiahuatlan'=>$sumMiahuatlan, 'sumOaxaca'=>$sumOaxaca, 'sumOcotlan'=>$sumOcotlan, 'sumTlacolula'=>$sumTlacolula, 'sumZimatlan'=>$sumZimatlan, 'sumTemporales'=>$sumTemporales, 'metaEt'=>$metaEt, 'metaIx'=>$metaIx, 'metaMia'=>$metaMia, 'metaOax'=>$metaOax, 'metaOco'=>$metaOco, 'metaTlac'=>$metaTlac, 'metaZim'=>$metaZim, 'metaTem'=>$metaTem, 'sumEt'=>$sumEt, 'sumIx'=>$sumIx, 'sumMia'=>$sumMia, 'sumOax'=>$sumOax, 'sumOco'=>$sumOco, 'sumTla'=>$sumTla, 'sumZim'=>$sumZim, 'sumTem'=>$sumTem, 'porcientoEtla'=>$porcientoEtla, 'porcientoIxtlan'=>$porcientoIxtlan, 'porcientoMiahuatlan'=>$porcientoMiahuatlan, 'porcientoOaxaca'=>$porcientoOaxaca, 'porcientoOcotlan'=>$porcientoOcotlan, 'porcientoTlacolula'=>$porcientoTlacolula, 'porcientoZimatlan'=>$porcientoZimatlan, 'porcientoTemporales'=>$porcientoTemporales]);
     }
 
->>>>>>> 8264a0417dfe82278d1b8a981fd4045897c49163
+
 }

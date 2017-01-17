@@ -4,7 +4,7 @@
 
 
 @section('content')
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 <div class="row">
@@ -35,7 +35,7 @@
           </thead>
           <tbody>
             @foreach($metas as $meta)
-              <tr>
+              <tr id="meta{{$meta->id}}">
      
                 
                 <td>{{$meta->mes}}</td>
@@ -74,39 +74,39 @@
                                 <div class="form-group error">
                                     <label for="inputTask" class="col-sm-3 control-label">Mes </label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control has-error" id="mes" name="name" placeholder="Nombre de Usuario" value="" required>
+                                        <input type="text" class="form-control has-error" id="mes" name="name" placeholder="Nombre de Usuario" value="" readonly>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-3 control-label">Personal Asignado</label>
                                     <div class="col-sm-9">
-                                        <input type="email" class="form-control" id="personalAsignado" name="email" placeholder="Correo Electronico" value="" required>
+                                        <input type="number" class="form-control" id="personalAsignado" name="email" placeholder="Correo Electronico" value="" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-3 control-label">Centro de Trabajo</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="centro_trabajo" name="email" value="" required>
+                                        <input type="text" class="form-control" id="centro_trabajo" name="email" value="" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-3 control-label">A&ntilde;o</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="year" name="year" value="" required>
+                                        <input type="text" class="form-control" id="year" name="year" value="" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-3 control-label">Meta</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="meta" name="password" value="" required>
+                                        <input type="number" class="form-control" id="meta" name="password" value="" required>
                                     </div>
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" id="btn-save" value="add">Guardar</button>
-                            <input type="hidden" id="task_id" name="task_id" value="0">
+                            <button type="button" class="btn btn-primary" id="btn-save" value="add">Actualizar</button>
+                            <input type="hidden" id="meta_id" name="meta_id" value="0">
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,9 @@
   
 $(function(){
 
-$('.open-modal').click(function(e){
+
+
+  $('.open-modal').click(function(e){
   e.preventDefault();
 
   var meta_id = $(this).val();
@@ -128,18 +130,62 @@ $('.open-modal').click(function(e){
       $.get("metas/" + meta_id, function (data) {
             //success data
             console.log(data);
+            $('#meta_id').val(data.id);
             $('#mes').val(data.mes);
             $('#personalAsignado').val(data.personalAsignado);
             $('#centro_trabajo').val(data.centro_trabajo);
             $('#meta').val(data.meta);
             $('#year').val(data.year);
-            $('#btn-save').val("update");
+            $('#btn-save').val("Actualizar");
 
             $('#myModal').modal('show');
         });
 
 
 });
+
+  $('#btn-save').click(function(){
+
+
+    var mes= $('#mes').val();
+    var personalAsignado= $('#personalAsignado').val();
+    var centro_trabajo= $('#centro_trabajo').val();
+    var meta= $('#meta').val();
+    var year= $('#year').val();
+    var meta_id=$('#meta_id').val();
+    
+ $.ajaxSetup({
+headers:{'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')}
+}); //fin del ajaxSetup
+//
+
+  $.ajax({
+
+            type: "PUT",
+            url: "metas/" + meta_id,
+            success: function (data) {
+                console.log(data);
+
+                var meta = '<tr id="meta' + data.id + '"><td>' + data.mes + '</td><td>' + data.personalAsignado + '</td><td>' + data.centro_trabajo + '</td><td>' + data.meta + '</td><td>' + data.year + '</td>';
+
+                meta += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '">Editar</button></td></tr>';
+
+                  
+                //$("#meta" + data.id).remove();
+                $("#meta" + meta_id).replaceWith( meta );
+                $('#myModal').modal('hide')
+                //swal.close();
+            },
+            error: function () {
+                console.log('Error:');
+            }
+        });
+
+
+
+  });
+
+
 
 });
 

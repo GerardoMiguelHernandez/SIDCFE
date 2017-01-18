@@ -42,7 +42,6 @@
           <thead>
             <tr class="info">
               <th>Zona</th>
-              <th>Area</th>
               <th>RPE</th>
               <th>Nombre</th>
               <th>Fecha</th>
@@ -123,9 +122,7 @@ $('#filtararea').DataTable({
 
         columns: [
             { data: 'zona'},
-            { data: 'area',"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-            $(nTd).html("<a href='{{url('colaboradorcontroller/Area')}}/"+oData.area+"'>"+oData.area+"</a>");
-        }},
+
             { data: 'RPE',"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
             $(nTd).html("<a href='{{url('DetalleColaborador')}}/"+oData.RPE+"'>"+oData.RPE+"</a>");
         }},

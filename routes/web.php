@@ -26,6 +26,16 @@ Route::get('Estadisticas/general',[
 Route::get('DetalleColaboradorAjax/{clave}','ColaboradorManiobraController@detalleColaboradorAjax');
 Route::get('DetalleColaborador/{id}','ColaboradoresController@show');
 
+
+//Nueva tabla de maniobras por Colaborador
+
+
+Route::get('TablaColaboradorManiobras/{id}',[
+     'uses' => 'ColaboradoresController@tablaManiobra',
+     'as'=>'maniobras-colaborador']);
+
+//FIN
+
 Route::get('imagen/{id1}','ColaboradoresController@foto');
 
 

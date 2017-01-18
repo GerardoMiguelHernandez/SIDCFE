@@ -130,4 +130,32 @@ class ColaboradoresController extends Controller
     {
         //
     }
+
+    public function tablaManiobra($id){
+
+        $picture = Colaborador::find($id);
+        $detalles= Colaborador_ManiobraModel::select('fecha_evaluacion','calificacion','maniobra','zona','area')->where('RPE',$id)->distinct()->get();
+        $total=count($detalles);
+
+
+        $maniobras = Colaborador_ManiobraModel::select('maniobra')->orderBy('maniobra','ASC')->distinct()->get();
+
+
+        foreach ($maniobras as $maniobra) {
+            $var = Colaborador_ManiobraModel::where('RPE',$id)->where('maniobra',$maniobra->maniobra)->count();
+            if(!$var){
+                $realizo[] = 'N';
+            }
+            else{
+                $realizo[] = $var;
+            }
+        }
+    
+    
+        return view('cfe.admin.colaboradores.TablaColaboradorManiobras')->with(['response'=>$picture,'id'=>$id,'total'=>$total, 'maniobras'=>$maniobras, 'realizo'=>$realizo]);
+
+    }
+
+
+
 }

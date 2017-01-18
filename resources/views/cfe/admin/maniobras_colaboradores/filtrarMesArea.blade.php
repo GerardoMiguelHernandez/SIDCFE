@@ -19,7 +19,7 @@
 				<h1 class="page-header">Resultados Obtenidos</h1>
 			</div>
 			<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
-        @if($count_maniobra)
+        @if($nombremes !== 'EN TODO EL AÑO')
 				  <p style="color: blue;">Evaluaciones: {{$count_maniobra}}</p>
         @else
           <p style="color: blue;">Evaluaciones: {{$count_maniobratotal}}</p>

@@ -19,7 +19,7 @@
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">{{$response->nombrecolaborador}} {{$response->apellidop}} {{$response->apellidom}} <small class="text-primary">{{$response->ncentro}}</small></h1>
+				<h1 class="page-header">{{$response->nombrecolaborador}} {{$response->apellidop}} {{$response->apellidom}}<br> <small class="text-primary">{{$response->ncentro}}</small></h1>
 			</div>
 		</div><!--/.row-->
 
@@ -115,12 +115,15 @@
 <h1>Historial de Colaborador</h1>
 </div>
 <div class="col-sm-12 col-md-3 col-lg-3">
-	Total de Evaluaciones: <strong class="text-primary">{{$total}}</strong>
-
+	Total de Evaluaciones: <strong class="text-primary">{{$total}}</strong><br>
+  <strong class="text-primary"><a href="{{route('maniobras-colaborador',[$id])}}">Tabla maniobras</a></strong><br><!--Nuevo-->
 </div>
+
+
+
 <div class="col-sm-12 col-md-1 col-lg-1">
 <a href="" id="excelColaborador">
- 	<i class="fa fa-file-excel-o fa-3x" aria-hidden="true"></i>
+ 	<i class="fa fa-file-excel-o fa-3x" style="color: green;"  aria-hidden="true"></i>
  	</a> 	
 </div>	
 	

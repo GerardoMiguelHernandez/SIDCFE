@@ -27,12 +27,32 @@ Route::get('DetalleColaboradorAjax/{clave}','ColaboradorManiobraController@detal
 Route::get('DetalleColaborador/{id}','ColaboradoresController@show');
 
 
+//Nuevo route para detalle colaborador
+
+
+Route::get('DetalleColaboradorNuevo/{id}',[
+     'uses' => 'ColaboradoresController@show',
+     'as'=>'nuevo-detallecolaborador']);
+
+
+
+
 //Nueva tabla de maniobras por Colaborador
 
 
 Route::get('TablaColaboradorManiobras/{id}',[
      'uses' => 'ColaboradoresController@tablaManiobra',
      'as'=>'maniobras-colaborador']);
+
+//FIN
+
+
+//Nueva tabla de maniobras por Colaborador en Area
+
+
+Route::get('AreaColaboradorManiobras/{area}',[
+     'uses' => 'ColaboradorManiobraController@tablaManiobraColaborador',
+     'as'=>'area-maniobras-colaboradores']);
 
 //FIN
 

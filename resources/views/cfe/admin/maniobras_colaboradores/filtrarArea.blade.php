@@ -14,7 +14,7 @@
 <div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">{{$maniobraReal}}</h1>
-        
+        <strong class="text-primary"><a href="{{route('area-maniobras-colaboradores',[$maniobraReal])}}">Tabla maniobras</a></strong>
 			</div>
     
 		</div>
@@ -25,6 +25,7 @@
 <div class="row">
 
 <div class="col-xs-8 col-sm-8 col-md-11 col-lg-11">
+
 </div>
     
     <div class="col-xs-4 col-sm-4 col-md-1 col-lg-1 col-xs-offset-8 col-sm-offset-8 col-md-offset-11 col-lg-offset-11">

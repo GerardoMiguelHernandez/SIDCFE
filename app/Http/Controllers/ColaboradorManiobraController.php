@@ -591,5 +591,52 @@ $rpe = $id;
     }
 
 
+
+    public function tablaManiobraColaborador($area){
+
+        $maniobras = Colaborador_ManiobraModel::select('maniobra')->orderBy('maniobra', 'ASC')->distinct()->get();
+        $colaboradores = Colaborador_ManiobraModel::select('RPE')->where('area',$area)->orderBy('RPE', 'ASC')->distinct()->get();
+        $total = Colaborador_ManiobraModel::where('area',$area)->count();
+        //$realizo = 0;
+
+
+        $totalmaniobra = count($maniobras);
+        $totalcolaborador = count($colaboradores);
+
+
+        foreach ($colaboradores as $colaborador) {
+            $var = Colaborador_ManiobraModel::where('RPE',$colaborador->RPE)->where('area',$area)->orderBy('RPE', 'ASC')->first();
+            if($var){
+                $rpecolaborador[] = $var->RPE;
+            }
+        }
+
+        
+        foreach ($maniobras as $maniobra) {
+            $var = Colaborador_ManiobraModel::where('maniobra',$maniobra->maniobra)->first();
+            if($var){
+                $nombremaniobra[] = $var->maniobra;
+            }
+        }
+
+
+        for($i = 0; $i < $totalcolaborador; $i++){
+            for($j = 0; $j < $totalmaniobra; $j++){
+                $var = Colaborador_ManiobraModel::where('RPE',$rpecolaborador[$i])->where('maniobra',$nombremaniobra[$j])->count();
+
+                if(!$var){
+                    $realizo[$i][$j] = 'N';
+                }
+                else{
+                    $realizo[$i][$j] = $var;
+                }
+            }
+        }
+
+       return view('cfe.admin.maniobras_colaboradores.ManiobraColaborador')->with(['maniobras'=>$maniobras,'area'=>$area, 'colaboradores'=>$colaboradores,'total'=>$total, 'realizo'=>$realizo, 'totalmaniobra'=>$totalmaniobra, 'totalcolaborador'=>$totalcolaborador, 'rpecolaborador'=>$rpecolaborador]);
+
+ }
+
     
+
 }

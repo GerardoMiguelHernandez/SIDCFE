@@ -538,6 +538,14 @@ return response()->json($meta);
 
         $count_maniobratotal = Colaborador_ManiobraModel::where('area',$area)->whereYear('fecha_evaluacion', $ye)->count();
 
-        return view('cfe.admin.maniobras_colaboradores.filtrarMesArea')->with(['ye'=>$ye,'ar'=>$ar, 'count_maniobra'=>$count_maniobra, 'nombremes'=>$nombremes,'maniobras'=>$maniobras, 'maniobras_total'=>$maniobras_total,'count_maniobratotal'=>$count_maniobratotal]);
+        $count_colaboradores = Colaborador_ManiobraModel::where('area',$area)->whereMonth('fecha_evaluacion', $mes)->distinct('RPE')->count('RPE');
+
+        $count_colaboradorestotal = Colaborador_ManiobraModel::where('area',$area)->whereYear('fecha_evaluacion', $ye)->distinct('RPE')->count('RPE');
+
+        $count_maniobradif = Colaborador_ManiobraModel::where('area',$area)->whereMonth('fecha_evaluacion', $mes)->distinct('maniobra')->count('maniobra');
+
+        $count_maniobradiftotal = Colaborador_ManiobraModel::where('area',$area)->whereYear('fecha_evaluacion', $ye)->distinct('maniobra')->count('maniobra');
+
+        return view('cfe.admin.maniobras_colaboradores.filtrarMesArea')->with(['ye'=>$ye,'ar'=>$ar, 'count_maniobra'=>$count_maniobra, 'nombremes'=>$nombremes,'maniobras'=>$maniobras, 'maniobras_total'=>$maniobras_total,'count_maniobratotal'=>$count_maniobratotal, 'count_colaboradores'=>$count_colaboradores, 'count_colaboradorestotal'=>$count_colaboradorestotal, 'count_maniobradif'=>$count_maniobradif, 'count_maniobradiftotal'=>$count_maniobradiftotal]);
    }
 }

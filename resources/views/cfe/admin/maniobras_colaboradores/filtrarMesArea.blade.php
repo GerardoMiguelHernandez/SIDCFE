@@ -21,8 +21,12 @@
 			<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
         @if($nombremes !== 'EN TODO EL AÑO')
 				  <p style="color: blue;">Evaluaciones: {{$count_maniobra}}</p>
+          <p style="color: blue;">Colaboradores: {{$count_colaboradores}}</p>
+          <p style="color: blue;">Maniobras: {{$count_maniobradif}}</p>
         @else
           <p style="color: blue;">Evaluaciones: {{$count_maniobratotal}}</p>
+          <p style="color: blue;">Colaboradores: {{$count_colaboradorestotal}}</p>
+          <p style="color: blue;">Maniobras: {{$count_maniobradiftotal}}</p>
         @endif
 			</div>
 		</div><!--/.row-->

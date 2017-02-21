@@ -8,7 +8,7 @@
 <div class="row">
       <ol class="breadcrumb">
         <li><a href="#"><i class="material-icons blue600">settings</i></a></li>
-        <li class="active">Maniobras</li>
+        <li></li><strong>MANIOBRAS</strong></li>
       </ol>
     </div><!--/.row-->
 
@@ -39,10 +39,10 @@
         <div class="panel panel-blue panel-widget ">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-5 widget-left">
-              <i class="material-icons iconfont3">settings</i>
+              <i class="material-icons iconfont3">place_ubication</i>
             </div>
             <div class="col-sm-9 col-lg-7 widget-down">
-              <div class="text-primary">{{$zimatlan}}</div>
+              <a href="{{route('maniobra-area',[$areaReal,'AREA ZIMATLAN'])}}"><div class="text-primary">{{$zimatlan}} evaluaciones</div></a>
               <div class="text-danger">AREA ZIMATLAN</div>
               <div class="text-success">Promedio:{{number_format($zimatlan1->totalZimatlan,2)}}</div>
             </div>
@@ -50,13 +50,13 @@
         </div>
       </div>
       <div class="col-xs-12 col-md-6 col-lg-3">
-        <div class="panel panel-orange panel-widget">
+        <div class="panel panel-blue panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-5 widget-left">
-              <i class="material-icons iconfont3">work</i>
+              <i class="material-icons iconfont3">place_ubication</i>
             </div>
             <div class="col-sm-9 col-lg-7 widget-down">
-              <div class="text-primary">{{$etla}}</div>
+              <a href="{{route('maniobra-area',[$areaReal,'AREA ETLA'])}}"><div class="text-primary">{{$etla}} evaluaciones</div></a>
               <div class="text-danger">AREA ETLA</div>
               <div class="text-success">Promedio:{{number_format($etla1->totalEtla,2)}}</div>
             </div>
@@ -64,13 +64,13 @@
         </div>
       </div>
       <div class="col-xs-12 col-md-6 col-lg-3">
-        <div class="panel panel-teal panel-widget">
+        <div class="panel panel-blue panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-5 widget-left">
               <i class="material-icons iconfont3">place_ubication</i>
             </div>
             <div class="col-sm-9 col-lg-7 widget-down">
-              <div class="text-primary">{{$ixtlan}}</div>
+              <a href="{{route('maniobra-area',[$areaReal,'AREA IXTLAN'])}}"><div class="text-primary">{{$ixtlan}} evaluaciones</div></a>
               <div class="text-danger">AREA IXTLAN</div>
               <div class="text-success">Promedio:{{number_format($ixtlan1->totalIxtlan,2)}}</div>
             </div>
@@ -78,13 +78,13 @@
         </div>
       </div>
       <div class="col-xs-12 col-md-6 col-lg-3">
-        <div class="panel panel-red panel-widget">
+        <div class="panel panel-blue panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-5 widget-left">
-              <i class="material-icons iconfont3">perm_identity</i>
+              <i class="material-icons iconfont3">place_ubication</i>
             </div>
              <div class="col-sm-9 col-lg-7 widget-down">
-              <div class="text-primary">{{$ocotlan}}</div>
+              <a href="{{route('maniobra-area',[$areaReal,'AREA OCOTLAN'])}}"><div class="text-primary">{{$ocotlan}} evaluaciones</div></a>
               <div class="text-danger">AREA OCOTLAN</div>
               <div class="text-success">Promedio:{{number_format($ocotlan1->totalOcotlan,2)}}</div>
             </div>
@@ -92,13 +92,13 @@
         </div>
       </div>
       <div class="col-xs-12 col-md-6 col-lg-3">
-        <div class="panel panel-red panel-widget">
+        <div class="panel panel-blue panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-5 widget-left">
-              <i class="material-icons iconfont3">perm_identity</i>
+              <i class="material-icons iconfont3">place_ubication</i>
             </div>
            <div class="col-sm-9 col-lg-7 widget-down">
-              <div class="text-primary">{{$miahuatlan}}</div>
+              <a href="{{route('maniobra-area',[$areaReal,'AREA MIAHUATLAN'])}}"><div class="text-primary">{{$miahuatlan}} evaluaciones</div></a>
               <div class="text-danger">AREA MIAHUATLAN</div>
               <div class="text-success">Promedio:{{number_format($miahuatlan1->totalMiahuatlan,2)}}</div>
             </div>
@@ -106,13 +106,13 @@
         </div>
       </div>
       <div class="col-xs-12 col-md-6 col-lg-3">
-        <div class="panel panel-red panel-widget">
+        <div class="panel panel-blue panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-5 widget-left">
-              <i class="material-icons iconfont3">perm_identity</i>
+              <i class="material-icons iconfont3">place_ubication</i>
             </div>
             <div class="col-sm-9 col-lg-7 widget-down">
-              <div class="text-primary">{{$tlacolula}}</div>
+              <a href="{{route('maniobra-area',[$areaReal,'AREA TLACOLULA'])}}"><div class="text-primary">{{$tlacolula}} evaluaciones</div></a>
               <div class="text-danger">AREA TLACOLULA</div>
               <div class="text-success">Promedio:{{ number_format($tlacolula1->totalTlacolula,2) }}</div>
             </div>
@@ -120,13 +120,13 @@
         </div>
       </div>
       <div class="col-xs-12 col-md-6 col-lg-3">
-        <div class="panel panel-red panel-widget">
+        <div class="panel panel-blue panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-5 widget-left">
-              <i class="material-icons iconfont3">perm_identity</i>
+              <i class="material-icons iconfont3">place_ubication</i>
             </div>
             <div class="col-sm-9 col-lg-7 widget-down">
-              <div class="text-primary">{{$oaxaca}}</div>
+              <a href="{{route('maniobra-area',[$areaReal,'AREA OAXACA'])}}"><div class="text-primary">{{$oaxaca}} evaluaciones</div></a>
               <div class="text-danger">AREA OAXACA</div>
               <div class="text-success">Promedio:{{ number_format($oaxaca1->totalOaxaca,2) }}</div>
             </div>
@@ -134,13 +134,13 @@
         </div>
       </div>
       <div class="col-xs-12 col-md-6 col-lg-3">
-        <div class="panel panel-red panel-widget">
+        <div class="panel panel-blue panel-widget">
           <div class="row no-padding">
             <div class="col-sm-3 col-lg-5 widget-left">
-              <i class="material-icons iconfont3">perm_identity</i>
+              <i class="material-icons iconfont3">place_ubication</i>
             </div>
              <div class="col-sm-9 col-lg-7 widget-down">
-              <div class="text-primary">{{$temporales}}</div>
+              <a href="{{route('maniobra-area',[$areaReal,'Temporales Oax'])}}"><div class="text-primary">{{$temporales}} evaluaciones</div></a>
               <div class="text-danger">Temporales Oax.</div>
               <div class="text-success">Promedio:{{ number_format($temporales1->totalTemporales,2) }}</div>
             </div>
@@ -285,15 +285,18 @@ $('#filtarmaniobra').DataTable({
        {
             //console.log("es 100");
             $nrow.css({"background-color":"#1de9b6"});
+            $nrow.css({"color":"#000000"});
             //console.log(aData.nombre+"calificacion"+aData.calificacion);
        } 
        else if(aData.calificacion == 0){
 
            $nrow.css({"background-color":"#FF0000"});
+           $nrow.css({"color":"#000000"});
        }
 
        else{
            $nrow.css({"background-color":"#FF8000"});
+           $nrow.css({"color":"#000000"});
        }
       
       //console.log(aData.calificacion +"nombre"+aData.nombre);
@@ -303,10 +306,10 @@ $('#filtarmaniobra').DataTable({
         columns: [
             { data: 'zona'},
             { data: 'area',"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-            $(nTd).html("<a href='{{url('colaboradorcontroller/AreaDatos')}}/"+oData.area+"'>"+oData.area+"</a>");
+            $(nTd).html("<a style='color:#000000' href='{{url('colaboradorcontroller/AreaDatos')}}/"+oData.area+"'>"+oData.area+"</a>");
         }},
             { data: 'RPE',"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-            $(nTd).html("<a href='{{url('DetalleColaborador')}}/"+oData.RPE+"'>"+oData.RPE+"</a>");
+            $(nTd).html("<a style='color:#000000' href='{{url('DetalleColaborador')}}/"+oData.RPE+"'>"+oData.RPE+"</a>");
         }},
             { data: 'nombre'},
             { data: 'fecha_evaluacion'},
@@ -314,7 +317,7 @@ $('#filtarmaniobra').DataTable({
                 var $maniobra=oData.maniobra;
 
                 //console.log($maniobra);
-            $(nTd).html("<a href='{{url('colaboradorcontroller/Area1')}}/"+oData.maniobra+"'>"+oData.maniobra+"</a>");
+            $(nTd).html("<a style='color:#000000' href='{{url('colaboradorcontroller/Area1')}}/"+oData.maniobra+"'>"+oData.maniobra+"</a>");
         }},
             { data: 'calificacion'}
             

@@ -415,7 +415,6 @@ public function obtener($maniobra){
 
  }
 
-
  public function areadatosobtener($area){
 
 $this->area= $area;
@@ -634,6 +633,15 @@ $rpe = $id;
         }
 
        return view('cfe.admin.maniobras_colaboradores.ManiobraColaborador')->with(['maniobras'=>$maniobras,'area'=>$area, 'colaboradores'=>$colaboradores,'total'=>$total, 'realizo'=>$realizo, 'totalmaniobra'=>$totalmaniobra, 'totalcolaborador'=>$totalcolaborador, 'rpecolaborador'=>$rpecolaborador]);
+
+ }
+
+ public function ManiobraArea($maniobra, $area){
+    $datos = Colaborador_ManiobraModel::where('area',$area)->where('maniobra',$maniobra)->orderBy('fecha_evaluacion','ASC')->get();
+    $man  = $maniobra;
+    $ar  = $area;
+
+    return view('cfe.admin.maniobras_colaboradores.Maniobra-Area-Filtro')->with(['datos'=>$datos, 'man'=>$man, 'ar'=>$ar]);
 
  }
 

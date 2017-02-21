@@ -27,7 +27,7 @@
           <thead>
             <tr class="info">
               <th class="text-center">Areas/Meses</th>
-              <th class="text-center">Programa</th>
+              <th class="text-center">Evaluación</th>
               <th class="text-center">Enero</th>
               <th class="text-center">Febrero</th>
               <th class="text-center">Marzo</th>
@@ -51,7 +51,7 @@
 <!--Etla  bgcolor="#FF5733"-->
            <tr>
             <th class="text-center" rowspan="3">Area Etla</th>
-            <th class="text-center">Programado</th>
+            <th class="text-center">P</th>
            @for($i=0; $i<=11; $i++)
               <th class="text-center">{{$metaEt[$i]}}</th>
            @endfor
@@ -65,7 +65,7 @@
            </tr>
 
            <tr>
-            <th class="text-center">Real</th>
+            <th class="text-center">R</th>
             @for($i=0; $i<=11; $i++)
               <th class="text-center"><a href="{{route('mes-area',['AREA ETLA',$i + 1, $ye])}}">{{$metaEtla[$i]}}</a></th>
             @endfor
@@ -74,7 +74,7 @@
 
 
            <tr>
-            <th class="text-center">Porcentaje</th>
+            <th class="text-center">%</th>
             @for($i=0; $i<=11; $i++)
               @if(!$metaEt[$i])
                 <th class="text-center">0%</th>
@@ -87,7 +87,7 @@
 <!--Ixtlan-->
            <tr>
             <th class="text-center" rowspan="3">Area Ixtlan</th>
-            <th class="text-center">Programado</th>
+            <th class="text-center">P</th>
            @for($i=0; $i<=11; $i++)
               <th class="text-center">{{$metaIx[$i]}}</th>
            @endfor
@@ -103,7 +103,7 @@
            </tr>
 
           <tr>
-            <th class="text-center">Real</th>
+            <th class="text-center">R</th>
             @for($i=0; $i<=11; $i++)
                 <th class="text-center"><a href="{{route('mes-area',['AREA IXTLAN',$i + 1, $ye])}}">{{$metaIxtlan[$i]}}</a></th>
             @endfor
@@ -112,7 +112,7 @@
 
 
           <tr>
-            <th class="text-center">Porcentaje</th>
+            <th class="text-center">%</th>
             @for($i=0; $i<=11; $i++)
               @if(!$metaIx[$i])
                 <th class="text-center">0%</th>
@@ -125,7 +125,7 @@
 <!--Miahuatlan-->
            <tr>
             <th class="text-center" rowspan="3">Area Miahuatlan</th>
-            <th class="text-center">Programado</th>
+            <th class="text-center">P</th>
            @for($i=0; $i<=11; $i++)
               <th class="text-center">{{$metaMia[$i]}}</th>
            @endfor
@@ -139,7 +139,7 @@
            <th class="text-center" rowspan="3">{{number_format($porcientoMiahuatlan,2)}}%</th>
            </tr>
           <tr>
-            <th class="text-center">Real</th>
+            <th class="text-center">R</th>
             @for($i=0; $i<=11; $i++)
                 <th class="text-center"><a href="{{route('mes-area',['AREA MIAHUATLAN',$i + 1, $ye])}}">{{$metaMiahuatlan[$i]}}</a></th>
             @endfor
@@ -148,7 +148,7 @@
 
 
           <tr>
-            <th class="text-center">Porcentaje</th>
+            <th class="text-center">%</th>
             @for($i=0; $i<=11; $i++)
               @if(!$metaMia[$i])
                 <th class="text-center">0%</th>
@@ -161,7 +161,7 @@
 <!--oaxaca-->
            <tr>
             <th class="text-center" rowspan="3">Area Oaxaca</th>
-            <th class="text-center">Programado</th>
+            <th class="text-center">P</th>
            @for($i=0; $i<=11; $i++)
             
               <th class="text-center">{{$metaOax[$i]}}</th>
@@ -179,7 +179,7 @@
 
 
           <tr>
-            <th class="text-center">Real</th>
+            <th class="text-center">R</th>
             @for($i=0; $i<=11; $i++)
                 <th class="text-center"><a href="{{route('mes-area',['AREA OAXACA',$i + 1, $ye])}}">{{$metaOaxaca[$i]}}</a></th>
             @endfor
@@ -188,7 +188,7 @@
 
 
           <tr>
-            <th class="text-center">Porcentaje</th>
+            <th class="text-center">%</th>
             @for($i=0; $i<=11; $i++)
               @if(!$metaOax[$i])
                 <th class="text-center">0%</th>
@@ -201,7 +201,7 @@
 <!--ocotlan-->
            <tr>
             <th class="text-center" rowspan="3">Area Ocotlan</th>
-            <th class="text-center">Programado</th>
+            <th class="text-center">P</th>
            @for($i=0; $i<=11; $i++)
               <th class="text-center">{{$metaOco[$i]}}</th>
             
@@ -219,7 +219,7 @@
 
 
           <tr>
-            <th class="text-center">Real</th>
+            <th class="text-center">R</th>
             @for($i=0; $i<=11; $i++)
                 <th class="text-center"><a href="{{route('mes-area',['AREA OCOTLAN',$i + 1, $ye])}}">{{$metaOcotlan[$i]}}</a></th>
             @endfor
@@ -229,7 +229,7 @@
 
 
           <tr>
-            <th class="text-center">Porcentaje</th>
+            <th class="text-center">%</th>
             @for($i=0; $i<=11; $i++)
               @if(!$metaOco[$i])
                 <th class="text-center">0%</th>
@@ -243,7 +243,7 @@
 <!--tlacolula-->
            <tr>
             <th class="text-center" rowspan="3">Area Tlacolula</th>
-            <th class="text-center">Programado</th>
+            <th class="text-center">P</th>
            @for($i=0; $i<=11; $i++) 
               <th class="text-center">{{$metaTlac[$i]}}</th>
 
@@ -261,7 +261,7 @@
 
 
           <tr>
-            <th class="text-center">Real</th>
+            <th class="text-center">R</th>
             @for($i=0; $i<=11; $i++)
                 <th class="text-center"><a href="{{route('mes-area',['AREA TLACOLULA',$i + 1, $ye])}}">{{$metaTlacolula[$i]}}</a></th>
             @endfor
@@ -271,7 +271,7 @@
 
 
           <tr>
-            <th class="text-center">Porcentaje</th>
+            <th class="text-center">%</th>
             @for($i=0; $i<=11; $i++)
               @if(!$metaTlac[$i])
                 <th class="text-center">0%</th>
@@ -285,7 +285,7 @@
 <!--Zimatlan-->
            <tr>
             <th class="text-center" rowspan="3">Area Zimatlan</th>
-            <th class="text-center">Programado</th>
+            <th class="text-center">P</th>
            @for($i=0; $i<=11; $i++)
               <th class="text-center">{{$metaZim[$i]}}</th>
             
@@ -303,7 +303,7 @@
 
 
           <tr>
-            <th class="text-center">Real</th>
+            <th class="text-center">R</th>
             @for($i=0; $i<=11; $i++)
                 <th class="text-center"><a href="{{route('mes-area',['AREA ZIMATLAN',$i + 1, $ye])}}">{{$metaZimatlan[$i]}}</a></th>
             @endfor
@@ -313,7 +313,7 @@
 
 
           <tr>
-            <th class="text-center">Porcentaje</th>
+            <th class="text-center">%</th>
             @for($i=0; $i<=11; $i++)
               @if(!$metaZim[$i])
                 <th class="text-center">0%</th>
@@ -328,7 +328,7 @@
 <!--temporales-->
            <tr>
             <th class="text-center" rowspan="3">Temporales Oax</th>
-            <th class="text-center">Programado</th>
+            <th class="text-center">P</th>
            @for($i=0; $i<=11; $i++)
               <th class="text-center">{{$metaTem[$i]}}</th>
             
@@ -346,7 +346,7 @@
 
 
           <tr>
-            <th class="text-center">Real</th>
+            <th class="text-center">R</th>
             @for($i=0; $i<=11; $i++)
                 <th class="text-center"><a href="{{route('mes-area',['Temporales Oax',$i + 1, $ye])}}">{{$metaTemporales[$i]}}</a></th>
             @endfor
@@ -355,7 +355,7 @@
 
 
           <tr>
-            <th class="text-center">Porcentaje</th>
+            <th class="text-center">%</th>
             @for($i=0; $i<=11; $i++)
               @if(!$metaTem[$i])
                 <th class="text-center">0%</th>

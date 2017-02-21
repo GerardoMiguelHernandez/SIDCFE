@@ -106,15 +106,18 @@ $('#filtararea').DataTable({
        {
             //console.log("es 100");
             $nrow.css({"background-color":"#1de9b6"});
+            $nrow.css({"color":"#000000"});
             //console.log(aData.nombre+"calificacion"+aData.calificacion);
        } 
        else if(aData.calificacion == 0){
 
            $nrow.css({"background-color":"#FF0000"});
+           $nrow.css({"color":"#000000"});
        }
 
        else{
            $nrow.css({"background-color":"#FF8000"});
+           $nrow.css({"color":"#000000"});
        }
       
       //console.log(aData.calificacion +"nombre"+aData.nombre);
@@ -125,7 +128,7 @@ $('#filtararea').DataTable({
             { data: 'zona'},
 
             { data: 'RPE',"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-            $(nTd).html("<a href='{{url('DetalleColaborador')}}/"+oData.RPE+"'>"+oData.RPE+"</a>");
+            $(nTd).html("<a style='color:#000000' href='{{url('DetalleColaborador')}}/"+oData.RPE+"'>"+oData.RPE+"</a>");
         }},
             { data: 'nombre'},
             { data: 'fecha_evaluacion'},
@@ -133,7 +136,7 @@ $('#filtararea').DataTable({
                 var $maniobra=oData.maniobra;
 
                 //console.log($maniobra);
-            $(nTd).html("<a href='{{url('colaboradorcontroller/Area1')}}/"+oData.maniobra+"'>"+oData.maniobra+"</a>");
+            $(nTd).html("<a style='color:#000000' href='{{url('colaboradorcontroller/Area1')}}/"+oData.maniobra+"'>"+oData.maniobra+"</a>");
         }},
             { data: 'calificacion'}
             

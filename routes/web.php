@@ -47,6 +47,17 @@ Route::get('TablaColaboradorManiobras/{id}',[
 //FIN
 
 
+//Nueva tabla de maniobras por Area->duda
+
+
+Route::get('colaboradorcontroller/Area1/{maniobra}/{area}',[
+     'uses'=>'ColaboradorManiobraController@ManiobraArea',
+     'as'=>'maniobra-area']);
+
+//FIN
+
+
+
 //Nueva tabla de maniobras por Colaborador en Area
 
 

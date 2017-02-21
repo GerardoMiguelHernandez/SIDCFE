@@ -155,8 +155,8 @@
 				</ul>
 			</li>
 			@endif
-			<li role="presentation" class="divider"></li>
-			
 		</ul>
+
+
 
 	</div><!--/.sidebar-->

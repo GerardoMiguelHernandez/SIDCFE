@@ -57,9 +57,31 @@ Route::get('colaboradorcontroller/Area1/{maniobra}/{area}',[
 //FIN
 
 
+//Nueva vista para maniobra especifica de un rpe
+
+
+Route::get('ManiobraRPE/{rpe}/{maniobra}',[
+     'uses'=>'ColaboradoresController@MostrarManiobraColaborador',
+     'as'=>'rpe-maniobra']);
+
+//FIN
+
+
+//Vista para agrupamiento en Metas
+
+Route::get('AgruparManiobraMeta/{ar}/{mes}/{ye}/{num}',[
+     'uses'=>'MetasControllers@agrupar',
+     'as'=>'agrupar-colaborador-maniobra']);
+//Fin
+
+//Vista para consulta en Metas
+Route::get('Consulta-Rpe-Maniobra/{ar}/{mes}/{ye}/{num}/{manrpe}',[
+     'uses'=>'MetasControllers@maniobra_rpe',
+     'as'=>'consulta-maniobra-rpe']);
+//FIN
+
 
 //Nueva tabla de maniobras por Colaborador en Area
-
 
 Route::get('AreaColaboradorManiobras/{area}',[
      'uses' => 'ColaboradorManiobraController@tablaManiobraColaborador',
@@ -138,6 +160,12 @@ Route::get('colaboradorcontroller/Fechas/Excel/{fecha1}/{fecha2}',[
 Route::get('colaboradorcontroller/Area1/{area1}',[
     'uses'=>'ColaboradorManiobraController@ver_area1',
     'as'=>'maniobra.filtro']);
+
+//Nuevo colaboradorcontroller/Area1
+Route::get('ColaboradorcontrollerNuevo/Area1/{area1}',[
+    'uses'=>'ColaboradorManiobraController@ver_area1',
+    'as'=>'nuevo.maniobra.filtro']);
+//FIN
 
 
 Route::get('colaboradorcontroller/maniobra/{maniobra1}','ColaboradorManiobraController@obtener');

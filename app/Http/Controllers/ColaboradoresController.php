@@ -143,16 +143,31 @@ class ColaboradoresController extends Controller
 
         foreach ($maniobras as $maniobra) {
             $var = Colaborador_ManiobraModel::where('RPE',$id)->where('maniobra',$maniobra->maniobra)->count();
+            $var1 = Colaborador_ManiobraModel::where('RPE',$id)->where('maniobra',$maniobra->maniobra)->avg('calificacion');
             if(!$var){
                 $realizo[] = 'N';
+                $promedio[] = 0;
             }
             else{
                 $realizo[] = $var;
+                $promedio[] = $var1;
             }
         }
     
     
-        return view('cfe.admin.colaboradores.TablaColaboradorManiobras')->with(['response'=>$picture,'id'=>$id,'total'=>$total, 'maniobras'=>$maniobras, 'realizo'=>$realizo]);
+        return view('cfe.admin.colaboradores.TablaColaboradorManiobras')->with(['response'=>$picture,'id'=>$id,'total'=>$total, 'maniobras'=>$maniobras, 'realizo'=>$realizo, 'promedio'=>$promedio]);
+
+    }
+
+
+    public function MostrarManiobraColaborador($id, $maniobra){
+        $picture = Colaborador::find($id);
+        $detalles= Colaborador_ManiobraModel::select('fecha_evaluacion','calificacion','maniobra','zona','area')->where('RPE',$id)->distinct()->get();
+        $total=count($detalles);
+
+        $consulta = Colaborador_ManiobraModel::where('RPE', $id)->where('maniobra', $maniobra)->orderBy('fecha_evaluacion', 'ASC')->get();
+
+        return view('cfe.admin.maniobras_colaboradores.ManiobraRPE')->with(['response'=>$picture,'id'=>$id,'total'=>$total, 'consulta'=>$consulta]);
 
     }
 

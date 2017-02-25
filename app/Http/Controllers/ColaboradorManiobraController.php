@@ -632,7 +632,7 @@ $rpe = $id;
             }
         }
 
-       return view('cfe.admin.maniobras_colaboradores.ManiobraColaborador')->with(['maniobras'=>$maniobras,'area'=>$area, 'colaboradores'=>$colaboradores,'total'=>$total, 'realizo'=>$realizo, 'totalmaniobra'=>$totalmaniobra, 'totalcolaborador'=>$totalcolaborador, 'rpecolaborador'=>$rpecolaborador]);
+       return view('cfe.admin.maniobras_colaboradores.ManiobraColaborador')->with(['maniobras'=>$maniobras,'area'=>$area, 'colaboradores'=>$colaboradores,'total'=>$total, 'realizo'=>$realizo, 'totalmaniobra'=>$totalmaniobra, 'totalcolaborador'=>$totalcolaborador, 'rpecolaborador'=>$rpecolaborador, 'nombremaniobra'=>$nombremaniobra]);
 
  }
 

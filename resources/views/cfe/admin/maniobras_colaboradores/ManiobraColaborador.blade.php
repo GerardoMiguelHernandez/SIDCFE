@@ -57,7 +57,7 @@
               @for($j = 0; $j < $totalmaniobra; $j++)
                 
                   @if($realizo[$i][$j] !== 'N')
-                    <th class="text-center"><i class="material-icons" style="font-size:24px;color:green;text-shadow:2px 2px 16px green;">done</i>({{$realizo[$i][$j]}})</th>
+                    <th class="text-center"><i class="material-icons" style="font-size:24px;color:green;text-shadow:2px 2px 16px green;">done</i><a href="{{route('rpe-maniobra',[$rpecolaborador[$i],$nombremaniobra[$j]])}}">({{$realizo[$i][$j]}})</a></th>
                   @else
                     <th class="text-center"><i class="material-icons" style="font-size:24px;color:red;text-shadow:2px 2px 16px red;">clear</i></th>
                   @endif

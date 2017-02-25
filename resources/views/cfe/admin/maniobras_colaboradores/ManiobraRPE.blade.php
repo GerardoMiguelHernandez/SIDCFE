@@ -76,7 +76,7 @@
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
 							<div class="large"></div>
-							<div class="text-muted">{{$id}}</div>
+							<div class="text-muted"><a href="{{route('nuevo-detallecolaborador',[$id])}}">{{$id}}</a></div>
 						</div>
 					</div>
 				</div>
@@ -111,36 +111,24 @@
    
 <div class="row">
 
-<div class="col-sm-12 col-md-3 col-lg-3">
-	<br>Total de Evaluaciones: <strong class="text-primary">{{$total}}</strong>
-</div>
-
-
 <div class="table-responsive table-hover" style="padding-top: 1px;">
 <table id="detallecolaborador" class="table table-bordered" width="100%" cellspacing="0">
         <thead>
        
             <tr class="success">
-                <th>Maniobra</th>
-                <th  class="text-center">Realizó</th>
-                <th  class="text-center">Promedio</th>
+                <th class="text-center">Maniobra</th>
+                <th  class="text-center">Fecha de evaluación</th>
+                <th  class="text-center">Calificación</th>
             </tr>
         </thead>   
 
         <tbody id="general_Estadistica">
            
-           @foreach($maniobras as $maniobra)
+           @foreach($consulta as $con)
            <tr>
-
-              <th width="800">{{$maniobra->maniobra}}</th>
-
-              @if($realizo[$loop->index] !== 'N')
-              	<th class="text-center"><i class="material-icons" style="font-size:24px;color:green;text-shadow:2px 2px 16px green;">done</i><a href="{{route('rpe-maniobra',[$id,$maniobra->maniobra])}}">({{$realizo[$loop->index]}})</a></th>
-              	<th class="text-center">{{number_format($promedio[$loop->index],2)}} %</th>
-              @else
-              	<th class="text-center"><i class="material-icons" style="font-size:24px;color:red;text-shadow:2px 2px 16px red;">clear</i></th>
-              	<th class="text-center">{{$promedio[$loop->index]}} %</th>
-              @endif
+              <th class="text-center">{{$con->maniobra}}</th>
+              <th class="text-center">{{$con->fecha_evaluacion}}</th>
+              <th class="text-center">{{$con->calificacion}}</th>
            </tr>
            @endforeach
         </tbody>
@@ -148,7 +136,6 @@
 
  </table>
  </div>
-
 
 @endsection
 

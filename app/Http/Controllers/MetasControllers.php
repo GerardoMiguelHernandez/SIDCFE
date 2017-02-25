@@ -546,6 +546,124 @@ return response()->json($meta);
 
         $count_maniobradiftotal = Colaborador_ManiobraModel::where('area',$area)->whereYear('fecha_evaluacion', $ye)->distinct('maniobra')->count('maniobra');
 
-        return view('cfe.admin.maniobras_colaboradores.filtrarMesArea')->with(['ye'=>$ye,'ar'=>$ar, 'count_maniobra'=>$count_maniobra, 'nombremes'=>$nombremes,'maniobras'=>$maniobras, 'maniobras_total'=>$maniobras_total,'count_maniobratotal'=>$count_maniobratotal, 'count_colaboradores'=>$count_colaboradores, 'count_colaboradorestotal'=>$count_colaboradorestotal, 'count_maniobradif'=>$count_maniobradif, 'count_maniobradiftotal'=>$count_maniobradiftotal]);
+        return view('cfe.admin.maniobras_colaboradores.filtrarMesArea')->with(['ye'=>$ye,'ar'=>$ar, 'count_maniobra'=>$count_maniobra, 'nombremes'=>$nombremes,'maniobras'=>$maniobras, 'maniobras_total'=>$maniobras_total,'count_maniobratotal'=>$count_maniobratotal, 'count_colaboradores'=>$count_colaboradores, 'count_colaboradorestotal'=>$count_colaboradorestotal, 'count_maniobradif'=>$count_maniobradif, 'count_maniobradiftotal'=>$count_maniobradiftotal, 'mes'=>$mes]);
    }
+
+   public function agrupar($area, $mes, $ye, $num){
+
+        $count_colaboradormaniobra[] = 0;
+        $promedio_colaboradormaniobra[] = 0;
+        $count_maniobracolaborador[] = 0;
+        $promedio_maniobracolaborador[] = 0;
+
+        if($mes != 13){
+            $maniobrames = Colaborador_ManiobraModel::select('maniobra')->where('area',$area)->whereMonth('fecha_evaluacion',$mes)->whereYear('fecha_evaluacion',$ye)->orderBy('maniobra', 'ASC')->distinct('maniobra')->get();
+
+            $colaboradoresmes = Colaborador_ManiobraModel::select('RPE', 'nombre')->where('area',$area)->whereMonth('fecha_evaluacion',$mes)->whereYear('fecha_evaluacion',$ye)->orderBy('RPE', 'ASC')->distinct('RPE')->get();
+
+            $evaluacionesmes = Colaborador_ManiobraModel::where('area',$area)->whereMonth('fecha_evaluacion',$mes)->whereYear('fecha_evaluacion',$ye)->orderBy('calificacion', 'DES')->get();
+
+
+            foreach ($colaboradoresmes as $col) {
+                $count_colaboradormaniobra[] = Colaborador_ManiobraModel::where('area',$area)->whereMonth('fecha_evaluacion',$mes)->whereYear('fecha_evaluacion',$ye)->where('RPE', $col->RPE)->count();
+
+                $promedio_colaboradormaniobra[] = Colaborador_ManiobraModel::where('area',$area)->whereMonth('fecha_evaluacion',$mes)->whereYear('fecha_evaluacion',$ye)->where('RPE', $col->RPE)->avg('calificacion');
+            }
+
+
+            foreach ($maniobrames as $col) {
+                $count_maniobracolaborador[] = Colaborador_ManiobraModel::where('area',$area)->whereMonth('fecha_evaluacion',$mes)->whereYear('fecha_evaluacion',$ye)->where('maniobra', $col->maniobra)->count();
+
+                $promedio_maniobracolaborador[] = Colaborador_ManiobraModel::where('area',$area)->whereMonth('fecha_evaluacion',$mes)->whereYear('fecha_evaluacion',$ye)->where('maniobra', $col->maniobra)->avg('calificacion');
+            }
+
+        }
+        else{
+            $maniobrames = Colaborador_ManiobraModel::select('maniobra')->where('area',$area)->whereYear('fecha_evaluacion',$ye)->orderBy('maniobra', 'ASC')->distinct('maniobra')->get();
+
+            $colaboradoresmes = Colaborador_ManiobraModel::select('RPE', 'nombre')->where('area',$area)->whereYear('fecha_evaluacion',$ye)->orderBy('RPE', 'ASC')->distinct('RPE')->get();
+
+            $evaluacionesmes = Colaborador_ManiobraModel::where('area',$area)->whereYear('fecha_evaluacion',$ye)->orderBy('calificacion', 'DES')->get();
+
+            foreach ($colaboradoresmes as $col) {
+                $count_colaboradormaniobra[] = Colaborador_ManiobraModel::where('area',$area)->whereYear('fecha_evaluacion',$ye)->where('RPE', $col->RPE)->count();
+
+                $promedio_colaboradormaniobra[] = Colaborador_ManiobraModel::where('area',$area)->whereYear('fecha_evaluacion',$ye)->where('RPE', $col->RPE)->avg('calificacion');
+            }
+
+            foreach ($maniobrames as $col) {
+                $count_maniobracolaborador[] = Colaborador_ManiobraModel::where('area',$area)->whereYear('fecha_evaluacion',$ye)->where('maniobra', $col->maniobra)->count();
+
+                $promedio_maniobracolaborador[] = Colaborador_ManiobraModel::where('area',$area)->whereYear('fecha_evaluacion',$ye)->where('maniobra', $col->maniobra)->avg('calificacion');
+            }     
+        }
+
+        $meses = array('ENERO','FEBRERO','MARZO','ABRIL','MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE', 'EN TODO EL AÑO');
+
+        $count_evaluacion = Colaborador_ManiobraModel::where('area',$area)->whereMonth('fecha_evaluacion',$mes)->whereYear('fecha_evaluacion', $ye)->count();
+
+        $count_evaluaciontotal = Colaborador_ManiobraModel::where('area',$area)->whereYear('fecha_evaluacion', $ye)->count();
+
+        $count_colaboradores = Colaborador_ManiobraModel::where('area',$area)->whereMonth('fecha_evaluacion', $mes)->distinct('RPE')->count('RPE');
+
+        $count_colaboradorestotal = Colaborador_ManiobraModel::where('area',$area)->whereYear('fecha_evaluacion', $ye)->distinct('RPE')->count('RPE');
+
+        $count_maniobradif = Colaborador_ManiobraModel::where('area',$area)->whereMonth('fecha_evaluacion', $mes)->distinct('maniobra')->count('maniobra');
+
+        $count_maniobradiftotal = Colaborador_ManiobraModel::where('area',$area)->whereYear('fecha_evaluacion', $ye)->distinct('maniobra')->count('maniobra');
+
+        for($i = 1; $i <= 13; $i++){
+            if($i == $mes){
+                $nombremes = $meses[$i - 1];
+            }
+        }
+
+        return view('cfe.admin.maniobras_colaboradores.AgruparManiobraMeta')->with(['ye'=>$ye, 'ar'=>$area, 'mes'=>$mes, 'nombremes'=>$nombremes, 'count_evaluacion'=>$count_evaluacion, 'count_evaluaciontotal'=>$count_evaluaciontotal, 'count_colaboradores'=>$count_colaboradores, 'count_colaboradorestotal'=>$count_colaboradorestotal, 'count_maniobradif'=>$count_maniobradif, 'count_maniobradiftotal'=>$count_maniobradiftotal, 'num'=>$num, 'evaluacionesmes'=>$evaluacionesmes, 'maniobrames'=>$maniobrames, 'colaboradoresmes'=>$colaboradoresmes, 'count_colaboradormaniobra'=>$count_colaboradormaniobra, 'promedio_colaboradormaniobra'=>$promedio_colaboradormaniobra, 'count_maniobracolaborador'=>$count_maniobracolaborador, 'promedio_maniobracolaborador'=>$promedio_maniobracolaborador]);
+   }
+
+   public function maniobra_rpe($area, $mes, $ye, $num, $man_rpe){
+
+        $meses = array('ENERO','FEBRERO','MARZO','ABRIL','MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE', 'EN TODO EL AÑO');
+
+        for($i = 1; $i <= 13; $i++){
+            if($i == $mes){
+                $nombremes = $meses[$i - 1];
+            }
+        }
+
+
+
+        if($mes != 13){
+            if($num == 1){
+                $colaboradores = Colaborador_ManiobraModel::where('area',$area)->whereMonth('fecha_evaluacion',$mes)->whereYear('fecha_evaluacion',$ye)->where('RPE',$man_rpe)->orderBy('fecha_evaluacion', 'ASC')->get();
+                $colnombre = Colaborador_ManiobraModel::where('area',$area)->where('RPE',$man_rpe)->distinct()->first();
+                $maniobras = 0;
+                $count = Colaborador_ManiobraModel::where('area',$area)->whereMonth('fecha_evaluacion',$mes)->whereYear('fecha_evaluacion',$ye)->where('RPE',$man_rpe)->orderBy('fecha_evaluacion', 'ASC')->count();
+            }
+            else{
+                $maniobras = Colaborador_ManiobraModel::where('area',$area)->whereMonth('fecha_evaluacion',$mes)->whereYear('fecha_evaluacion',$ye)->where('maniobra',$man_rpe)->orderBy('fecha_evaluacion', 'ASC')->get();
+                $count = Colaborador_ManiobraModel::where('area',$area)->whereMonth('fecha_evaluacion',$mes)->whereYear('fecha_evaluacion',$ye)->where('maniobra',$man_rpe)->orderBy('fecha_evaluacion', 'ASC')->count();
+                $colaboradores = 0;
+                $colnombre = 0;
+            }
+        }
+        else{
+            if($num == 1){
+                $colaboradores = Colaborador_ManiobraModel::where('area',$area)->whereYear('fecha_evaluacion',$ye)->where('RPE',$man_rpe)->orderBy('fecha_evaluacion', 'ASC')->get();
+                $colnombre = Colaborador_ManiobraModel::where('area',$area)->where('RPE',$man_rpe)->distinct()->first();
+                $count = Colaborador_ManiobraModel::where('area',$area)->whereYear('fecha_evaluacion',$ye)->where('RPE',$man_rpe)->orderBy('fecha_evaluacion', 'ASC')->count();
+                $maniobras = 0;
+            }
+            else{
+                $maniobras = Colaborador_ManiobraModel::where('area',$area)->whereYear('fecha_evaluacion',$ye)->where('maniobra',$man_rpe)->orderBy('fecha_evaluacion', 'ASC')->get();
+                $count = Colaborador_ManiobraModel::where('area',$area)->whereYear('fecha_evaluacion',$ye)->where('maniobra',$man_rpe)->orderBy('fecha_evaluacion', 'ASC')->count();
+                $colaboradores = 0;
+                $colnombre = 0;
+            }   
+        }
+
+
+        return view('cfe.admin.maniobras_colaboradores.Consulta-Rpe-Maniobra')->with(['ar'=>$area, 'ye'=>$ye, 'mes'=>$mes, 'num'=>$num, 'nombremes'=>$nombremes, 'man_rpe'=>$man_rpe, 'maniobras'=>$maniobras, 'colaboradores'=>$colaboradores, 'colnombre'=>$colnombre, 'count'=>$count]);
+   }
+
 }

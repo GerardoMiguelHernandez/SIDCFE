@@ -20,13 +20,13 @@
 			</div>
 			<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
         @if($nombremes !== 'EN TODO EL AÑO')
-				  <p style="color: blue;">Evaluaciones: {{$count_maniobra}}</p>
-          <p style="color: blue;">Colaboradores: {{$count_colaboradores}}</p>
-          <p style="color: blue;">Maniobras: {{$count_maniobradif}}</p>
+				  <a href="{{route('agrupar-colaborador-maniobra',[$ar, $mes, $ye, '1'])}}"> <p style="color: blue;">Evaluaciones: {{$count_maniobra}}</p></a>
+          <a href="{{route('agrupar-colaborador-maniobra',[$ar, $mes, $ye, '2'])}}"> <p style="color: blue;">Colaboradores: {{$count_colaboradores}}</p></a>
+          <a href="{{route('agrupar-colaborador-maniobra',[$ar, $mes, $ye, '3'])}}"> <p style="color: blue;">Maniobras: {{$count_maniobradif}}</p></a>
         @else
-          <p style="color: blue;">Evaluaciones: {{$count_maniobratotal}}</p>
-          <p style="color: blue;">Colaboradores: {{$count_colaboradorestotal}}</p>
-          <p style="color: blue;">Maniobras: {{$count_maniobradiftotal}}</p>
+          <a href="{{route('agrupar-colaborador-maniobra',[$ar, $mes, $ye, '1'])}}"> <p style="color: blue;">Evaluaciones: {{$count_maniobratotal}}</p></a>
+          <a href="{{route('agrupar-colaborador-maniobra',[$ar, $mes, $ye, '2'])}}"> <p style="color: blue;">Colaboradores: {{$count_colaboradorestotal}}</p></a>
+          <a href="{{route('agrupar-colaborador-maniobra',[$ar, $mes, $ye, '3'])}}"> <p style="color: blue;">Maniobras: {{$count_maniobradiftotal}}</p></a>
         @endif
 			</div>
 		</div><!--/.row-->
